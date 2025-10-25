@@ -1,9 +1,4 @@
 @font-face {
-    font-family: 'Odin Rounded';
-    src: url('assets/fonts/odinRounded.ttf');
-}
-
-@font-face {
     font-family: 'Jetbrains';
     src: url('assets/fonts/jetbrains.ttf');
 }
@@ -40,12 +35,11 @@ h3 {
 h1,
 h2,
 h3 {
-    font-family: 'Odin Rounded';
     text-align: center;
     background: linear-gradient(to bottom, rgb(34, 17, 87), rgb(36, 15, 62));
     outline: 0.075em solid;
     border-radius: 10em;
-    padding: 0.4em 1em 0.8em 1em;
+    padding: 0.4em;
 }
 
 img {
