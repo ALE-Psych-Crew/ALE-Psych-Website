@@ -17,7 +17,27 @@ body {
     color: white;
     font-family: 'Jetbrains';
     font-size: 20px;
-    margin: 30px 30px;
+    margin: 3em 1em;
+}
+
+a:link {
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: cyan;
+    text-decoration: underline;
+}
+
+a:active {
+    color: white;
+    text-decoration: none;
 }
 
 h1 {
@@ -43,7 +63,34 @@ h3 {
 }
 
 img {
+    max-width: 5em;
+    margin: auto;
     display: block;
-    width: 5em;
-    border-radius: 1em;
+    border-radius: 0.5em;
+}
+
+header a {
+    font-size: 15px;
+}
+
+header img {
+    margin: 0;
+    display: inline;
+    height: 1em;
+}
+
+header {
+    background: linear-gradient(to bottom, rgb(100, 0, 120), rgb(80, 0, 100));
+    position: fixed;
+    display: inline-flex;
+    justify-content: center;
+    gap: 3em;
+    top: 0;
+    left: 0;
+    padding: 0.25em 0;
+    width: 100%;
+}
+
+#aleTitle {
+    max-width: 30em;
 }
