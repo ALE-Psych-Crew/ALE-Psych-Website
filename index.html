@@ -1,29 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8" />
     <title>ALE Psych</title>
-
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="js/features.js" defer></script>
 </head>
 
 <body>
-    <div id="background"></div>
 
-    <header>
-        <img id="aleHeader" src="assets/images/icon.png">
-        <a href="">Home</a>
-        <a href="">Downloads</a>
-        <a href="">Wiki</a>
-        <a href="">API</a>
-    </header>
+<header id="mainHeader">
+    <img id="aleHeader" src="assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
 
-    <section>
-        <img id="aleTitle" src="assets/images/logo.png" />
-        <p>
-            ALE Psych es un Nuevo Motor de Friday Night Funkin'
-            que sirve para hacer mods :v
-        </p>
-    </section>
+    <a href="index.html">Home</a>
+    <a href="downloads.html">Downloads</a>
+    <a href="mods.html">Mods</a>
+    <a href="scripts.html">Scripts</a>
+    <a href="wiki.html">Wiki</a>
+    <a href="api.html">API</a>
+</header>
 
+<section id="homeContainer">
+
+    <!-- LEFT: PROMO IMAGE -->
+    <div id="promoBox">
+        <img id="promoImage"
+             src="assets/images/engine-branding/brandpitcure.png"
+             alt="ALE Psych Promo">
+    </div>
+
+    <!-- RIGHT: DOWNLOADS -->
+    <div id="downloadBox" class="box">
+        <h2>Downloads</h2>
+
+        <a class="downloadButton btn-main"
+           href="https://nightly.link/ALE-Psych-Crew/ALE-Psych/workflows/main.yaml/main/Windows%20Build.zip"
+           target="_blank">
+            <img src="assets/svg/index/win64.svg" class="icon">
+            Windows 64-bit
+        </a>
+
+        <a class="downloadButton btn-main"
+           href="https://nightly.link/ALE-Psych-Crew/ALE-Psych/workflows/main.yaml/main/Windows%20Build%20(32%20Bits).zip"
+           target="_blank">
+            <img src="assets/svg/index/win32.svg" class="icon">
+            Windows 32-bit
+        </a>
+
+        <a class="downloadButton btn-main"
+           href="https://nightly.link/ALE-Psych-Crew/ALE-Psych/workflows/main.yaml/main/Android%20Build.zip"
+           target="_blank">
+            <img src="assets/svg/index/android.svg" class="icon">
+            Android
+        </a>
+
+        <a class="downloadButton btn-main"
+           href="https://nightly.link/ALE-Psych-Crew/ALE-Psych/workflows/main.yaml/main/Linux%20Build.zip"
+           target="_blank">
+            <img src="assets/svg/index/linux.svg" class="icon">
+            Linux
+        </a>
+    </div>
+
+</section>
+
+
+<!-- FEATURES (CAROUSEL) -->
+<section id="featuresSection">
+    <h2>Main Features</h2>
+
+    <div id="featureCarousel">
+
+        <!-- Left arrow -->
+        <button class="arrow" id="arrowLeft">&#10094;</button>
+
+        <!-- Feature content -->
+        <div id="featureContent">
+            <img id="featureImage" src="assets/images/engine-branding/iconbg.jpg">
+            <div id="featureText">
+                <h3 id="featureTitle">Scripted menus and submenus</h3>
+                <p id="featureDescription">
+                    Full Lua and HScript support for creating custom menus,
+                    submenus, options, and UI states without modifying the engine itself.
+                </p>
+            </div>
+        </div>
+
+        <!-- Right arrow -->
+        <button class="arrow" id="arrowRight">&#10095;</button>
+
+    </div>
+
+</section>
+
+<footer id="footer">
+    ALE Psych © 2025 - Created by Alejo GD and THE VOID, website by ImMalloy.
+</footer>
+
+</body>
 </html>

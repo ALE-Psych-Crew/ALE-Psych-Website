@@ -1,0 +1,105 @@
+/* BACKGROUND */
+#background {
+    background: linear-gradient(to bottom, #0a0014, #1a0018);
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+}
+
+body {
+    margin: 0;
+    font-family: Jetbrains;
+    color: white;
+}
+
+/* HEADER */
+#mainHeader {
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    padding: 0.5em 0;
+    background: linear-gradient(to bottom, rgb(100, 0, 120), rgb(80, 0, 100));
+
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+    align-items: center;
+
+    z-index: 10;
+}
+
+#mainHeader img {
+    height: 1.2em;
+}
+
+#mainHeader a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/* MODS PAGE */
+#modsContainer {
+    margin-top: 6em;
+    padding-bottom: 4em;
+}
+
+#modsHeader {
+    text-align: center;
+}
+
+#modTabs {
+    margin-top: 0.5em;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.modTab {
+    padding: 0.4em 1.1em;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.modTab:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+.modTab.active {
+    background: rgba(255,255,255,0.3);
+    font-weight: bold;
+}
+
+/* GRID */
+#modsGrid {
+    margin-top: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+}
+
+.modBox {
+    width: 320px;
+    padding: 1em;
+    border-radius: 0.8em;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+}
+
+.modBox:hover {
+    transform: scale(1.04);
+    background: rgba(255,255,255,0.12);
+}
+
+.modBanner {
+    width: 100%;
+    border-radius: 0.5em;
+    margin-bottom: 0.5em;
+}
