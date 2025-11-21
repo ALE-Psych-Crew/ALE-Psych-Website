@@ -46,6 +46,7 @@
       featured: 'Featured',
       upcoming: 'Upcoming',
       wip: 'W.I.P.',
+      port: 'Port',
     };
     const wrap = document.createElement('div');
     wrap.className = 'badges';
