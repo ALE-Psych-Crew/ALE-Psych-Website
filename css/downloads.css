@@ -1,0 +1,45 @@
+#dlHeader h1{margin:0 0 .25em;color:var(--violet-soft)}
+#dlHeader .lead{margin:0 0 1.2em;color:var(--text-soft)}
+
+#dlGrid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1em
+}
+@media (max-width:720px){#dlGrid{grid-template-columns:1fr}}
+
+.dlCard{
+  display:grid;
+  grid-template-columns:24px 1fr auto;
+  align-items:center;
+  gap:.8em 1em;
+  padding:.9em 1.1em;
+  border-radius:12px;
+  text-decoration:none;
+  background:linear-gradient(180deg,var(--violet) 0%,#7a00c4 100%);
+  color:#fff;
+  user-select:none;
+  transition:transform .15s ease, box-shadow .2s ease, background .2s ease;
+  outline:none
+}
+.dlCard:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(0,0,0,.35)}
+.dlCard:active{transform:scale(.98)}
+.dlCard:focus-visible{outline:2px solid var(--violet-soft);outline-offset:3px}
+#dlGrid .dlCard, #dlGrid .dlCard *{color:#fff}
+
+.dlIcon{width:24px;height:24px;filter:brightness(0) invert(1)}
+.dlBody{display:flex;flex-direction:column;line-height:1.2}
+.dlTitle{font-weight:700}
+.dlSub{font-size:12px;opacity:.9;color:#f3e9ff}
+.dlCTA{font-size:14px;padding:.35em .6em;border-radius:8px;background:rgba(255,255,255,.12);white-space:nowrap}
+
+#dlNotes{margin-top:1.4em}
+.noteCard{
+  background:var(--bg-panel);
+  border-radius:14px;
+  box-shadow:0 4px 14px rgba(0,0,0,.35);
+  padding:1.2em
+}
+.noteCard h2{margin:.2em 0 .6em;color:var(--violet-soft)}
+.noteCard ul{margin:.2em 0 0 1.1em;color:var(--text-soft)}
+.noteCard code{background:#0b0720;padding:.15em .35em;border-radius:6px}

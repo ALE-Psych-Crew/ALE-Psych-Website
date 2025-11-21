@@ -1,0 +1,291 @@
+/* /css/index.css */
+#homeContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5em;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#promoBox {
+    background: var(--bg-panel);
+    padding: 1.5em;
+    border-radius: 14px;
+    box-shadow: 0px 4px 14px rgba(0,0,0,0.35);
+    width: 100%;
+    max-width: 680px;
+}
+
+#promoImage {
+    width: 100%;
+    border-radius: 10px;
+}
+
+#downloadBox {
+    background: var(--bg-panel);
+    padding: 1.6em;
+    border-radius: 14px;
+    box-shadow: 0px 4px 14px rgba(0,0,0,0.35);
+    width: 100%;
+    max-width: 360px;
+    text-align: left;
+}
+
+#downloadBox h2 {
+    margin-top: 0;
+    margin-bottom: 1em;
+    color: var(--violet-soft);
+}
+
+.downloadGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8em;
+}
+
+.downloadCard {
+    display: grid;
+    grid-template-columns: 24px 1fr auto;
+    align-items: center;
+    gap: 0.8em 1em;
+    padding: 0.8em 1em;
+    border-radius: 12px;
+    text-decoration: none;
+    background: linear-gradient(180deg, var(--violet) 0%, #7a00c4 100%);
+    color: #fff;
+    user-select: none;
+    -webkit-user-select: none;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    outline: none;
+}
+
+.downloadCard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+}
+
+.downloadCard:active {
+    transform: scale(0.98);
+}
+
+.downloadCard:focus-visible {
+    outline: 2px solid var(--violet-soft);
+    outline-offset: 3px;
+}
+
+.dl-icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+
+.dl-body {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.dl-title {
+    font-weight: 700;
+}
+
+.dl-sub {
+    font-size: 12px;
+    opacity: 0.9;
+    color: #f3e9ff;
+}
+
+.dl-cta {
+    font-size: 14px;
+    padding: 0.35em 0.6em;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.12);
+    white-space: nowrap;
+}
+
+#featuresSection {
+    margin-top: 2em;
+    text-align: center;
+}
+
+#featuresSection h2 {
+    color: var(--violet-soft);
+    margin-bottom: 0.8em;
+}
+
+#featureCarousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em 0;
+}
+
+.arrow {
+    background: var(--bg-light);
+    border: none;
+    color: var(--text-soft);
+    font-size: 2rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s ease;
+    user-select: none;
+}
+
+.arrow:hover {
+    background: var(--violet);
+    color: white;
+}
+
+.arrow:active {
+    transform: scale(0.92);
+}
+
+#featureContent {
+    width: 100%;
+    max-width: 750px;
+    background: var(--bg-panel);
+    padding: 1.5em;
+    border-radius: 14px;
+    box-shadow: 0px 4px 14px rgba(0,0,0,0.35);
+    display: flex;
+    gap: 1.5em;
+    align-items: center;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+#featureImage {
+    width: 45%;
+    border-radius: 12px;
+}
+
+#featureText {
+    width: 55%;
+    text-align: left;
+}
+
+#featureTitle {
+    color: var(--violet-soft);
+    margin-bottom: 0.5em;
+}
+
+#featureDescription {
+    color: var(--text-soft);
+    line-height: 1.45;
+}
+
+#featureContent.loading {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+#featureContent.transition-out-right {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+#featureContent.transition-out-left {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+#featureContent.transition-in-right,
+#featureContent.transition-in-left {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#communitySection {
+    margin-top: 3em;
+    margin-bottom: 5em;
+    text-align: center;
+}
+
+#communitySection h2 {
+    color: var(--violet-soft);
+    margin-bottom: 1em;
+}
+
+#communityButtons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2em;
+}
+
+.communityButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6em;
+    background: var(--bg-light);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--text-soft);
+    padding: 0.7em 1.4em;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.25s ease;
+    user-select: none;
+}
+
+.communityButton:hover {
+    background: var(--violet);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.communityButton .icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.communityButton::selection,
+.communityButton *::selection {
+    background: transparent;
+    color: white;
+}
+
+@media (max-width: 860px) {
+    #featureContent {
+        flex-direction: column;
+        text-align: center;
+    }
+    #featureImage {
+        width: 100%;
+    }
+    #featureText {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Fix download-card text turning purple/invisible on hover/selection */
+#downloadBox .downloadCard,
+#downloadBox .downloadCard * {
+  color: #fff;
+}
+
+#downloadBox .downloadCard:hover,
+#downloadBox .downloadCard:hover *,
+#downloadBox .downloadCard:focus-visible,
+#downloadBox .downloadCard:focus-visible *,
+#downloadBox .downloadCard:active,
+#downloadBox .downloadCard:active * {
+  color: #fff;
+}
+
+/* Optional: nicer selection inside the card */
+#downloadBox .downloadCard::selection,
+#downloadBox .downloadCard *::selection {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+}
+#downloadBox .downloadCard::-moz-selection,
+#downloadBox .downloadCard *::-moz-selection {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+}
