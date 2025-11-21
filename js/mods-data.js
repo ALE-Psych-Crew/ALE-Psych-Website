@@ -1,5 +1,4 @@
 const MOD_FOLDERS = [
-  { slug: "vs-guy-named-laumber-mobile", categories: ["featured"] }
-  // { slug: "anothermod", categories: ["upcoming"] },
-  // { slug: "coolpack", categories: [] },
+  { slug: "vs-guy-named-laumber-mobile", categories: ["featured"] },
+  { slug: "vs-memstar", categories: ["upcoming"] }
 ];
