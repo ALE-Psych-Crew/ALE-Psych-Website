@@ -1,6 +1,8 @@
 const MOD_FOLDERS = [
-  { slug: "vs-guy-named-laumber-mobile", categories: ["featured", "port"] },
+  { slug: "vs-guy-named-laumber-mobile", categories: ["featured", "original"] },
   { slug: "vs-memstar", categories: ["upcoming", "original"] },
   { slug: "trap-4-silly-kids", categories: ["featured", "original"] },
-  //{ slug: "vs-torron de mierda", categories: ["featured"] }
+  { slug: "ale-modidregistry", categories: ["tools"] },
+  //{ slug: "vs-torron de mierda", categories: ["featured"] },
+
 ];
