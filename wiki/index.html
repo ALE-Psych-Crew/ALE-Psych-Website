@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ALE Psych Wiki — ALE Psych Wiki</title>
+  <meta name="description" content="Entry point for learning the ALE Psych engine." />
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../js/wiki/wiki.css">
+</head>
+<body>
+  <header id="mainHeader">
+    <a id="homeLogo" href="../" aria-label="ALE Psych Home">
+      <img id="aleHeader" src="../assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+    </a>
+    <nav id="mainNav">
+      <a href="../">Home</a>
+      <a href="../downloads/">Downloads</a>
+      <a href="../mods/">Mods</a>
+      <a href="../scripts/">Scripts</a>
+      <a href="../wiki/" aria-current="page">Wiki</a>
+      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">API (Lua)</a>
+    </nav>
+  </header>
+
+  <main class="wiki-main">
+    <article class="wiki-article">
+      <h1>ALE Psych Wiki</h1>
+      <h2 id="welcome">Welcome</h2><p>The ALE Psych wiki collects notes, guides, and reference material to help you set up the engine, learn the scripting APIs, and share your own mods.</p><ul><li>Browse the sections on the right to jump into setup or modding specifics.</li><li>Each page ends with a quick metadata block and a link back to the repository for edits.</li><li>Comments are powered by giscus so you can leave questions or clarifications directly on the article.</li></ul><h3 id="what-to-expect">What to expect</h3><p>Expect concise steps, copy-paste snippets, and links to the official Lua API. If you are new, start with <strong>Getting Started</strong>, then move into <strong>Installation</strong> to grab the latest build. When you are ready to tinker, hop into the <strong>Modding</strong> section.</p>
+
+      <div class="wiki-meta">
+        <span>Written by ALE Psych Crew</span>
+        <span>Last updated: <span id="last-updated" data-time="2025-01-01T00:00:00.000Z">Jan 1, 2025</span></span>
+        <a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/index.md">Edit</a>
+      </div>
+
+      <div class="giscus"></div>
+    </article>
+
+    <aside class="wiki-sidebar">
+      <button id="sidebarToggle" aria-expanded="true">Toggle sidebar</button>
+      <h3>Pages</h3>
+      <ul class="wiki-nav"><li><a href="../wiki/" class="active" aria-current="page">Home</a></li><li><a href="../wiki/getting-started.html">Getting Started</a></li><li><a href="../wiki/installation.html">Installation</a></li><li><a href="../wiki/modding/index.html">Modding</a><ul><li><a href="../wiki/modding/characters.html">Characters</a></li><li><a href="../wiki/modding/songs.html">Songs</a></li></ul></li></ul>
+    </aside>
+  </main>
+
+  <footer id="aleFooter">
+    <div class="footer-links">
+        <a href="../">Home</a>
+        <a href="../downloads/">Downloads</a>
+        <a href="../mods/">Mods</a>
+        <a href="../scripts/">Scripts</a>
+        <a href="../wiki/">Wiki</a>
+    </div>
+    <div class="footer-social">
+        <span>Join us:</span>
+        <a href="https://discord.gg/6krHvPvPBf" target="_blank" rel="noopener">
+          <img src="../assets/svg/socials/discord.svg" alt="Discord" width="22" height="22">
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew" target="_blank" rel="noopener">
+          <img src="../assets/svg/socials/github.svg" alt="GitHub" width="22" height="22">
+        </a>
+    </div>
+  </footer>
+
+  <script src="../js/wiki/wiki.js" defer></script>
+  <script src="https://giscus.app/client.js"
+          data-repo="ALE-Psych-Crew/ALE-Psych-Website"
+          data-repo-id=""
+          data-category="Wiki"
+          data-category-id=""
+          data-mapping="specific"
+          data-term="index"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="dark"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "ale-psych-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:wiki": "node js/wiki/wiki.build.js"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "remarkable": "^2.0.1"
+  }
+}
