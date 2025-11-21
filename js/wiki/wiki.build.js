@@ -226,9 +226,21 @@ function buildPage(slug) {
   const basePrefix = '../'.repeat(depth);
 
   const sidebar = buildSidebar(wikiTree, slug, basePrefix);
+  const baseTitle = data.title || 'Untitled';
+  const pageTitle = `${baseTitle} - ALE Psych Wiki`;
+  const desc = data.desc || baseTitle;
+  const canonicalPath = slug === 'index' ? 'wiki/' : `wiki/${fixPath(slug)}.html`;
+  const canonical = `https://ale-psych-crew.github.io/ALE-Psych-Website/${canonicalPath}`;
+  const socialImage = 'https://files.catbox.moe/6jqidi.png';
+  const socialAlt = `ALE Psych [Rewritten] - ${baseTitle}`;
+
   const filled = parseTemplate(template, {
-    title: data.title || 'Untitled',
-    desc: data.desc || data.title || '',
+    title: baseTitle,
+    pageTitle,
+    desc,
+    canonical,
+    socialImage,
+    socialAlt,
     author: data.author || 'ALE Psych Crew',
     lastUpdated: data.lastUpdated || new Date().toISOString(),
     content: htmlContent,
