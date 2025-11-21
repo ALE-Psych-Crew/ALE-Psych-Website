@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Substate Scripting — ALE Psych Wiki</title>
+  <meta name="description" content="Build or override ALE Psych substates such as pause or game over screens." />
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../js/wiki/wiki.css">
+</head>
+<body>
+  <header id="mainHeader">
+    <a id="homeLogo" href="../../" aria-label="ALE Psych Home">
+      <img id="aleHeader" src="../../assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+    </a>
+    <nav id="mainNav">
+      <a href="../../">Home</a>
+      <a href="../../downloads/">Downloads</a>
+      <a href="../../mods/">Mods</a>
+      <a href="../../scripts/">Scripts</a>
+      <a href="../../wiki/" aria-current="page">Wiki</a>
+      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">API (Lua)</a>
+    </nav>
+  </header>
+
+  <main class="wiki-main">
+    <article class="wiki-article">
+      <h1>Substate Scripting</h1>
+      <h1>Substate Scripting</h1>
+<p>Substates power overlays like pause, game over, and transition screens. Use HScript for full control or Lua with an override workaround.</p>
+<h2>HScript</h2>
+<h3>Creating a Substate</h3>
+<p>Add a <code>.hx</code> script to <code>scripts/substates/</code>. The filename becomes the submenu identifier.</p>
+<pre><code>mods/modName/scripts/substates/MySubMenu.hx
+</code></pre>
+<h3>Modifying a Substate</h3>
+<ol>
+<li>Copy the target substate from <code>assets/scripts/substates</code> into your mod’s <code>scripts/substates/</code>.</li>
+<li>Edit the copy; the engine will load yours first.</li>
+<li>Use the FPS counter to confirm which submenu is active while testing.</li>
+</ol>
+<h3>Accessing a Substate</h3>
+<p>Open a scripted substate from code:</p>
+<pre><code class="language-haxe">CoolUtil.openSubState(new CustomSubState('ScriptName'));
+</code></pre>
+<h2>Lua</h2>
+<h3>Creating a Substate</h3>
+<p>Place a <code>.lua</code> script under <code>scripts/substates/</code>:</p>
+<pre><code>mods/modName/scripts/substates/MySubMenu.lua
+</code></pre>
+<h3>Modifying a Substate</h3>
+<p>Base substates are written in HScript. To override them with Lua, pair your Lua script with an empty <code>.hx</code> file of the same name so both run together.</p>
+<h3>Accessing a Substate</h3>
+<p>Use the Lua helper to open a submenu:</p>
+<pre><code class="language-lua">openSubState('funkin.substates.CustomSubState', {'ScriptName'})
+</code></pre>
+<h2>Developer Notes</h2>
+<ul>
+<li>Substates run on top of the parent state; close them to resume underlying logic.</li>
+<li>Use <code>close()</code> in HScript or <code>closeSubState()</code> in Lua when your overlay is done.</li>
+<li>Keep logic efficient because both the substate and parent state update while the submenu is open.</li>
+</ul>
+
+
+      <div class="wiki-meta">
+        <span>Written by Malloy</span>
+        <span>Last updated: <span id="last-updated" data-time="2025-11-21T00:00:00.000Z">Nov 21, 2025</span></span>
+        <a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/modding/substate-scripting.md">Edit</a>
+      </div>
+
+      <div class="giscus"></div>
+    </article>
+
+    <aside class="wiki-sidebar">
+      <button id="sidebarToggle" aria-expanded="true">Toggle sidebar</button>
+      <h3>Pages</h3>
+      <ul class="wiki-nav"><li><a href="../../wiki/">Home</a></li><li><a href="../../wiki/engine/compiling.html">Compiling the Engine</a></li><li><a href="../../wiki/engine/shortcuts.html">Engine Shortcuts</a></li><li><a href="../../wiki/config/index.html">Configuration</a><ul><li><a href="../../wiki/config/data-json.html">data.json</a></li><li><a href="../../wiki/config/options-json.html">options.json</a></li><li><a href="../../wiki/config/credits-json.html">credits.json</a></li><li><a href="../../wiki/config/debug-panel.html">debug.json</a></li></ul></li><li><a href="../../wiki/modding/index.html">Modding</a><ul><li><a href="../../wiki/modding/adding-songs.html">Adding Songs</a></li><li><a href="../../wiki/modding/menu-scripting.html">Menu Scripting</a></li><li><a href="../../wiki/modding/substate-scripting.html" class="active" aria-current="page">Substate Scripting</a></li><li><a href="../../wiki/modding/custom-classes.html">Custom Classes</a></li><li><a href="../../wiki/modding/custom-events.html">Custom Events</a></li></ul></li></ul>
+    </aside>
+  </main>
+
+  <footer id="aleFooter">
+    <div class="footer-links">
+        <a href="../../">Home</a>
+        <a href="../../downloads/">Downloads</a>
+        <a href="../../mods/">Mods</a>
+        <a href="../../scripts/">Scripts</a>
+        <a href="../../wiki/">Wiki</a>
+    </div>
+    <div class="footer-social">
+        <span>Join us:</span>
+        <a href="https://discord.gg/6krHvPvPBf" target="_blank" rel="noopener">
+          <img src="../../assets/svg/socials/discord.svg" alt="Discord" width="22" height="22">
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew" target="_blank" rel="noopener">
+          <img src="../../assets/svg/socials/github.svg" alt="GitHub" width="22" height="22">
+        </a>
+    </div>
+  </footer>
+
+  <script src="../../js/wiki/wiki.js" defer></script>
+  <script src="https://giscus.app/client.js"
+          data-repo="ALE-Psych-Crew/ALE-Psych-Website"
+          data-repo-id=""
+          data-category="Wiki"
+          data-category-id=""
+          data-mapping="specific"
+          data-term="modding/substate-scripting"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="catppuccin_mocha"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menu Scripting — ALE Psych Wiki</title>
+  <meta name="description" content="Create or override ALE Psych menu states using HScript or Lua." />
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../js/wiki/wiki.css">
+</head>
+<body>
+  <header id="mainHeader">
+    <a id="homeLogo" href="../../" aria-label="ALE Psych Home">
+      <img id="aleHeader" src="../../assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+    </a>
+    <nav id="mainNav">
+      <a href="../../">Home</a>
+      <a href="../../downloads/">Downloads</a>
+      <a href="../../mods/">Mods</a>
+      <a href="../../scripts/">Scripts</a>
+      <a href="../../wiki/" aria-current="page">Wiki</a>
+      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">API (Lua)</a>
+    </nav>
+  </header>
+
+  <main class="wiki-main">
+    <article class="wiki-article">
+      <h1>Menu Scripting</h1>
+      <h1>Menu Scripting</h1>
+<p>Create new menus or replace existing ones without touching engine source. ALE Psych supports <strong>HScript</strong> for full control and <strong>Lua</strong> for creating scripted menus.</p>
+<h2>HScript</h2>
+<h3>Creating a Menu</h3>
+<p>Add a <code>.hx</code> script to <code>scripts/states/</code>. The filename becomes the menu identifier.</p>
+<pre><code>mods/modName/scripts/states/MyMenu.hx
+</code></pre>
+<h3>Modifying a Menu</h3>
+<ol>
+<li>Copy the desired menu from <code>assets/scripts/states</code> into your mod’s <code>scripts/states/</code>.</li>
+<li>Edit the copy; the engine prefers your version.</li>
+<li>Enable the FPS counter to see the current state name while testing.</li>
+</ol>
+<h3>Accessing a Menu</h3>
+<p>Use <code>CoolUtil.switchState</code> to load a scripted state:</p>
+<pre><code class="language-haxe">CoolUtil.switchState(new CustomState('ScriptName'));
+</code></pre>
+<h2>Lua</h2>
+<h3>Creating a Menu</h3>
+<p>Place a <code>.lua</code> script in <code>scripts/states/</code> to register a new menu:</p>
+<pre><code>mods/modName/scripts/states/MyMenu.lua
+</code></pre>
+<h3>Modifying a Menu</h3>
+<p>Base menus are HScript-only. To override them with Lua, create an empty <code>.hx</code> file with the same name and add your Lua script; both will execute together.</p>
+<h3>Accessing a Menu</h3>
+<p>Use the Lua helper to switch states:</p>
+<pre><code class="language-lua">switchState('funkin.states.CustomState', {'ScriptName'})
+</code></pre>
+<h2>Notes</h2>
+<ul>
+<li>HScript can create and modify menus; Lua creates menus and can piggyback on the empty <code>.hx</code> override trick.</li>
+<li>Keep filenames consistent; the engine resolves states by script name.</li>
+</ul>
+
+
+      <div class="wiki-meta">
+        <span>Written by Malloy</span>
+        <span>Last updated: <span id="last-updated" data-time="2025-11-21T00:00:00.000Z">Nov 21, 2025</span></span>
+        <a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/modding/menu-scripting.md">Edit</a>
+      </div>
+
+      <div class="giscus"></div>
+    </article>
+
+    <aside class="wiki-sidebar">
+      <button id="sidebarToggle" aria-expanded="true">Toggle sidebar</button>
+      <h3>Pages</h3>
+      <ul class="wiki-nav"><li><a href="../../wiki/">Home</a></li><li><a href="../../wiki/engine/compiling.html">Compiling the Engine</a></li><li><a href="../../wiki/engine/shortcuts.html">Engine Shortcuts</a></li><li><a href="../../wiki/config/index.html">Configuration</a><ul><li><a href="../../wiki/config/data-json.html">data.json</a></li><li><a href="../../wiki/config/options-json.html">options.json</a></li><li><a href="../../wiki/config/credits-json.html">credits.json</a></li><li><a href="../../wiki/config/debug-panel.html">debug.json</a></li></ul></li><li><a href="../../wiki/modding/index.html">Modding</a><ul><li><a href="../../wiki/modding/adding-songs.html">Adding Songs</a></li><li><a href="../../wiki/modding/menu-scripting.html" class="active" aria-current="page">Menu Scripting</a></li><li><a href="../../wiki/modding/substate-scripting.html">Substate Scripting</a></li><li><a href="../../wiki/modding/custom-classes.html">Custom Classes</a></li><li><a href="../../wiki/modding/custom-events.html">Custom Events</a></li></ul></li></ul>
+    </aside>
+  </main>
+
+  <footer id="aleFooter">
+    <div class="footer-links">
+        <a href="../../">Home</a>
+        <a href="../../downloads/">Downloads</a>
+        <a href="../../mods/">Mods</a>
+        <a href="../../scripts/">Scripts</a>
+        <a href="../../wiki/">Wiki</a>
+    </div>
+    <div class="footer-social">
+        <span>Join us:</span>
+        <a href="https://discord.gg/6krHvPvPBf" target="_blank" rel="noopener">
+          <img src="../../assets/svg/socials/discord.svg" alt="Discord" width="22" height="22">
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew" target="_blank" rel="noopener">
+          <img src="../../assets/svg/socials/github.svg" alt="GitHub" width="22" height="22">
+        </a>
+    </div>
+  </footer>
+
+  <script src="../../js/wiki/wiki.js" defer></script>
+  <script src="https://giscus.app/client.js"
+          data-repo="ALE-Psych-Crew/ALE-Psych-Website"
+          data-repo-id=""
+          data-category="Wiki"
+          data-category-id=""
+          data-mapping="specific"
+          data-term="modding/menu-scripting"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="catppuccin_mocha"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+</body>
+</html>

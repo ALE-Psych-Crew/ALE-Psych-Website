@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>debug.json — ALE Psych Wiki</title>
+  <meta name="description" content="Configure on-screen debug panels and labels through debug.json." />
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../js/wiki/wiki.css">
+</head>
+<body>
+  <header id="mainHeader">
+    <a id="homeLogo" href="../../" aria-label="ALE Psych Home">
+      <img id="aleHeader" src="../../assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+    </a>
+    <nav id="mainNav">
+      <a href="../../">Home</a>
+      <a href="../../downloads/">Downloads</a>
+      <a href="../../mods/">Mods</a>
+      <a href="../../scripts/">Scripts</a>
+      <a href="../../wiki/" aria-current="page">Wiki</a>
+      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">API (Lua)</a>
+    </nav>
+  </header>
+
+  <main class="wiki-main">
+    <article class="wiki-article">
+      <h1>debug.json</h1>
+      <h1>debug.json</h1>
+<p>The engine initializes its debug overlay on boot. It always shows built-in FPS, Conductor info, and Flixel stats, then appends any panels defined in <code>debug.json</code>.</p>
+<h2>Load Order</h2>
+<p>Place a custom file at <code>mods/&lt;your-mod&gt;/debug.json</code> to override the fallback at <code>assets/debug.json</code>. To disable all custom panels but keep defaults, set an empty <code>fields</code> array.</p>
+<h2>File Structure</h2>
+<p><code>debug.json</code> contains a top-level object with a <code>fields</code> array. Each entry is a panel represented as an array of label objects stacked vertically.</p>
+<p>Label objects support:</p>
+<ul>
+<li><code>lines</code> (required): Array of snippets joined to form the label text; each snippet declares a <code>type</code>.</li>
+<li><code>size</code> (optional, Int, default <code>15</code>): Font size.</li>
+<li><code>color</code> (optional, string or int): CSS-style string (e.g. <code>&quot;#FF0000&quot;</code>) or ARGB integer.</li>
+<li><code>offset</code> (optional, Float): Extra vertical spacing above and below the label.</li>
+</ul>
+<h2>Supported Line Types</h2>
+<h3><code>text</code></h3>
+<ul>
+<li>Inserts a static string.</li>
+<li>Requires <code>value</code>.</li>
+</ul>
+<pre><code class="language-json">{ &quot;type&quot;: &quot;text&quot;, &quot;value&quot;: &quot;Health: &quot; }
+</code></pre>
+<h3><code>variable</code></h3>
+<ul>
+<li>Resolves a value from a static class every frame.</li>
+<li>Requires <code>path</code> (full class name) and <code>variable</code> (public static or instance field; dot paths allowed).</li>
+<li>If the class or variable does not exist, the unresolved string is printed for debugging instead of crashing.</li>
+</ul>
+<pre><code class="language-json">{ &quot;type&quot;: &quot;variable&quot;, &quot;path&quot;: &quot;funkin.states.PlayState&quot;, &quot;variable&quot;: &quot;instance.health&quot; }
+</code></pre>
+<h2>Runtime Behavior</h2>
+<ul>
+<li>Debug labels update every frame and the stack resizes to the longest label width.</li>
+<li>Toggle the overlay with the key bound to <strong>&quot;FPS Counter&quot;</strong> (default <code>F3</code>): first press FPS-only, second press full panel view, third press hidden.</li>
+</ul>
+<h2>Example debug.json</h2>
+<p>Create a custom panel titled &quot;Gameplay&quot; with dynamic labels for health and song name:</p>
+<pre><code class="language-json">{
+  &quot;fields&quot;: [
+    [
+      {
+        &quot;lines&quot;: [
+          { &quot;type&quot;: &quot;text&quot;, &quot;value&quot;: &quot;Gameplay&quot; }
+        ],
+        &quot;size&quot;: 18,
+        &quot;color&quot;: &quot;#80FF80&quot;
+      },
+      {
+        &quot;lines&quot;: [
+          { &quot;type&quot;: &quot;text&quot;, &quot;value&quot;: &quot;Health: &quot; },
+          { &quot;type&quot;: &quot;variable&quot;, &quot;path&quot;: &quot;funkin.states.PlayState&quot;, &quot;variable&quot;: &quot;instance.health&quot; }
+        ]
+      },
+      {
+        &quot;lines&quot;: [
+          { &quot;type&quot;: &quot;text&quot;, &quot;value&quot;: &quot;Song: &quot; },
+          { &quot;type&quot;: &quot;variable&quot;, &quot;path&quot;: &quot;funkin.states.PlayState&quot;, &quot;variable&quot;: &quot;SONG.song&quot; }
+        ],
+        &quot;offset&quot;: 6
+      }
+    ]
+  ]
+}
+</code></pre>
+<h2>Notes</h2>
+<ul>
+<li>Add as many panels as needed; each is an array inside <code>fields</code>.</li>
+<li>The <code>variable</code> type can read any globally accessible Haxe class, including utilities you provide.</li>
+<li>Real-time updates make this useful for monitoring gameplay data such as health, difficulty, or note accuracy.</li>
+</ul>
+
+
+      <div class="wiki-meta">
+        <span>Written by Malloy</span>
+        <span>Last updated: <span id="last-updated" data-time="2025-11-21T00:00:00.000Z">Nov 21, 2025</span></span>
+        <a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/config/debug-panel.md">Edit</a>
+      </div>
+
+      <div class="giscus"></div>
+    </article>
+
+    <aside class="wiki-sidebar">
+      <button id="sidebarToggle" aria-expanded="true">Toggle sidebar</button>
+      <h3>Pages</h3>
+      <ul class="wiki-nav"><li><a href="../../wiki/">Home</a></li><li><a href="../../wiki/engine/compiling.html">Compiling the Engine</a></li><li><a href="../../wiki/engine/shortcuts.html">Engine Shortcuts</a></li><li><a href="../../wiki/config/index.html">Configuration</a><ul><li><a href="../../wiki/config/data-json.html">data.json</a></li><li><a href="../../wiki/config/options-json.html">options.json</a></li><li><a href="../../wiki/config/credits-json.html">credits.json</a></li><li><a href="../../wiki/config/debug-panel.html" class="active" aria-current="page">debug.json</a></li></ul></li><li><a href="../../wiki/modding/index.html">Modding</a><ul><li><a href="../../wiki/modding/adding-songs.html">Adding Songs</a></li><li><a href="../../wiki/modding/menu-scripting.html">Menu Scripting</a></li><li><a href="../../wiki/modding/substate-scripting.html">Substate Scripting</a></li><li><a href="../../wiki/modding/custom-classes.html">Custom Classes</a></li><li><a href="../../wiki/modding/custom-events.html">Custom Events</a></li></ul></li></ul>
+    </aside>
+  </main>
+
+  <footer id="aleFooter">
+    <div class="footer-links">
+        <a href="../../">Home</a>
+        <a href="../../downloads/">Downloads</a>
+        <a href="../../mods/">Mods</a>
+        <a href="../../scripts/">Scripts</a>
+        <a href="../../wiki/">Wiki</a>
+    </div>
+    <div class="footer-social">
+        <span>Join us:</span>
+        <a href="https://discord.gg/6krHvPvPBf" target="_blank" rel="noopener">
+          <img src="../../assets/svg/socials/discord.svg" alt="Discord" width="22" height="22">
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew" target="_blank" rel="noopener">
+          <img src="../../assets/svg/socials/github.svg" alt="GitHub" width="22" height="22">
+        </a>
+    </div>
+  </footer>
+
+  <script src="../../js/wiki/wiki.js" defer></script>
+  <script src="https://giscus.app/client.js"
+          data-repo="ALE-Psych-Crew/ALE-Psych-Website"
+          data-repo-id=""
+          data-category="Wiki"
+          data-category-id=""
+          data-mapping="specific"
+          data-term="config/debug-panel"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="catppuccin_mocha"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+</body>
+</html>
