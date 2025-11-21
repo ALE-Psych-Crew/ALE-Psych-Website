@@ -251,6 +251,7 @@ a:hover {
 
 .releaseButton:hover {
     transform: translateY(-2px);
+    color: #fff;
 }
 
 .releaseButton:focus-visible {
