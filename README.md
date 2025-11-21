@@ -1,6 +1,6 @@
 # ALE Psych Website
 
-the github repo for the **ALE Psych [Rewritten]** engine Website, showcasing downloads, community mods, and scripting resources. The site is designed for GitHub Pages and uses only HTML, CSS, and vanilla JavaScript—no build step required.
+the github repo for the **ALE Psych [Rewritten]** engine Website, showcasing downloads, community mods, and scripting resources. The site is designed for GitHub Pages and uses only HTML, CSS, and vanilla JavaScript-no build step required.
 
 ## Contents
 - **Home (`index.html`)** - Hero download links, feature carousel (`js/features.js`), and community entry points.
