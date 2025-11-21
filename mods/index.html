@@ -1,0 +1,104 @@
+<!-- /mods.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mods · ALE Psych [Rewritten]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32.png?v=1">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16.png?v=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png?v=1">
+  <link rel="shortcut icon" href="../assets/icons/favicon-32.png?v=1">
+  <link rel="manifest" href="../assets/icons/site.webmanifest?v=1">
+  <meta name="theme-color" content="#200d33">
+
+  <link rel="canonical" href="https://ale-psych-crew.github.io/ALE-Psych-Website/mods/">
+
+  <meta property="og:title" content="Mods · ALE Psych [Rewritten]">
+  <meta property="og:description" content="Explore featured, upcoming, W.I.P., and community-made mods for ALE Psych.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ALE Psych">
+  <meta property="og:url" content="https://ale-psych-crew.github.io/ALE-Psych-Website/mods/">
+  <meta property="og:image" content="https://ale-psych-crew.github.io/ALE-Psych-Website/assets/og/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ALE Psych [Rewritten] - community mods">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mods · ALE Psych [Rewritten]">
+  <meta name="twitter:description" content="Explore featured, upcoming, W.I.P., and community-made mods for ALE Psych.">
+  <meta name="twitter:site" content="@ale_engine">
+  <meta name="twitter:image" content="https://ale-psych-crew.github.io/ALE-Psych-Website/assets/og/og-image.png">
+  <meta name="twitter:image:alt" content="ALE Psych [Rewritten] - community mods">
+
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/mods.css">
+</head>
+<body>
+
+  <header id="mainHeader">
+    <img id="aleHeader" src="../assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+    <a href="../index.html">Home</a>
+    <a href="../downloads/">Downloads</a>
+    <a href="../mods/">Mods</a>
+    <a href="../scripts/">Scripts</a>
+    <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/wiki" target="_blank" rel="noopener">Wiki</a>
+    <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">API (Lua)</a>
+  </header>
+
+  <main class="main-page">
+    <section id="modsHeader">
+      <h1>Community Mods</h1>
+      <p class="lead">Featured projects, works-in-progress, and everything built on ALE Psych.</p>
+    </section>
+
+    <section id="modsFilters" aria-label="Filter mods">
+      <button class="filter-btn is-active" data-filter="all" type="button">All</button>
+      <button class="filter-btn" data-filter="featured" type="button">Featured</button>
+      <button class="filter-btn" data-filter="upcoming" type="button">Upcoming</button>
+      <button class="filter-btn" data-filter="wip" type="button">W.I.P.</button>
+    </section>
+
+    <section id="modsGrid" aria-live="polite" aria-busy="true"></section>
+
+    <section id="emptyState" hidden>
+      <div class="empty-card">
+        <h2>No mods match this filter</h2>
+        <p>Try switching categories or check back later.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="aleFooter">
+    <div class="footer-links">
+      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website" target="_blank" rel="noopener">Contribute to Website</a>
+      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych?tab=readme-ov-file#latest-builds" target="_blank" rel="noopener">Latest Builds</a>
+      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/wiki" target="_blank" rel="noopener">Engine Wiki</a>
+      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">Engine API (Lua)</a>
+      <a href="https://github.com/topics/ale-psych" target="_blank" rel="noopener">Git Topic (ALE Psych)</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://github.com/ALE-Psych-Crew" target="_blank" rel="noopener">
+        <img src="../assets/svg/index/github.svg" class="footer-icon" alt="GitHub">
+      </a>
+      <a href="https://discord.gg/NP4U9CUrsH" target="_blank" rel="noopener">
+        <img src="../assets/svg/index/discord.svg" class="footer-icon" alt="Discord">
+      </a>
+      <a href="https://x.com/ale_engine" target="_blank" rel="noopener">
+        <img src="../assets/svg/index/twitter.svg" class="footer-icon" alt="X">
+      </a>
+      <a href="https://gamebanana.com/wips/95612" target="_blank" rel="noopener">
+        <img src="../assets/svg/index/gamebanana.svg" class="footer-icon" alt="GameBanana">
+      </a>
+    </div>
+  </footer>
+
+  <div id="footerCredits">
+    ALE Psych [Rewritten] · Created by Alejo GD Official · Administered by THE VOID · Website by ImMalloy
+  </div>
+
+  <script src="../js/mods-data.js"></script>
+  <script src="../js/mods.js" defer></script>
+</body>
+</html>

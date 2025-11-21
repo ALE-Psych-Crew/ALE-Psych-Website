@@ -3,8 +3,8 @@
   const grid = document.getElementById('modsGrid');
   const empty = document.getElementById('emptyState');
   const filterBtns = Array.from(document.querySelectorAll('.filter-btn'));
-  const PLACEHOLDER_BANNER = 'assets/images/engine-branding/brandpitcure.png';
-  const BANNER_EXTS = ['png', 'jpg', 'jpeg', 'webp']; // try in order
+  const PLACEHOLDER_BANNER = '../assets/images/engine-branding/brandpitcure.png';
+  const BANNER_EXTS = ['png', 'jpg', 'jpeg', 'webp'];
 
   function skeleton() {
     const el = document.createElement('article');
@@ -29,7 +29,7 @@
     function tryNext() {
       if (i < BANNER_EXTS.length) {
         const ext = BANNER_EXTS[i++];
-        img.src = `mods/${slug}/modbanner.${ext}`;
+        img.src = `./${slug}/modbanner.${ext}`;
       } else {
         img.src = PLACEHOLDER_BANNER;
         img.onerror = null;
@@ -41,36 +41,68 @@
     return img;
   }
 
-  function buildCardContent(slug, name, desc, author, cats) {
+  function buildBadges(cats) {
+    const map = {
+      featured: 'Featured',
+      upcoming: 'Upcoming',
+      wip: 'W.I.P.',
+    };
     const wrap = document.createElement('div');
-    const banner = makeBannerImg(slug, name);
-    wrap.appendChild(banner);
-
-    const body = document.createElement('div');
-    body.className = 'mod-body';
-    body.innerHTML = `
-      <h3 class="mod-title">${name}</h3>
-      <p class="mod-desc">${desc}</p>
-      <div class="mod-meta">
-        <span class="mod-team">${author}</span>
-        <div class="mod-actions"></div>
-      </div>
-      <div class="badges">
-        ${cats.includes('featured') ? `<span class="badge">Featured</span>` : ``}
-        ${cats.includes('upcoming') ? `<span class="badge">Upcoming</span>` : ``}
-      </div>
-    `;
-    wrap.appendChild(body);
+    wrap.className = 'badges';
+    Object.entries(map).forEach(([key, label]) => {
+      if (cats.includes(key)) {
+        const span = document.createElement('span');
+        span.className = 'badge';
+        span.textContent = label;
+        wrap.appendChild(span);
+      }
+    });
     return wrap;
   }
 
+  function buildCardContent(slug, name, desc, author, cats) {
+    const fragment = document.createDocumentFragment();
+    fragment.appendChild(makeBannerImg(slug, name));
+
+    const body = document.createElement('div');
+    body.className = 'mod-body';
+
+    const title = document.createElement('h3');
+    title.className = 'mod-title';
+    title.textContent = name;
+
+    const description = document.createElement('p');
+    description.className = 'mod-desc';
+    description.textContent = desc;
+
+    const meta = document.createElement('div');
+    meta.className = 'mod-meta';
+    const authorEl = document.createElement('span');
+    authorEl.className = 'mod-team';
+    authorEl.textContent = author;
+    const actions = document.createElement('div');
+    actions.className = 'mod-actions';
+    meta.appendChild(authorEl);
+    meta.appendChild(actions);
+
+    body.appendChild(title);
+    body.appendChild(description);
+    body.appendChild(meta);
+    body.appendChild(buildBadges(cats));
+
+    fragment.appendChild(body);
+    return fragment;
+  }
+
   function renderCard(slug, meta, cats) {
+    const categories = Array.isArray(cats) ? cats : [];
     const name = (meta && (meta.ModName || meta.name)) || slug;
     const desc = (meta && (meta['Mod Description'] || meta.description || meta.desc)) || '';
-    const author = (meta && (meta.author || meta.teamname || meta.developer || meta.authorName)) || 'Unknown';
+    const author =
+      (meta && (meta.author || meta.teamname || meta.developer || meta.authorName || meta.creator)) || 'Unknown';
     const link = (meta && (meta.link || meta.homepage || meta.url)) || '';
-
     const hasLink = Boolean(link);
+
     const el = document.createElement(hasLink ? 'a' : 'article');
     if (hasLink) {
       el.href = link;
@@ -81,15 +113,14 @@
     } else {
       el.className = 'mod-card';
     }
-    el.dataset.cats = (cats || []).join(',');
+    el.dataset.cats = categories.join(',');
 
-    const content = buildCardContent(slug, name, desc, author, cats);
-    el.appendChild(content);
+    el.appendChild(buildCardContent(slug, name, desc, author, categories));
     return el;
   }
 
   async function fetchMeta(slug) {
-    const url = `mods/${slug}/modmetadata.json?ts=${Date.now()}`;
+    const url = `./${slug}/modmetadata.json?ts=${Date.now()}`;
     try {
       const res = await fetch(url, { cache: 'no-store' });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
