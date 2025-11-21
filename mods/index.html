@@ -38,7 +38,9 @@
 <body>
 
   <header id="mainHeader">
-    <img id="aleHeader" src="../assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+    <a id="homeLogo" href="../" aria-label="ALE Psych Home">
+      <img id="aleHeader" src="../assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+    </a>
     <nav id="mainNav">
       <a href="../">Home</a>
       <a href="../downloads/">Downloads</a>
@@ -58,9 +60,11 @@
     <section id="modsFilters" aria-label="Filter mods">
       <button class="filter-btn is-active" data-filter="all" type="button">All</button>
       <button class="filter-btn" data-filter="featured" type="button">Featured</button>
+      <button class="filter-btn" data-filter="original" type="button">Original</button>
+      <button class="filter-btn" data-filter="port" type="button">Ports</button>
+      <button class="filter-btn" data-filter="tools" type="button">Tools</button>
       <button class="filter-btn" data-filter="upcoming" type="button">Upcoming</button>
       <button class="filter-btn" data-filter="wip" type="button">W.I.P.</button>
-      <button class="filter-btn" data-filter="port" type="button">Ports</button>
     </section>
 
     <section id="modsGrid" aria-live="polite" aria-busy="true"></section>

@@ -42,15 +42,17 @@
   }
 
   function buildBadges(cats) {
-    const map = {
-      featured: 'Featured',
-      upcoming: 'Upcoming',
-      wip: 'W.I.P.',
-      port: 'Port',
-    };
+    const map = [
+      ['featured', 'Featured'],
+      ['original', 'Original'],
+      ['port', 'Port'],
+      ['tools', 'Tool'],
+      ['upcoming', 'Upcoming'],
+      ['wip', 'W.I.P.'],
+    ];
     const wrap = document.createElement('div');
     wrap.className = 'badges';
-    Object.entries(map).forEach(([key, label]) => {
+    map.forEach(([key, label]) => {
       if (cats.includes(key)) {
         const span = document.createElement('span');
         span.className = 'badge';

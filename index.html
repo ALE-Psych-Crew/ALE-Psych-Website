@@ -43,9 +43,11 @@
 
     <!-- HEADER -->
     <header id="mainHeader">
-      <img id="aleHeader" src="assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+      <a id="homeLogo" href="./" aria-label="ALE Psych Home">
+        <img id="aleHeader" src="assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+      </a>
       <nav id="mainNav">
-        <a href="./">Home</a>
+        <a href="./" aria-current="page">Home</a>
         <a href="downloads/">Downloads</a>
         <a href="mods/">Mods</a>
         <a href="scripts/">Scripts</a>
@@ -110,6 +112,14 @@
                     <span class="dl-cta">Download</span>
                 </a>
             </div>
+        </div>
+
+        <div class="releaseRow">
+            <a class="releaseButton" href="https://github.com/ALE-Psych-Crew/ALE-Psych/releases" target="_blank" rel="noopener">
+                <img src="assets/svg/index/github.svg" alt="GitHub icon" width="20" height="20">
+                <span>View GitHub Releases</span>
+            </a>
+            <span class="releaseNote">Stable builds and changelogs live on our releases page.</span>
         </div>
 
     </section>
