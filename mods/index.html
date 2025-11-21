@@ -5,6 +5,9 @@
   <meta charset="UTF-8" />
   <title>Mods · ALE Psych [Rewritten]</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
 
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32.png?v=1">
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16.png?v=1">
@@ -105,6 +108,13 @@
     ALE Psych [Rewritten] · Created by Alejo GD Official · Administered by THE VOID · Website by ImMalloy
   </div>
 
+  <script>
+    window.addEventListener('pageshow', (event) => {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    });
+  </script>
   <script src="../js/mods-data.js"></script>
   <script src="../js/mods.js" defer></script>
 </body>
