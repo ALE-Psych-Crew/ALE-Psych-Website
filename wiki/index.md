@@ -1,18 +1,23 @@
 ---
 title: ALE Psych Wiki
-desc: Entry point for learning the ALE Psych engine.
-author: ALE Psych Crew
-lastUpdated: 2025-01-01
+desc: Overview of ALE Psych documentation, tutorials, and contributor resources.
+author: Malloy
+lastUpdated: 2025-11-21
 ---
 
-## Welcome
+# ALE Psych Wiki
 
-The ALE Psych wiki collects notes, guides, and reference material to help you set up the engine, learn the scripting APIs, and share your own mods.
+Welcome to the ALE Psych wiki, the central hub for documentation, learning resources, and project guidance. Whether you are exploring the engine, creating a mod, or contributing code, this site links every major topic.
 
-- Browse the sections on the right to jump into setup or modding specifics.
-- Each page ends with a quick metadata block and a link back to the repository for edits.
-- Comments are powered by giscus so you can leave questions or clarifications directly on the article.
+## Getting Started
 
-### What to expect
+1. Read the introduction here to understand what ALE Psych provides.
+2. Follow the installation steps in the repository README to set up your tools.
+3. Complete the beginner tutorials in the modding section to learn the workflow.
+4. Revisit the engine pages when you need deeper details about build or runtime behavior.
 
-Expect concise steps, copy-paste snippets, and links to the official Lua API. If you are new, start with **Getting Started**, then move into **Installation** to grab the latest build. When you are ready to tinker, hop into the **Modding** section.
+If you encounter issues, check the configuration and troubleshooting pages for targeted fixes.
+
+## Contributing
+
+Contributions are welcome. Before submitting pull requests or issues, review the project coding standards, documentation style, testing expectations, and branching practices. More contributor guidance will be added as the project grows.
