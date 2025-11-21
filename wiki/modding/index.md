@@ -1,17 +1,19 @@
 ---
 title: Modding Overview
-desc: Structure your mod folders and assets.
-author: ALE Psych Crew
-lastUpdated: 2025-02-20
+desc: Quick guide to ALE Psych modding topics and where to start.
+author: Malloy
+lastUpdated: 2025-11-21
 ---
 
-## Folder layout
+# Modding Overview
 
-Organize mods into their own directories. Keep sprites, charts, and scripts grouped to avoid conflicts.
+Use these pages to build content without editing the engine source. Start with menu and substate scripting, then add songs and custom events as needed.
 
-### Quick links
+## Recommended Path
 
-- Character tips live in the **Characters** page.
-- Song metadata and charting notes live in **Songs**.
+1. Create or override menus and substates to shape your user experience.
+2. Add songs with the required folder layout for charts, audio, and scripts.
+3. Extend behavior with custom classes or event scripts.
+4. Package configuration and options so players can tune the mod.
 
-Maintaining a clean hierarchy will make updates safer and reduce load times.
+Each linked page includes file paths and examples tailored to ALE Psych mods.

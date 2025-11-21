@@ -1,9 +1,18 @@
 [
   ["index", "Home"],
-  ["getting-started", "Getting Started"],
-  ["installation", "Installation"],
+  ["engine/compiling", "Compiling the Engine"],
+  ["engine/shortcuts", "Engine Shortcuts"],
+  ["config/index", "Configuration", [
+    ["config/data-json", "data.json"],
+    ["config/options-json", "options.json"],
+    ["config/credits-json", "credits.json"],
+    ["config/debug-panel", "debug.json"]
+  ]],
   ["modding/index", "Modding", [
-    ["modding/characters", "Characters"],
-    ["modding/songs", "Songs"]
+    ["modding/adding-songs", "Adding Songs"],
+    ["modding/menu-scripting", "Menu Scripting"],
+    ["modding/substate-scripting", "Substate Scripting"],
+    ["modding/custom-classes", "Custom Classes"],
+    ["modding/custom-events", "Custom Events"]
   ]]
 ]
