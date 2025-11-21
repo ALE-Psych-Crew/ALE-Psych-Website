@@ -48,7 +48,7 @@
       ['port', 'Port'],
       ['tools', 'Tool'],
       ['upcoming', 'Upcoming'],
-      ['wip', 'W.I.P.'],
+      // WIP removed
     ];
     const wrap = document.createElement('div');
     wrap.className = 'badges';
