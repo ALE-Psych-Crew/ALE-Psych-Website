@@ -1,6 +1,6 @@
 {
   "ModName": "ALE ModID Registry",
   "Mod Description": "lightweight and engine-safe mod discovery system for ALE Psych without modifiying Source.",
-  "teamname": "ImMalloy and Alejo GD Official",
+  "author": "ImMalloy and Alejo GD Official",
   "link": "https://github.com/immalloy/ALE-ModIDRegistry"
 }
