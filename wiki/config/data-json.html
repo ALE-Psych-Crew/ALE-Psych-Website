@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>data.json Configuration — ALE Psych Wiki</title>
+  <meta name="description" content="Control boot flow, window settings, and save data behavior through data.json." />
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../js/wiki/wiki.css">
+</head>
+<body>
+  <header id="mainHeader">
+    <a id="homeLogo" href="../../" aria-label="ALE Psych Home">
+      <img id="aleHeader" src="../../assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+    </a>
+    <nav id="mainNav">
+      <a href="../../">Home</a>
+      <a href="../../downloads/">Downloads</a>
+      <a href="../../mods/">Mods</a>
+      <a href="../../scripts/">Scripts</a>
+      <a href="../../wiki/" aria-current="page">Wiki</a>
+      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">API (Lua)</a>
+    </nav>
+  </header>
+
+  <main class="wiki-main">
+    <article class="wiki-article">
+      <h1>data.json Configuration</h1>
+      <h1>data.json Configuration</h1>
+<p>ALE Psych reads <code>mods/&lt;mod-name&gt;/data.json</code> at launch to override engine defaults. Only define the keys your mod needs; unspecified values fall back to built-in defaults.</p>
+<h2>Example File</h2>
+<p>Path: <code>mods/&lt;mod-name&gt;/data.json</code></p>
+<pre><code class="language-json">{
+  &quot;developerMode&quot;: true,
+  &quot;mobileDebug&quot;: false,
+  &quot;scriptsHotReloading&quot;: true,
+  &quot;verbose&quot;: true,
+  &quot;allowDebugPrint&quot;: true,
+
+  &quot;initialState&quot;: &quot;TitleState&quot;,
+  &quot;freeplayState&quot;: &quot;FreeplayState&quot;,
+  &quot;storyMenuState&quot;: &quot;StoryMenuState&quot;,
+  &quot;masterEditorState&quot;: &quot;MasterEditorState&quot;,
+  &quot;mainMenuState&quot;: &quot;MainMenuState&quot;,
+
+  &quot;pauseSubState&quot;: &quot;PauseSubState&quot;,
+  &quot;gameOverScreen&quot;: &quot;GameOverSubState&quot;,
+  &quot;transition&quot;: &quot;FadeTransition&quot;,
+
+  &quot;loadDefaultWeeks&quot;: true,
+
+  &quot;title&quot;: &quot;My ALE Psych Mod&quot;,
+  &quot;icon&quot;: &quot;custom_icon&quot;,
+
+  &quot;width&quot;: 1280,
+  &quot;height&quot;: 720,
+
+  &quot;bpm&quot;: 120,
+  &quot;discordID&quot;: &quot;123456789012345678&quot;,
+  &quot;modID&quot;: &quot;my-unique-mod-id&quot;
+}
+</code></pre>
+<h2>Supported Keys</h2>
+<h3>Development and Debug</h3>
+<ul>
+<li><strong><code>developerMode</code></strong> (Bool, default: <code>false</code>): Enables dev tooling, hot reload, and debug helpers.</li>
+<li><strong><code>mobileDebug</code></strong> (Bool, default: <code>false</code>): Requires <code>developerMode = true</code>; simulates touch controls on desktop.</li>
+<li><strong><code>scriptsHotReloading</code></strong> (Bool, default: <code>false</code>): Auto-reloads Lua scripts in dev mode on desktop.</li>
+<li><strong><code>verbose</code></strong> (Bool, default: <code>false</code>): Emits extra engine logs; avoid for production builds.</li>
+<li><strong><code>allowDebugPrint</code></strong> (Bool, default: <code>true</code>): Sends logs to the in-game Debug Print window when present.</li>
+</ul>
+<h3>Menu Flow</h3>
+<ul>
+<li><strong><code>initialState</code></strong> (String, default: <code>&quot;TitleState&quot;</code>): Boot entry point.</li>
+<li><strong><code>freeplayState</code></strong>, <strong><code>storyMenuState</code></strong>, <strong><code>masterEditorState</code></strong>, <strong><code>mainMenuState</code></strong>: Menu and editor destinations.</li>
+<li><strong><code>loadDefaultWeeks</code></strong> (Bool, default: <code>true</code>): Set to false to exclude vanilla Story/Freeplay weeks.</li>
+</ul>
+<h3>Substates</h3>
+<ul>
+<li><strong><code>pauseSubState</code></strong> (String, default: <code>&quot;PauseSubState&quot;</code>)</li>
+<li><strong><code>gameOverScreen</code></strong> (String, default: <code>&quot;GameOverSubState&quot;</code>)</li>
+<li><strong><code>transition</code></strong> (String, default: <code>&quot;FadeTransition&quot;</code>): Must inherit from <code>MusicBeatSubstate</code>.</li>
+</ul>
+<h3>Window and Presentation</h3>
+<ul>
+<li><strong><code>title</code></strong> (String, default: <code>&quot;Friday Night Funkin': ALE Psych&quot;</code>)</li>
+<li><strong><code>icon</code></strong> (String, default: <code>&quot;appIcon&quot;</code>): PNG only; omit the extension.</li>
+<li><strong><code>width</code></strong>, <strong><code>height</code></strong> (Int): Window resolution in pixels.</li>
+<li><strong><code>bpm</code></strong> (Float, default: <code>102.0</code>): Default global BPM for menus and transitions.</li>
+</ul>
+<h3>Integration</h3>
+<ul>
+<li><strong><code>discordID</code></strong> (String, default: <code>&quot;1309982575368077416&quot;</code>): Discord Rich Presence application ID.</li>
+</ul>
+<h3>Save Data and Mod Identity</h3>
+<ul>
+<li><strong><code>modID</code></strong> (String, optional): Namespaces save files to <code>AlejoGDOfficial/ALEPsych/&lt;modID&gt;/</code> so saves remain stable even if the mod folder is renamed. Omit or set to <code>null</code> for default behavior.</li>
+</ul>
+
+
+      <div class="wiki-meta">
+        <span>Written by Malloy</span>
+        <span>Last updated: <span id="last-updated" data-time="2025-11-21T00:00:00.000Z">Nov 21, 2025</span></span>
+        <a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/config/data-json.md">Edit</a>
+      </div>
+
+      <div class="giscus"></div>
+    </article>
+
+    <aside class="wiki-sidebar">
+      <button id="sidebarToggle" aria-expanded="true">Toggle sidebar</button>
+      <h3>Pages</h3>
+      <ul class="wiki-nav"><li><a href="../../wiki/">Home</a></li><li><a href="../../wiki/engine/compiling.html">Compiling the Engine</a></li><li><a href="../../wiki/engine/shortcuts.html">Engine Shortcuts</a></li><li><a href="../../wiki/config/index.html">Configuration</a><ul><li><a href="../../wiki/config/data-json.html" class="active" aria-current="page">data.json</a></li><li><a href="../../wiki/config/options-json.html">options.json</a></li><li><a href="../../wiki/config/credits-json.html">credits.json</a></li><li><a href="../../wiki/config/debug-panel.html">debug.json</a></li></ul></li><li><a href="../../wiki/modding/index.html">Modding</a><ul><li><a href="../../wiki/modding/adding-songs.html">Adding Songs</a></li><li><a href="../../wiki/modding/menu-scripting.html">Menu Scripting</a></li><li><a href="../../wiki/modding/substate-scripting.html">Substate Scripting</a></li><li><a href="../../wiki/modding/custom-classes.html">Custom Classes</a></li><li><a href="../../wiki/modding/custom-events.html">Custom Events</a></li></ul></li></ul>
+    </aside>
+  </main>
+
+  <footer id="aleFooter">
+    <div class="footer-links">
+        <a href="../../">Home</a>
+        <a href="../../downloads/">Downloads</a>
+        <a href="../../mods/">Mods</a>
+        <a href="../../scripts/">Scripts</a>
+        <a href="../../wiki/">Wiki</a>
+    </div>
+    <div class="footer-social">
+        <span>Join us:</span>
+        <a href="https://discord.gg/6krHvPvPBf" target="_blank" rel="noopener">
+          <img src="../../assets/svg/socials/discord.svg" alt="Discord" width="22" height="22">
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew" target="_blank" rel="noopener">
+          <img src="../../assets/svg/socials/github.svg" alt="GitHub" width="22" height="22">
+        </a>
+    </div>
+  </footer>
+
+  <script src="../../js/wiki/wiki.js" defer></script>
+  <script src="https://giscus.app/client.js"
+          data-repo="ALE-Psych-Crew/ALE-Psych-Website"
+          data-repo-id=""
+          data-category="Wiki"
+          data-category-id=""
+          data-mapping="specific"
+          data-term="config/data-json"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="dark"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+</body>
+</html>
