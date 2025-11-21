@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Songs — ALE Psych Wiki</title>
+  <meta name="description" content="Prepare charts and metadata." />
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../js/wiki/wiki.css">
+</head>
+<body>
+  <header id="mainHeader">
+    <a id="homeLogo" href="../../" aria-label="ALE Psych Home">
+      <img id="aleHeader" src="../../assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+    </a>
+    <nav id="mainNav">
+      <a href="../../">Home</a>
+      <a href="../../downloads/">Downloads</a>
+      <a href="../../mods/">Mods</a>
+      <a href="../../scripts/">Scripts</a>
+      <a href="../../wiki/" aria-current="page">Wiki</a>
+      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">API (Lua)</a>
+    </nav>
+  </header>
+
+  <main class="wiki-main">
+    <article class="wiki-article">
+      <h1>Songs</h1>
+      <h2 id="chart-notes">Chart notes</h2><p>Keep BPM consistent across difficulties and avoid silent lead-ins longer than necessary.</p><h3 id="metadata-snippet">Metadata snippet</h3><pre><code>{
+  "song": "fresh",
+  "needsVoices": true,
+  "player1": "bf",
+  "opponent": "dad"
+}</code></pre><p>If your charts desync, double-check the time signature and audio trimming.</p>
+
+      <div class="wiki-meta">
+        <span>Written by ALE Psych Crew</span>
+        <span>Last updated: <span id="last-updated" data-time="2025-03-05T00:00:00.000Z">Mar 5, 2025</span></span>
+        <a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/modding/songs.md">Edit</a>
+      </div>
+
+      <div class="giscus"></div>
+    </article>
+
+    <aside class="wiki-sidebar">
+      <button id="sidebarToggle" aria-expanded="true">Toggle sidebar</button>
+      <h3>Pages</h3>
+      <ul class="wiki-nav"><li><a href="../../wiki/">Home</a></li><li><a href="../../wiki/getting-started.html">Getting Started</a></li><li><a href="../../wiki/installation.html">Installation</a></li><li><a href="../../wiki/modding/index.html">Modding</a><ul><li><a href="../../wiki/modding/characters.html">Characters</a></li><li><a href="../../wiki/modding/songs.html" class="active" aria-current="page">Songs</a></li></ul></li></ul>
+    </aside>
+  </main>
+
+  <footer id="aleFooter">
+    <div class="footer-links">
+        <a href="../../">Home</a>
+        <a href="../../downloads/">Downloads</a>
+        <a href="../../mods/">Mods</a>
+        <a href="../../scripts/">Scripts</a>
+        <a href="../../wiki/">Wiki</a>
+    </div>
+    <div class="footer-social">
+        <span>Join us:</span>
+        <a href="https://discord.gg/6krHvPvPBf" target="_blank" rel="noopener">
+          <img src="../../assets/svg/socials/discord.svg" alt="Discord" width="22" height="22">
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew" target="_blank" rel="noopener">
+          <img src="../../assets/svg/socials/github.svg" alt="GitHub" width="22" height="22">
+        </a>
+    </div>
+  </footer>
+
+  <script src="../../js/wiki/wiki.js" defer></script>
+  <script src="https://giscus.app/client.js"
+          data-repo="ALE-Psych-Crew/ALE-Psych-Website"
+          data-repo-id=""
+          data-category="Wiki"
+          data-category-id=""
+          data-mapping="specific"
+          data-term="modding/songs"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="dark"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+</body>
+</html>

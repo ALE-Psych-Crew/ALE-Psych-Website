@@ -1,0 +1,9 @@
+[
+  ["index", "Home"],
+  ["getting-started", "Getting Started"],
+  ["installation", "Installation"],
+  ["modding/index", "Modding", [
+    ["modding/characters", "Characters"],
+    ["modding/songs", "Songs"]
+  ]]
+]

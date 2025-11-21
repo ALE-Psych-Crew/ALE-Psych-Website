@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{title}} — ALE Psych Wiki</title>
+  <meta name="description" content="{{desc}}" />
+  <link rel="stylesheet" href="{{base}}css/global.css">
+  <link rel="stylesheet" href="{{base}}js/wiki/wiki.css">
+</head>
+<body>
+  <header id="mainHeader">
+    <a id="homeLogo" href="{{base}}" aria-label="ALE Psych Home">
+      <img id="aleHeader" src="{{base}}assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+    </a>
+    <nav id="mainNav">
+      <a href="{{base}}">Home</a>
+      <a href="{{base}}downloads/">Downloads</a>
+      <a href="{{base}}mods/">Mods</a>
+      <a href="{{base}}scripts/">Scripts</a>
+      <a href="{{base}}wiki/" aria-current="page">Wiki</a>
+      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">API (Lua)</a>
+    </nav>
+  </header>
+
+  <main class="wiki-main">
+    <article class="wiki-article">
+      <h1>{{title}}</h1>
+      {{content}}
+
+      <div class="wiki-meta">
+        <span>Written by {{author}}</span>
+        <span>Last updated: <span id="last-updated" data-time="{{isoDate lastUpdated}}">{{shortDate lastUpdated}}</span></span>
+        <a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/{{url}}.md">Edit</a>
+      </div>
+
+      <div class="giscus"></div>
+    </article>
+
+    <aside class="wiki-sidebar">
+      <button id="sidebarToggle" aria-expanded="true">Toggle sidebar</button>
+      <h3>Pages</h3>
+      {{sidebar}}
+    </aside>
+  </main>
+
+  <footer id="aleFooter">
+    <div class="footer-links">
+        <a href="{{base}}">Home</a>
+        <a href="{{base}}downloads/">Downloads</a>
+        <a href="{{base}}mods/">Mods</a>
+        <a href="{{base}}scripts/">Scripts</a>
+        <a href="{{base}}wiki/">Wiki</a>
+    </div>
+    <div class="footer-social">
+        <span>Join us:</span>
+        <a href="https://discord.gg/6krHvPvPBf" target="_blank" rel="noopener">
+          <img src="{{base}}assets/svg/socials/discord.svg" alt="Discord" width="22" height="22">
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew" target="_blank" rel="noopener">
+          <img src="{{base}}assets/svg/socials/github.svg" alt="GitHub" width="22" height="22">
+        </a>
+    </div>
+  </footer>
+
+  <script src="{{base}}js/wiki/wiki.js" defer></script>
+  <script src="https://giscus.app/client.js"
+          data-repo="ALE-Psych-Crew/ALE-Psych-Website"
+          data-repo-id=""
+          data-category="Wiki"
+          data-category-id=""
+          data-mapping="specific"
+          data-term="{{giscusID}}"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="dark"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+</body>
+</html>
