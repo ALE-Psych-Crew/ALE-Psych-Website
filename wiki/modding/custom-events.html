@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Custom Events - ALE Psych Wiki</title>
+  <meta name="description" content="Add charted or runtime events with Lua or HScript plus Chart Editor docs." />
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../js/wiki/wiki.css">
+</head>
+<body>
+  <header id="mainHeader">
+    <a id="homeLogo" href="../../" aria-label="ALE Psych Home">
+      <img id="aleHeader" src="../../assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+    </a>
+    <nav id="mainNav">
+      <a href="../../">Home</a>
+      <a href="../../downloads/">Downloads</a>
+      <a href="../../mods/">Mods</a>
+      <a href="../../scripts/">Scripts</a>
+      <a href="../../wiki/" aria-current="page">Wiki</a>
+      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">API (Lua)</a>
+    </nav>
+  </header>
+
+  <main class="wiki-main">
+    <article class="wiki-article">
+      <h1>Custom Events</h1>
+      <p>ALE Psych loads custom events from your mod’s <code>events/</code> folder. Provide either Lua or HScript logic for each event and optionally include a <code>.txt</code> description for the Chart Editor dropdown.</p>
+<h2>Directory Structure</h2>
+<p>Place scripts and descriptions under <code>mods/&lt;your-mod&gt;/events/</code>:</p>
+<pre><code>mods/
+  your-mod/
+    events/
+      MyEvent.lua     ← Lua version (choose Lua or HScript)
+      MyEvent.hx      ← HScript version (choose Lua or HScript)
+      MyEvent.txt     ← Description shown in the Chart Editor
+</code></pre>
+<p>Use one script language per event name. The engine loads the matching script for each unique event in the chart.</p>
+<h2>Chart Editor Descriptions</h2>
+<p><code>.txt</code> files in the <code>events/</code> folder are paired with the matching event name. Describe what the event does and how Value 1 and Value 2 are used so chart authors can choose correctly.</p>
+<h2>Available Callbacks</h2>
+<p>When an event script matches the charted event name, the engine calls:</p>
+<h3><code>onEventPushed(name, value1, value2, strumTime)</code></h3>
+<ul>
+<li>Runs once per charted event after it is added to the timeline.</li>
+<li>Use this to precache assets or set up context.</li>
+</ul>
+<h3><code>eventEarlyTrigger(name, value1, value2, strumTime)</code></h3>
+<ul>
+<li>Called before gameplay starts.</li>
+<li>Return a number of milliseconds to trigger the event earlier; return <code>0</code> or <code>null</code> for default timing.</li>
+</ul>
+<h3><code>onEvent(name, value1, value2, strumTime)</code></h3>
+<ul>
+<li>Called during gameplay when the event triggers.</li>
+<li>Implement the main effect logic here.</li>
+</ul>
+<p>Value 1 and Value 2 are passed in as strings; convert them as needed inside your script.</p>
+<h2>Lua Example</h2>
+<pre><code class="language-lua">function onEventPushed(name, value1, value2, strumTime)
+    if name == 'MyEvent' then
+        precacheImage('my-event/effect')
+    end
+end
+
+function eventEarlyTrigger(name, value1, value2, strumTime)
+    if name == 'MyEvent' and value1 == 'fast' then
+        return 150
+    end
+    return 0
+end
+
+function onEvent(name, value1, value2, strumTime)
+    if name ~= 'MyEvent' then return end
+
+    local speed = tonumber(value1) or 1
+    local duration = tonumber(value2) or 0.5
+
+    cameraFlash('game', 'FFFFFF', duration)
+    setProperty('songSpeed', speed)
+end
+
+-- Fire an event manually
+triggerEvent('MyEvent', '1.5', '0.25')
+</code></pre>
+<h2>HScript Example</h2>
+<pre><code class="language-haxe">import funkin.states.PlayState;
+import flixel.FlxG;
+import flixel.util.FlxColor;
+
+function onEventPushed(name:String, value1:String, value2:String, strumTime:Float) {
+    if (name == 'MyEvent') {
+        precacheImage('my-event/effect');
+    }
+}
+
+function eventEarlyTrigger(name:String, value1:String, value2:String, strumTime:Float) {
+    if (name == 'MyEvent' &amp;&amp; value1 == 'fast') return 150;
+    return 0;
+}
+
+function onEvent(name:String, value1:String, value2:String, strumTime:Float) {
+    if (name != 'MyEvent') return;
+
+    var speed = Std.parseFloat(value1);
+    if (Math.isNaN(speed)) speed = 1;
+
+    var duration = Std.parseFloat(value2);
+    if (Math.isNaN(duration)) duration = 0.5;
+
+    FlxG.camera.flash(FlxColor.WHITE, duration);
+    PlayState.instance.songSpeed = speed;
+}
+
+// Fire an event manually
+PlayState.instance.triggerEvent('MyEvent', '1.0', '0.5', Conductor.songPosition);
+</code></pre>
+<h2>Summary</h2>
+<ul>
+<li>Store event scripts in <code>events/</code> and match filenames to the charted event names.</li>
+<li>Use either Lua or HScript for logic and optional <code>.txt</code> files for Chart Editor guidance.</li>
+<li>Trigger events from charts or by calling the event helpers at runtime.</li>
+</ul>
+
+
+      <div class="wiki-meta">
+        <span>Written by Malloy</span>
+        <span>Last updated: <span id="last-updated" data-time="2025-11-21T00:00:00.000Z">Nov 21, 2025</span></span>
+        <a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/modding/custom-events.md">Edit</a>
+      </div>
+
+      <div class="giscus"></div>
+    </article>
+
+    <aside class="wiki-sidebar">
+      <button id="sidebarToggle" aria-expanded="true">Toggle sidebar</button>
+      <h3>Pages</h3>
+      <ul class="wiki-nav"><li><a href="../../wiki/">Home</a></li><li><a href="../../wiki/engine/compiling.html">Compiling the Engine</a></li><li><a href="../../wiki/engine/shortcuts.html">Engine Shortcuts</a></li><li><a href="../../wiki/config/index.html">Configuration</a><ul><li><a href="../../wiki/config/data-json.html">data.json</a></li><li><a href="../../wiki/config/options-json.html">options.json</a></li><li><a href="../../wiki/config/credits-json.html">credits.json</a></li><li><a href="../../wiki/config/debug-panel.html">debug.json</a></li></ul></li><li><a href="../../wiki/modding/index.html">Modding</a><ul><li><a href="../../wiki/modding/adding-songs.html">Adding Songs</a></li><li><a href="../../wiki/modding/menu-scripting.html">Menu Scripting</a></li><li><a href="../../wiki/modding/substate-scripting.html">Substate Scripting</a></li><li><a href="../../wiki/modding/custom-classes.html">Custom Classes</a></li><li><a href="../../wiki/modding/custom-events.html" class="active" aria-current="page">Custom Events</a></li></ul></li></ul>
+    </aside>
+  </main>
+
+  <footer id="aleFooter">
+    <div class="footer-links">
+        <a href="../../">Home</a>
+        <a href="../../downloads/">Downloads</a>
+        <a href="../../mods/">Mods</a>
+        <a href="../../scripts/">Scripts</a>
+        <a href="../../wiki/">Wiki</a>
+    </div>
+    <div class="footer-social">
+        <span>Join us:</span>
+        <a href="https://discord.gg/6krHvPvPBf" target="_blank" rel="noopener">
+          <img src="../../assets/svg/socials/discord.svg" alt="Discord" width="22" height="22">
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew" target="_blank" rel="noopener">
+          <img src="../../assets/svg/socials/github.svg" alt="GitHub" width="22" height="22">
+        </a>
+    </div>
+  </footer>
+
+  <script src="../../js/wiki/wiki.js" defer></script>
+  <script src="https://giscus.app/client.js"
+          data-repo="ALE-Psych-Crew/ALE-Psych-Website"
+          data-repo-id=""
+          data-category="Wiki"
+          data-category-id=""
+          data-mapping="specific"
+          data-term="modding/custom-events"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="catppuccin_mocha"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+</body>
+</html>

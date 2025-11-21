@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>options.json - ALE Psych Wiki</title>
+  <meta name="description" content="Define custom option categories and settings for the ALE Psych Options menu." />
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../js/wiki/wiki.css">
+</head>
+<body>
+  <header id="mainHeader">
+    <a id="homeLogo" href="../../" aria-label="ALE Psych Home">
+      <img id="aleHeader" src="../../assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+    </a>
+    <nav id="mainNav">
+      <a href="../../">Home</a>
+      <a href="../../downloads/">Downloads</a>
+      <a href="../../mods/">Mods</a>
+      <a href="../../scripts/">Scripts</a>
+      <a href="../../wiki/" aria-current="page">Wiki</a>
+      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">API (Lua)</a>
+    </nav>
+  </header>
+
+  <main class="wiki-main">
+    <article class="wiki-article">
+      <h1>options.json</h1>
+      <p>Use <code>options.json</code> to add buttons, sliders, and menus to the Options screen without editing engine code.</p>
+<h2>File Location</h2>
+<p>Place the file at:</p>
+<pre><code>mods/&lt;YourModFolder&gt;/options.json
+</code></pre>
+<p>If you want base settings plus your additions, copy <code>assets/options.json</code> into your mod and extend it.</p>
+<h2>File Structure</h2>
+<p><code>options.json</code> is organized by categories. Each category contains a list of options.</p>
+<pre><code class="language-json">{
+  &quot;categories&quot;: [
+    {
+      &quot;name&quot;: &quot;Menu Title&quot;,
+      &quot;options&quot;: [ { &quot;name&quot;: &quot;Setting Name&quot;, ... } ]
+    }
+  ]
+}
+</code></pre>
+<h3>Category Fields</h3>
+<ul>
+<li><code>name</code>: Title shown in the menu.</li>
+<li><code>options</code>: Array of option entries.</li>
+</ul>
+<h3>Common Option Fields</h3>
+<ul>
+<li><code>name</code>: Display name.</li>
+<li><code>description</code>: Text shown at the bottom when selected.</li>
+<li><code>type</code>: Option type.</li>
+<li><code>initialValue</code>: Default value.</li>
+<li><code>platform</code> (optional): Restrict to <code>&quot;desktop&quot;</code> or <code>&quot;mobile&quot;</code>.</li>
+</ul>
+<h2>Option Types</h2>
+<h3>On/Off Toggle (<code>bool</code>)</h3>
+<pre><code class="language-json">{ &quot;type&quot;: &quot;bool&quot;, &quot;variable&quot;: &quot;flashWarning&quot;, &quot;initialValue&quot;: false }
+</code></pre>
+<h3>Whole Number Slider (<code>integer</code>)</h3>
+<pre><code class="language-json">{ &quot;type&quot;: &quot;integer&quot;, &quot;variable&quot;: &quot;framerate&quot;, &quot;min&quot;: 30, &quot;max&quot;: 240, &quot;change&quot;: 1, &quot;initialValue&quot;: 60 }
+</code></pre>
+<h3>Decimal Slider (<code>float</code>)</h3>
+<pre><code class="language-json">{ &quot;type&quot;: &quot;float&quot;, &quot;variable&quot;: &quot;noteScale&quot;, &quot;min&quot;: 0.5, &quot;max&quot;: 1.5, &quot;change&quot;: 0.05, &quot;decimals&quot;: 2, &quot;initialValue&quot;: 1.0 }
+</code></pre>
+<h3>Choose from a List (<code>string</code>)</h3>
+<pre><code class="language-json">{ &quot;type&quot;: &quot;string&quot;, &quot;variable&quot;: &quot;laneColor&quot;, &quot;strings&quot;: [&quot;Classic&quot;, &quot;Pastel&quot;, &quot;Contrast&quot;], &quot;initialValue&quot;: &quot;Classic&quot; }
+</code></pre>
+<h3>Open a New Menu (<code>state</code> or <code>substate</code>)</h3>
+<pre><code class="language-json">{ &quot;type&quot;: &quot;state&quot;, &quot;path&quot;: &quot;PracticeMenuState&quot;, &quot;scripted&quot;: true }
+</code></pre>
+<pre><code class="language-json">{ &quot;type&quot;: &quot;substate&quot;, &quot;path&quot;: &quot;GraphicsPresetSubState&quot;, &quot;scripted&quot;: false, &quot;platform&quot;: &quot;desktop&quot; }
+</code></pre>
+<ul>
+<li>Use <code>scripted: true</code> to load a script file from your mod.</li>
+<li>Use <code>scripted: false</code> to load a menu implemented in Haxe.</li>
+</ul>
+<h2>Troubleshooting</h2>
+<ul>
+<li><strong>Setting does not appear:</strong> Confirm the file has a <code>categories</code> array and each option includes the required fields.</li>
+<li><strong>Value does nothing:</strong> Your code must read and apply the setting; the engine does not automatically wire behavior.</li>
+<li><strong>Wrong platform:</strong> Use lowercase <code>&quot;desktop&quot;</code> or <code>&quot;mobile&quot;</code>.</li>
+</ul>
+<h2>Full Example</h2>
+<pre><code class="language-json">{
+    &quot;categories&quot;: [
+        {
+            &quot;name&quot;: &quot;Miscellaneous&quot;,
+            &quot;options&quot;: [
+                {
+                    &quot;name&quot;: &quot;Controls&quot;,
+                    &quot;description&quot;: &quot;Adjust the delay for the game audio.&quot;,
+                    &quot;type&quot;: &quot;substate&quot;,
+                    &quot;path&quot;: &quot;ControlsSubState&quot;,
+                    &quot;platform&quot;: &quot;desktop&quot;,
+                    &quot;scripted&quot;: true
+                },
+                {
+                    &quot;name&quot;: &quot;Note Offset&quot;,
+                    &quot;description&quot;: &quot;Adjust the delay for the game audio.&quot;,
+                    &quot;type&quot;: &quot;state&quot;,
+                    &quot;path&quot;: &quot;NoteOffsetState&quot;,
+                    &quot;scripted&quot;: true
+                },
+                {
+                    &quot;name&quot;: &quot;Reset Options&quot;,
+                    &quot;description&quot;: &quot;Restore Default Settings&quot;,
+                    &quot;type&quot;: &quot;substate&quot;,
+                    &quot;path&quot;: &quot;ResetOptionsSubState&quot;,
+                    &quot;scripted&quot;: true
+                }
+            ]
+        },
+        {
+            &quot;name&quot;: &quot;Graphics&quot;,
+            &quot;options&quot;: [
+                {
+                    &quot;name&quot;: &quot;Low Quality&quot;,
+                    &quot;description&quot;: &quot;If checked, disables some background details, decreases loading times and improves performance.&quot;,
+                    &quot;variable&quot;: &quot;lowQuality&quot;,
+                    &quot;type&quot;: &quot;bool&quot;,
+                    &quot;initialValue&quot;: false
+                },
+                {
+                    &quot;name&quot;: &quot;Anti-Aliasing&quot;,
+                    &quot;description&quot;: &quot;If unchecked, disables anti-aliasing, increases performance at the cost of sharper visuals.&quot;,
+                    &quot;variable&quot;: &quot;antialiasing&quot;,
+                    &quot;type&quot;: &quot;bool&quot;,
+                    &quot;initialValue&quot;: true
+                },
+                {
+                    &quot;name&quot;: &quot;Shaders&quot;,
+                    &quot;description&quot;: &quot;If unchecked, disables shaders. It's used for some visual effects, and also CPU intensive for weaker PCs.&quot;,
+                    &quot;variable&quot;: &quot;shaders&quot;,
+                    &quot;type&quot;: &quot;bool&quot;,
+                    &quot;initialValue&quot;: true
+                },
+                {
+                    &quot;name&quot;: &quot;GPU Caching&quot;,
+                    &quot;description&quot;: &quot;If checked, allows the GPU to be used for caching textures, decreasing RAM usage. Don't turn this on if you have a low-end graphics card.&quot;,
+                    &quot;variable&quot;: &quot;cacheOnGPU&quot;,
+                    &quot;type&quot;: &quot;bool&quot;,
+                    &quot;initialValue&quot;: true
+                },
+                {
+                    &quot;name&quot;: &quot;Framerate&quot;,
+                    &quot;description&quot;: &quot;Pretty self explanatory, isn't it?&quot;,
+                    &quot;variable&quot;: &quot;framerate&quot;,
+                    &quot;type&quot;: &quot;integer&quot;,
+                    &quot;min&quot;: 30,
+                    &quot;max&quot;: 240,
+                    &quot;change&quot;: 1,
+                    &quot;initialValue&quot;: 60
+                }
+            ]
+        },
+        {
+            &quot;name&quot;: &quot;Visuals and UI&quot;,
+            &quot;options&quot;: [
+                {
+                    &quot;name&quot;: &quot;Note Splash Opacity&quot;,
+                    &quot;description&quot;: &quot;How much transparent should the Note Splashes be.&quot;,
+                    &quot;variable&quot;: &quot;splashAlpha&quot;,
+                    &quot;type&quot;: &quot;integer&quot;,
+                    &quot;min&quot;: 0,
+                    &quot;max&quot;: 100,
+                    &quot;change&quot;: 1,
+                    &quot;initialValue&quot;: 60
+                },
+                {
+                    &quot;name&quot;: &quot;Flashing Lights&quot;,
+                    &quot;description&quot;: &quot;Uncheck this if you're sensitive to flashing lights!&quot;,
+                    &quot;variable&quot;: &quot;flashing&quot;,
+                    &quot;type&quot;: &quot;bool&quot;,
+                    &quot;initialValue&quot;: true
+                },
+                {
+                    &quot;name&quot;: &quot;Check for Updates&quot;,
+                    &quot;description&quot;: &quot;Turn this on to check for updates when you start the game.&quot;,
+                    &quot;variable&quot;: &quot;checkForUpdates&quot;,
+                    &quot;type&quot;: &quot;bool&quot;,
+                    &quot;initialValue&quot;: true
+                },
+                {
+                    &quot;name&quot;: &quot;Discord Rich Presence&quot;,
+                    &quot;description&quot;: &quot;Uncheck this to prevent accidental leaks; it hides the application from your playing status on Discord.&quot;,
+                    &quot;variable&quot;: &quot;discordRPC&quot;,
+                    &quot;type&quot;: &quot;bool&quot;,
+                    &quot;initialValue&quot;: true
+                }
+            ]
+        },
+        {
+            &quot;name&quot;: &quot;Gameplay&quot;,
+            &quot;options&quot;: [
+                {
+                    &quot;name&quot;: &quot;Downscroll&quot;,
+                    &quot;description&quot;: &quot;If checked, notes go down instead of up.&quot;,
+                    &quot;variable&quot;: &quot;downScroll&quot;,
+                    &quot;type&quot;: &quot;bool&quot;,
+                    &quot;initialValue&quot;: false
+                },
+                {
+                    &quot;name&quot;: &quot;Ghost Tapping&quot;,
+                    &quot;description&quot;: &quot;If checked, you won't get misses from pressing keys while there are no notes able to hit.&quot;,
+                    &quot;variable&quot;: &quot;ghostTapping&quot;,
+                    &quot;type&quot;: &quot;bool&quot;,
+                    &quot;initialValue&quot;: true
+                },
+                {
+                    &quot;name&quot;: &quot;Disable Reset Button&quot;,
+                    &quot;description&quot;: &quot;If checked, pressing Reset won't do anything.&quot;,
+                    &quot;variable&quot;: &quot;noReset&quot;,
+                    &quot;type&quot;: &quot;bool&quot;,
+                    &quot;initialValue&quot;: false
+                },
+                {
+                    &quot;name&quot;: &quot;Botplay&quot;,
+                    &quot;description&quot;: &quot;If checked, the game will play itself; scores are not saved and the player can still fail if logic allows it.&quot;,
+                    &quot;variable&quot;: &quot;botplay&quot;,
+                    &quot;type&quot;: &quot;bool&quot;,
+                    &quot;initialValue&quot;: false
+                },
+                {
+                    &quot;name&quot;: &quot;Practice Mode&quot;,
+                    &quot;description&quot;: &quot;If checked, the game disables dying; scores are not saved.&quot;,
+                    &quot;variable&quot;: &quot;practice&quot;,
+                    &quot;type&quot;: &quot;bool&quot;,
+                    &quot;initialValue&quot;: false
+                }
+            ]
+        }
+    ]
+}
+</code></pre>
+
+
+      <div class="wiki-meta">
+        <span>Written by Malloy</span>
+        <span>Last updated: <span id="last-updated" data-time="2025-11-21T00:00:00.000Z">Nov 21, 2025</span></span>
+        <a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/config/options-json.md">Edit</a>
+      </div>
+
+      <div class="giscus"></div>
+    </article>
+
+    <aside class="wiki-sidebar">
+      <button id="sidebarToggle" aria-expanded="true">Toggle sidebar</button>
+      <h3>Pages</h3>
+      <ul class="wiki-nav"><li><a href="../../wiki/">Home</a></li><li><a href="../../wiki/engine/compiling.html">Compiling the Engine</a></li><li><a href="../../wiki/engine/shortcuts.html">Engine Shortcuts</a></li><li><a href="../../wiki/config/index.html">Configuration</a><ul><li><a href="../../wiki/config/data-json.html">data.json</a></li><li><a href="../../wiki/config/options-json.html" class="active" aria-current="page">options.json</a></li><li><a href="../../wiki/config/credits-json.html">credits.json</a></li><li><a href="../../wiki/config/debug-panel.html">debug.json</a></li></ul></li><li><a href="../../wiki/modding/index.html">Modding</a><ul><li><a href="../../wiki/modding/adding-songs.html">Adding Songs</a></li><li><a href="../../wiki/modding/menu-scripting.html">Menu Scripting</a></li><li><a href="../../wiki/modding/substate-scripting.html">Substate Scripting</a></li><li><a href="../../wiki/modding/custom-classes.html">Custom Classes</a></li><li><a href="../../wiki/modding/custom-events.html">Custom Events</a></li></ul></li></ul>
+    </aside>
+  </main>
+
+  <footer id="aleFooter">
+    <div class="footer-links">
+        <a href="../../">Home</a>
+        <a href="../../downloads/">Downloads</a>
+        <a href="../../mods/">Mods</a>
+        <a href="../../scripts/">Scripts</a>
+        <a href="../../wiki/">Wiki</a>
+    </div>
+    <div class="footer-social">
+        <span>Join us:</span>
+        <a href="https://discord.gg/6krHvPvPBf" target="_blank" rel="noopener">
+          <img src="../../assets/svg/socials/discord.svg" alt="Discord" width="22" height="22">
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew" target="_blank" rel="noopener">
+          <img src="../../assets/svg/socials/github.svg" alt="GitHub" width="22" height="22">
+        </a>
+    </div>
+  </footer>
+
+  <script src="../../js/wiki/wiki.js" defer></script>
+  <script src="https://giscus.app/client.js"
+          data-repo="ALE-Psych-Crew/ALE-Psych-Website"
+          data-repo-id=""
+          data-category="Wiki"
+          data-category-id=""
+          data-mapping="specific"
+          data-term="config/options-json"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="catppuccin_mocha"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>credits.json - ALE Psych Wiki</title>
+  <meta name="description" content="Build data-driven credits screens by listing categories and developers." />
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../js/wiki/wiki.css">
+</head>
+<body>
+  <header id="mainHeader">
+    <a id="homeLogo" href="../../" aria-label="ALE Psych Home">
+      <img id="aleHeader" src="../../assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+    </a>
+    <nav id="mainNav">
+      <a href="../../">Home</a>
+      <a href="../../downloads/">Downloads</a>
+      <a href="../../mods/">Mods</a>
+      <a href="../../scripts/">Scripts</a>
+      <a href="../../wiki/" aria-current="page">Wiki</a>
+      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">API (Lua)</a>
+    </nav>
+  </header>
+
+  <main class="wiki-main">
+    <article class="wiki-article">
+      <h1>credits.json</h1>
+      <p>The credits screen is data-driven. Provide a <code>credits.json</code> in your mod root and ALE Psych will load it automatically.</p>
+<h2>File Structure</h2>
+<p>Top-level object with a <code>categories</code> array. Each category groups developers.</p>
+<pre><code class="language-json">{
+  &quot;categories&quot;: []
+}
+</code></pre>
+<h3>Categories</h3>
+<p>Each category object defines a group:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;My Category&quot;,
+  &quot;developers&quot;: []
+}
+</code></pre>
+<ul>
+<li><strong><code>name</code></strong>: Label shown in the credits menu.</li>
+<li><strong><code>developers</code></strong>: Array of developer entries.</li>
+</ul>
+<h3>Developers</h3>
+<p>Each developer entry is an object inside <code>developers</code>:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;My Member&quot;,
+  &quot;icon&quot;: &quot;memberIcon&quot;,
+  &quot;link&quot;: &quot;https://example.com/&quot;,
+  &quot;description&quot;: &quot;Collaborated on my mod as a coder&quot;,
+  &quot;color&quot;: &quot;00FFFF&quot;
+}
+</code></pre>
+<ul>
+<li><strong><code>name</code></strong>: Display name.</li>
+<li><strong><code>icon</code></strong>: PNG filename (no extension) stored in <code>images/credits/</code>.</li>
+<li><strong><code>link</code></strong>: URL opened when selected.</li>
+<li><strong><code>description</code></strong>: Role or contribution. Supports newlines (<code>\n</code>).</li>
+<li><strong><code>color</code></strong>: 6-digit hex string without <code>#</code> for background when selected.</li>
+</ul>
+<h2>Example File</h2>
+<pre><code class="language-json">{
+  &quot;categories&quot;: [
+    {
+      &quot;name&quot;: &quot;ALE Psych Crew&quot;,
+      &quot;developers&quot;: [
+        {
+          &quot;name&quot;: &quot;AlejoGDOfficial&quot;,
+          &quot;icon&quot;: &quot;alejo&quot;,
+          &quot;link&quot;: &quot;https://www.youtube.com/@alejogdofficial&quot;,
+          &quot;description&quot;: &quot;Director and Lead Programmer&quot;,
+          &quot;color&quot;: &quot;5457B0&quot;
+        },
+        {
+          &quot;name&quot;: &quot;Kriptel&quot;,
+          &quot;icon&quot;: &quot;kriptel&quot;,
+          &quot;link&quot;: &quot;https://www.youtube.com/@kriptel_pro&quot;,
+          &quot;description&quot;: &quot;Collaborated on the Implementation of RuleScript\nProgrammed some Macros&quot;,
+          &quot;color&quot;: &quot;731D1D&quot;
+        }
+      ]
+    },
+    {
+      &quot;name&quot;: &quot;Funkin' Crew&quot;,
+      &quot;developers&quot;: [
+        {
+          &quot;name&quot;: &quot;ninjamuffin99&quot;,
+          &quot;icon&quot;: &quot;ninjamuffin99&quot;,
+          &quot;link&quot;: &quot;https://twitter.com/ninja_muffin99&quot;,
+          &quot;description&quot;: &quot;Programmer of Friday Night Funkin'&quot;,
+          &quot;color&quot;: &quot;CF2D2D&quot;
+        },
+        {
+          &quot;name&quot;: &quot;PhantomArcade&quot;,
+          &quot;icon&quot;: &quot;phantomarcade&quot;,
+          &quot;link&quot;: &quot;https://twitter.com/PhantomArcade3K&quot;,
+          &quot;description&quot;: &quot;Animator of Friday Night Funkin'&quot;,
+          &quot;color&quot;: &quot;FADC45&quot;
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+<h2>Developer Notes</h2>
+<ul>
+<li>Use consistent icon sizes (recommend 128x128 PNG) for best results.</li>
+<li>Missing icons leave blank space.</li>
+<li>Validate JSON formatting; errors prevent credits from loading.</li>
+<li>Keep descriptions concise for readability.</li>
+</ul>
+
+
+      <div class="wiki-meta">
+        <span>Written by Malloy</span>
+        <span>Last updated: <span id="last-updated" data-time="2025-11-21T00:00:00.000Z">Nov 21, 2025</span></span>
+        <a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/config/credits-json.md">Edit</a>
+      </div>
+
+      <div class="giscus"></div>
+    </article>
+
+    <aside class="wiki-sidebar">
+      <button id="sidebarToggle" aria-expanded="true">Toggle sidebar</button>
+      <h3>Pages</h3>
+      <ul class="wiki-nav"><li><a href="../../wiki/">Home</a></li><li><a href="../../wiki/engine/compiling.html">Compiling the Engine</a></li><li><a href="../../wiki/engine/shortcuts.html">Engine Shortcuts</a></li><li><a href="../../wiki/config/index.html">Configuration</a><ul><li><a href="../../wiki/config/data-json.html">data.json</a></li><li><a href="../../wiki/config/options-json.html">options.json</a></li><li><a href="../../wiki/config/credits-json.html" class="active" aria-current="page">credits.json</a></li><li><a href="../../wiki/config/debug-panel.html">debug.json</a></li></ul></li><li><a href="../../wiki/modding/index.html">Modding</a><ul><li><a href="../../wiki/modding/adding-songs.html">Adding Songs</a></li><li><a href="../../wiki/modding/menu-scripting.html">Menu Scripting</a></li><li><a href="../../wiki/modding/substate-scripting.html">Substate Scripting</a></li><li><a href="../../wiki/modding/custom-classes.html">Custom Classes</a></li><li><a href="../../wiki/modding/custom-events.html">Custom Events</a></li></ul></li></ul>
+    </aside>
+  </main>
+
+  <footer id="aleFooter">
+    <div class="footer-links">
+        <a href="../../">Home</a>
+        <a href="../../downloads/">Downloads</a>
+        <a href="../../mods/">Mods</a>
+        <a href="../../scripts/">Scripts</a>
+        <a href="../../wiki/">Wiki</a>
+    </div>
+    <div class="footer-social">
+        <span>Join us:</span>
+        <a href="https://discord.gg/6krHvPvPBf" target="_blank" rel="noopener">
+          <img src="../../assets/svg/socials/discord.svg" alt="Discord" width="22" height="22">
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew" target="_blank" rel="noopener">
+          <img src="../../assets/svg/socials/github.svg" alt="GitHub" width="22" height="22">
+        </a>
+    </div>
+  </footer>
+
+  <script src="../../js/wiki/wiki.js" defer></script>
+  <script src="https://giscus.app/client.js"
+          data-repo="ALE-Psych-Crew/ALE-Psych-Website"
+          data-repo-id=""
+          data-category="Wiki"
+          data-category-id=""
+          data-mapping="specific"
+          data-term="config/credits-json"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="catppuccin_mocha"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+</body>
+</html>

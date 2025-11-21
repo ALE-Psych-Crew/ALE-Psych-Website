@@ -112,7 +112,7 @@
       el.target = '_blank';
       el.rel = 'noopener';
       el.className = 'mod-card mod-card-link';
-      el.setAttribute('aria-label', `${name} — open mod page`);
+      el.setAttribute('aria-label', `${name} - open mod page`);
     } else {
       el.className = 'mod-card';
     }
