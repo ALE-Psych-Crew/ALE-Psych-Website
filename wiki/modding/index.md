@@ -5,8 +5,6 @@ author: Malloy
 lastUpdated: 2025-11-21
 ---
 
-# Modding Overview
-
 Use these pages to build content without editing the engine source. Start with menu and substate scripting, then add songs and custom events as needed.
 
 ## Recommended Path

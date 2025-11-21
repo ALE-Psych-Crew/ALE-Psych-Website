@@ -5,8 +5,6 @@ author: Malloy
 lastUpdated: 2025-11-21
 ---
 
-# ALE Psych Wiki
-
 Welcome to the ALE Psych wiki, the central hub for documentation, learning resources, and project guidance. Whether you are exploring the engine, creating a mod, or contributing code, this site links every major topic.
 
 ## Getting Started

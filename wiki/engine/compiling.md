@@ -5,8 +5,6 @@ author: Malloy
 lastUpdated: 2025-11-21
 ---
 
-# Compiling the Engine
-
 Follow these requirements before building ALE Psych from source.
 
 ## Requirements

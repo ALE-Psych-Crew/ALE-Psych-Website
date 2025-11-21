@@ -5,8 +5,6 @@ author: Malloy
 lastUpdated: 2025-11-21
 ---
 
-# data.json Configuration
-
 ALE Psych reads `mods/<mod-name>/data.json` at launch to override engine defaults. Only define the keys your mod needs; unspecified values fall back to built-in defaults.
 
 ## Example File

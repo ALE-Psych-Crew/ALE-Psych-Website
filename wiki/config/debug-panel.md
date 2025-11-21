@@ -5,8 +5,6 @@ author: Malloy
 lastUpdated: 2025-11-21
 ---
 
-# debug.json
-
 The engine initializes its debug overlay on boot. It always shows built-in FPS, Conductor info, and Flixel stats, then appends any panels defined in `debug.json`.
 
 ## Load Order

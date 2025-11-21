@@ -5,8 +5,6 @@ author: Malloy
 lastUpdated: 2025-11-21
 ---
 
-# options.json
-
 Use `options.json` to add buttons, sliders, and menus to the Options screen without editing engine code.
 
 ## File Location

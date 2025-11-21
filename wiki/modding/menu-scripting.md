@@ -5,8 +5,6 @@ author: Malloy
 lastUpdated: 2025-11-21
 ---
 
-# Menu Scripting
-
 Create new menus or replace existing ones without touching engine source. ALE Psych supports **HScript** for full control and **Lua** for creating scripted menus.
 
 ## HScript

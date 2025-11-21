@@ -5,8 +5,6 @@ author: Malloy
 lastUpdated: 2025-11-21
 ---
 
-# Adding Songs
-
 ALE Psych stores song content only in the `songs` folder. Keep charts, audio, and scripts together inside your mod so the engine can load them without extra data directories.
 
 ## Folder Structure

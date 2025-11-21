@@ -5,8 +5,6 @@ author: Malloy
 lastUpdated: 2025-11-21
 ---
 
-# Engine Shortcuts
-
 ALE Psych includes context-sensitive keyboard shortcuts. Many require developer mode, and all can be rebound through `ClientPrefs.controls`, `Controls.json`, or the Options menu.
 
 ## Shortcut List

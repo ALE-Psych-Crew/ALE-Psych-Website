@@ -5,8 +5,6 @@ author: Malloy
 lastUpdated: 2025-11-21
 ---
 
-# Configuration Overview
-
 ALE Psych reads several JSON files from a mod folder to control boot flow, options, credits, and debugging overlays. These pages summarize each file format and how the engine consumes them.
 
 ## Key Files

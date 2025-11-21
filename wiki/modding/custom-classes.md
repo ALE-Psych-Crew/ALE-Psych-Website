@@ -5,8 +5,6 @@ author: Malloy
 lastUpdated: 2025-11-21
 ---
 
-# Custom Classes
-
 RuleScript with HScript lets you create reusable classes and modules without modifying the ALE Psych source. Organize custom code under `scripts/classes/` just like Haxe packages.
 
 ## Creating a Class

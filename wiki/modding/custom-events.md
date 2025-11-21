@@ -5,7 +5,6 @@ author: Malloy
 lastUpdated: 2025-11-21
 ---
 
-# Custom Events
 
 ALE Psych loads custom events from your mod’s `events/` folder. Provide either Lua or HScript logic for each event and optionally include a `.txt` description for the Chart Editor dropdown.
 

@@ -5,8 +5,6 @@ author: Malloy
 lastUpdated: 2025-11-21
 ---
 
-# credits.json
-
 The credits screen is data-driven. Provide a `credits.json` in your mod root and ALE Psych will load it automatically.
 
 ## File Structure

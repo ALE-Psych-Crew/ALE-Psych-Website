@@ -5,8 +5,6 @@ author: Malloy
 lastUpdated: 2025-11-21
 ---
 
-# Substate Scripting
-
 Substates power overlays like pause, game over, and transition screens. Use HScript for full control or Lua with an override workaround.
 
 ## HScript
