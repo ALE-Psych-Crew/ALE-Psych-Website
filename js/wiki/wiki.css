@@ -247,6 +247,7 @@
 
   .mobile-sidebar-toggle {
     display: inline-flex;
+    top: 120px;
   }
 }
 
