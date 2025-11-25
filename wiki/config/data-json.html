@@ -130,9 +130,9 @@
 </ul>
 <h3>Menu Flow</h3>
 <ul>
-<li><strong><code>initialState</code></strong> (String, default: <code>&quot;TitleState&quot;</code>): Boot entry point.</li>
-<li><strong><code>freeplayState</code></strong>, <strong><code>storyMenuState</code></strong>, <strong><code>masterEditorState</code></strong>, <strong><code>mainMenuState</code></strong>: Menu and editor destinations.</li>
-<li><strong><code>loadDefaultWeeks</code></strong> (Bool, default: <code>true</code>): Set to false to exclude vanilla Story/Freeplay weeks.</li>
+<li><p><strong><code>initialState</code></strong> (String, default: <code>&quot;TitleState&quot;</code>): Boot entry point.</p></li>
+<li><p><strong><code>freeplayState</code></strong>, <strong><code>storyMenuState</code></strong>, <strong><code>masterEditorState</code></strong>, <strong><code>mainMenuState</code></strong>, <strong><code>optionsState</code></strong>: Menu and editor destinations.</p></li>
+<li><p><strong><code>loadDefaultWeeks</code></strong> (Bool, default: <code>true</code>): Set to false to exclude vanilla Story/Freeplay weeks.</p></li>
 </ul>
 <h3>Substates</h3>
 <ul>
@@ -149,7 +149,16 @@
 </ul>
 <h3>Integration</h3>
 <ul>
-<li><strong><code>discordID</code></strong> (String, default: <code>&quot;1309982575368077416&quot;</code>): Discord Rich Presence application ID.</li>
+<li><p><strong><code>discordButtons</code></strong> (Array of Objects, optional): Defines clickable buttons in Discord Rich Presence.</p>
+<ul>
+<li>Each entry must contain:
+<ul>
+<li><code>label</code> (String): The text displayed on the button.</li>
+<li><code>url</code> (String): The destination link <strong>must begin with <code>https://</code> or <code>http://</code></strong>, rotocol‑less URLs will not work unless the URL uses <code>https://</code> or <code>http://</code>.</li>
+</ul></li>
+<li>Up to two buttons are supported by Discord.</li>
+</ul></li>
+<li><p><strong><code>discordID</code></strong> (String, default: <code>&quot;1309982575368077416&quot;</code>): Discord Rich Presence application ID.</p></li>
 </ul>
 <h3>Save Data and Mod Identity</h3>
 <ul>
@@ -159,7 +168,7 @@
 
       <div class="wiki-meta">
         <span>Written by Malloy</span>
-        <span>Last updated: <span id="last-updated" data-time="2025-11-21T00:00:00.000Z">Nov 20, 2025</span></span>
+        <span>Last updated: <span id="last-updated" data-time="2025-11-24T00:00:00.000Z">Nov 23, 2025</span></span>
         <a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/config/data-json.md">Edit</a>
       </div>
 
