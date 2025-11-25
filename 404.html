@@ -34,6 +34,7 @@
   <meta name="twitter:image:alt" content="ALE Psych [Rewritten] - page not found">
 
   <link rel="stylesheet" href="css/global.css">
+  <script src="js/global.js" defer></script>
 
   <style>
     .notfound-wrap{min-height:100vh;display:flex;flex-direction:column}
@@ -68,10 +69,18 @@
 </head>
 <body>
   <div class="notfound-wrap">
-    <header id="mainHeader">
-      <a id="homeLogo" href="./" aria-label="ALE Psych Home">
-        <img id="aleHeader" src="assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
-      </a>
+    <header id="mainHeader" class="nav-collapsed nav-collapsible">
+      <div class="header-left">
+        <a id="homeLogo" href="./" aria-label="ALE Psych Home">
+          <img id="aleHeader" src="assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+        </a>
+        <button id="headerToggle" class="header-toggle" aria-expanded="false" aria-controls="mainNav">
+          <span class="visually-hidden">Toggle navigation</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M12 15.5a1 1 0 0 1-.7-.3l-6-6a1 1 0 1 1 1.4-1.4L12 13.1l5.3-5.3a1 1 0 0 1 1.4 1.4l-6 6a1 1 0 0 1-.7.3Z"/>
+          </svg>
+        </button>
+      </div>
       <nav id="mainNav">
         <a href="./">Home</a>
         <a href="downloads/">Downloads</a>
@@ -115,7 +124,7 @@
     </footer>
 
     <div id="footerCredits">
-      ALE Psych [Rewritten] · Created by Alejo GD Official · Administered by THE VOID · Website by ImMalloy
+      ALE Psych [Rewritten] · Created by Alejo GD Official and THE VOID · Website by ImMalloy
     </div>
   </div>
 

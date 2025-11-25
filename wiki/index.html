@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ALE Psych Wiki - ALE Psych Wiki</title>
-  <meta name="description" content="Overview of ALE Psych documentation, tutorials, and contributor resources." />
+  <meta name="description" content="Overview of ALE Psych documentation, tutorials, and contributor resources!!" />
 
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32.png?v=1">
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16.png?v=1">
@@ -16,7 +16,7 @@
   <link rel="canonical" href="https://ale-psych-crew.github.io/ALE-Psych-Website/wiki/">
 
   <meta property="og:title" content="ALE Psych Wiki - ALE Psych Wiki">
-  <meta property="og:description" content="Overview of ALE Psych documentation, tutorials, and contributor resources.">
+  <meta property="og:description" content="Overview of ALE Psych documentation, tutorials, and contributor resources!!">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="ALE Psych">
   <meta property="og:url" content="https://ale-psych-crew.github.io/ALE-Psych-Website/wiki/">
@@ -27,19 +27,28 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ALE Psych Wiki - ALE Psych Wiki">
-  <meta name="twitter:description" content="Overview of ALE Psych documentation, tutorials, and contributor resources.">
+  <meta name="twitter:description" content="Overview of ALE Psych documentation, tutorials, and contributor resources!!">
   <meta name="twitter:site" content="@ale_engine">
   <meta name="twitter:image" content="https://files.catbox.moe/6jqidi.png">
   <meta name="twitter:image:alt" content="ALE Psych [Rewritten] - ALE Psych Wiki">
 
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../js/wiki/wiki.css">
+  <script src="../js/global.js" defer></script>
 </head>
 <body>
-  <header id="mainHeader">
-    <a id="homeLogo" href="../" aria-label="ALE Psych Home">
-      <img id="aleHeader" src="../assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
-    </a>
+  <header id="mainHeader" class="nav-collapsed nav-collapsible">
+    <div class="header-left">
+      <a id="homeLogo" href="../" aria-label="ALE Psych Home">
+        <img id="aleHeader" src="../assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+      </a>
+      <button id="headerToggle" class="header-toggle" aria-expanded="false" aria-controls="mainNav">
+        <span class="visually-hidden">Toggle navigation</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M12 15.5a1 1 0 0 1-.7-.3l-6-6a1 1 0 1 1 1.4-1.4L12 13.1l5.3-5.3a1 1 0 0 1 1.4 1.4l-6 6a1 1 0 0 1-.7.3Z"/>
+        </svg>
+      </button>
+    </div>
     <nav id="mainNav">
       <a href="../">Home</a>
       <a href="../downloads/">Downloads</a>
@@ -49,6 +58,13 @@
       <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">API (Lua)</a>
     </nav>
   </header>
+
+  <button id="mobileSidebarToggle" class="mobile-sidebar-toggle" aria-expanded="false" aria-controls="wikiSidebar">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M4 7.5a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm0 4a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm0 4a1 1 0 0 1 1-1h6a1 1 0 0 1 0 2H5a1 1 0 0 1-1-1Z"/>
+    </svg>
+    <span class="mobile-sidebar-label">Wiki menu</span>
+  </button>
 
   <main class="wiki-main">
     <article class="wiki-article">
@@ -61,45 +77,45 @@
 <li>Complete the beginner tutorials in the modding section to learn the workflow.</li>
 <li>Revisit the engine pages when you need deeper details about build or runtime behavior.</li>
 </ol>
-<p>If you encounter issues, check the configuration and troubleshooting pages for targeted fixes.</p>
+<p>If you encounter issues, check the configuration and troubleshooting pages for targeted fixes!!</p>
 <h2>Contributing</h2>
 <p>Contributions are welcome. Before submitting pull requests or issues, review the project coding standards, documentation style, testing expectations, and branching practices. More contributor guidance will be added as the project grows.</p>
 
 
       <div class="wiki-meta">
         <span>Written by Malloy</span>
-        <span>Last updated: <span id="last-updated" data-time="2025-11-21T00:00:00.000Z">Nov 21, 2025</span></span>
+        <span>Last updated: <span id="last-updated" data-time="2025-11-21T00:00:00.000Z">Nov 20, 2025</span></span>
         <a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/index.md">Edit</a>
       </div>
 
       <div class="giscus"></div>
     </article>
 
-    <aside class="wiki-sidebar">
-      <button id="sidebarToggle" aria-expanded="true">Toggle sidebar</button>
+    <aside class="wiki-sidebar" id="wikiSidebar">
       <h3>Pages</h3>
-      <ul class="wiki-nav"><li><a href="../wiki/" class="active" aria-current="page">Home</a></li><li><a href="../wiki/engine/compiling.html">Compiling the Engine</a></li><li><a href="../wiki/engine/shortcuts.html">Engine Shortcuts</a></li><li><a href="../wiki/config/index.html">Configuration</a><ul><li><a href="../wiki/config/data-json.html">data.json</a></li><li><a href="../wiki/config/options-json.html">options.json</a></li><li><a href="../wiki/config/credits-json.html">credits.json</a></li><li><a href="../wiki/config/debug-panel.html">debug.json</a></li></ul></li><li><a href="../wiki/modding/index.html">Modding</a><ul><li><a href="../wiki/modding/adding-songs.html">Adding Songs</a></li><li><a href="../wiki/modding/menu-scripting.html">Menu Scripting</a></li><li><a href="../wiki/modding/substate-scripting.html">Substate Scripting</a></li><li><a href="../wiki/modding/custom-classes.html">Custom Classes</a></li><li><a href="../wiki/modding/custom-events.html">Custom Events</a></li></ul></li></ul>
+      <ul class="wiki-nav"><li><a href="../wiki/" class="active" aria-current="page">ALE Psych Wiki</a></li><li><span class="wiki-nav-label">Config</span><ul><li><a href="../wiki/config/index.html">Configuration Overview</a></li><li><a href="../wiki/config/credits-json.html">credits.json</a></li><li><a href="../wiki/config/data-json.html">data.json Configuration</a></li><li><a href="../wiki/config/debug-panel.html">debug.json</a></li><li><a href="../wiki/config/options-json.html">options.json</a></li></ul></li><li><span class="wiki-nav-label">Engine</span><ul><li><a href="../wiki/engine/compiling.html">Compiling the Engine</a></li><li><a href="../wiki/engine/shortcuts.html">Engine Shortcuts</a></li></ul></li><li><span class="wiki-nav-label">Modding</span><ul><li><a href="../wiki/modding/adding-songs.html">Adding Songs</a></li><li><a href="../wiki/modding/custom-classes.html">Custom Classes</a></li><li><a href="../wiki/modding/custom-events.html">Custom Events</a></li><li><a href="../wiki/modding/menu-scripting.html">Menu Scripting</a></li><li><a href="../wiki/modding/index.html">Modding Overview</a></li><li><a href="../wiki/modding/substate-scripting.html">Substate Scripting</a></li></ul></li></ul>
     </aside>
   </main>
 
   <footer id="aleFooter">
     <div class="footer-links">
-        <a href="../">Home</a>
-        <a href="../downloads/">Downloads</a>
-        <a href="../mods/">Mods</a>
-        <a href="../scripts/">Scripts</a>
-        <a href="../wiki/">Wiki</a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website" target="_blank" rel="noopener">Contribute to Website</a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych?tab=readme-ov-file#latest-builds" target="_blank" rel="noopener">Latest Builds</a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/wiki" target="_blank" rel="noopener">Engine Wiki</a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">Engine API (Lua)</a>
+        <a href="https://github.com/topics/ale-psych" target="_blank" rel="noopener">Git Topic (ALE Psych)</a>
     </div>
     <div class="footer-social">
-        <span>Join us:</span>
-        <a href="https://discord.gg/6krHvPvPBf" target="_blank" rel="noopener">
-          <img src="../assets/svg/socials/discord.svg" alt="Discord" width="22" height="22">
-        </a>
-        <a href="https://github.com/ALE-Psych-Crew" target="_blank" rel="noopener">
-          <img src="../assets/svg/socials/github.svg" alt="GitHub" width="22" height="22">
-        </a>
+        <a href="https://github.com/ALE-Psych-Crew" target="_blank" rel="noopener"><img src="../assets/svg/index/github.svg" class="footer-icon" alt=""></a>
+        <a href="https://discord.gg/NP4U9CUrsH" target="_blank" rel="noopener"><img src="../assets/svg/index/discord.svg" class="footer-icon" alt=""></a>
+        <a href="https://x.com/ale_engine" target="_blank" rel="noopener"><img src="../assets/svg/index/twitter.svg" class="footer-icon" alt=""></a>
+        <a href="https://gamebanana.com/wips/95612" target="_blank" rel="noopener"><img src="../assets/svg/index/gamebanana.svg" class="footer-icon" alt=""></a>
     </div>
   </footer>
+
+  <div id="footerCredits">
+    ALE Psych [Rewritten] · Created by Alejo GD Official and THE VOID · Website by ImMalloy
+  </div>
 
   <script src="../js/wiki/wiki.js" defer></script>
   <script src="https://giscus.app/client.js"

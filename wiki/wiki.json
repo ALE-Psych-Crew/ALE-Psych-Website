@@ -1,18 +1,100 @@
 [
-  ["index", "Home"],
-  ["engine/compiling", "Compiling the Engine"],
-  ["engine/shortcuts", "Engine Shortcuts"],
-  ["config/index", "Configuration", [
-    ["config/data-json", "data.json"],
-    ["config/options-json", "options.json"],
-    ["config/credits-json", "credits.json"],
-    ["config/debug-panel", "debug.json"]
-  ]],
-  ["modding/index", "Modding", [
-    ["modding/adding-songs", "Adding Songs"],
-    ["modding/menu-scripting", "Menu Scripting"],
-    ["modding/substate-scripting", "Substate Scripting"],
-    ["modding/custom-classes", "Custom Classes"],
-    ["modding/custom-events", "Custom Events"]
-  ]]
+  {
+    "source": "wiki/index.md",
+    "html": "wiki/index.html",
+    "slug": "index",
+    "title": "ALE Psych Wiki",
+    "lastUpdated": "2025-11-21T00:00:00.000Z"
+  },
+  {
+    "source": "wiki/config/credits-json.md",
+    "html": "wiki/config/credits-json.html",
+    "slug": "config/credits-json",
+    "title": "credits.json",
+    "lastUpdated": "2025-11-21T00:00:00.000Z"
+  },
+  {
+    "source": "wiki/config/data-json.md",
+    "html": "wiki/config/data-json.html",
+    "slug": "config/data-json",
+    "title": "data.json Configuration",
+    "lastUpdated": "2025-11-21T00:00:00.000Z"
+  },
+  {
+    "source": "wiki/config/debug-panel.md",
+    "html": "wiki/config/debug-panel.html",
+    "slug": "config/debug-panel",
+    "title": "debug.json",
+    "lastUpdated": "2025-11-21T00:00:00.000Z"
+  },
+  {
+    "source": "wiki/config/index.md",
+    "html": "wiki/config/index.html",
+    "slug": "config/index",
+    "title": "Configuration Overview",
+    "lastUpdated": "2025-11-21T00:00:00.000Z"
+  },
+  {
+    "source": "wiki/config/options-json.md",
+    "html": "wiki/config/options-json.html",
+    "slug": "config/options-json",
+    "title": "options.json",
+    "lastUpdated": "2025-11-21T00:00:00.000Z"
+  },
+  {
+    "source": "wiki/engine/compiling.md",
+    "html": "wiki/engine/compiling.html",
+    "slug": "engine/compiling",
+    "title": "Compiling the Engine",
+    "lastUpdated": "2025-11-21T00:00:00.000Z"
+  },
+  {
+    "source": "wiki/engine/shortcuts.md",
+    "html": "wiki/engine/shortcuts.html",
+    "slug": "engine/shortcuts",
+    "title": "Engine Shortcuts",
+    "lastUpdated": "2025-11-21T00:00:00.000Z"
+  },
+  {
+    "source": "wiki/modding/adding-songs.md",
+    "html": "wiki/modding/adding-songs.html",
+    "slug": "modding/adding-songs",
+    "title": "Adding Songs",
+    "lastUpdated": "2025-11-21T00:00:00.000Z"
+  },
+  {
+    "source": "wiki/modding/custom-classes.md",
+    "html": "wiki/modding/custom-classes.html",
+    "slug": "modding/custom-classes",
+    "title": "Custom Classes",
+    "lastUpdated": "2025-11-21T00:00:00.000Z"
+  },
+  {
+    "source": "wiki/modding/custom-events.md",
+    "html": "wiki/modding/custom-events.html",
+    "slug": "modding/custom-events",
+    "title": "Custom Events",
+    "lastUpdated": "2025-11-21T00:00:00.000Z"
+  },
+  {
+    "source": "wiki/modding/index.md",
+    "html": "wiki/modding/index.html",
+    "slug": "modding/index",
+    "title": "Modding Overview",
+    "lastUpdated": "2025-11-21T00:00:00.000Z"
+  },
+  {
+    "source": "wiki/modding/menu-scripting.md",
+    "html": "wiki/modding/menu-scripting.html",
+    "slug": "modding/menu-scripting",
+    "title": "Menu Scripting",
+    "lastUpdated": "2025-11-21T00:00:00.000Z"
+  },
+  {
+    "source": "wiki/modding/substate-scripting.md",
+    "html": "wiki/modding/substate-scripting.html",
+    "slug": "modding/substate-scripting",
+    "title": "Substate Scripting",
+    "lastUpdated": "2025-11-21T00:00:00.000Z"
+  }
 ]

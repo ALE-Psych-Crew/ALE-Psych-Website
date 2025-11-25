@@ -112,8 +112,8 @@ const ROOT = path.resolve(__dirname, '..', '..');
 const SRC_DIR = path.join(ROOT, 'wiki');
 const OUT_DIR = path.join(ROOT, 'wiki');
 const TEMPLATE_PATH = path.join(__dirname, 'wiki.html');
+const WIKI_JSON = path.join(SRC_DIR, 'wiki.json');
 
-const wikiTree = JSON.parse(fs.readFileSync(path.join(SRC_DIR, 'wiki.json'), 'utf8'));
 const template = fs.readFileSync(TEMPLATE_PATH, 'utf8');
 
 function fixPath(p) {
@@ -158,32 +158,6 @@ function ensureDir(filePath) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
 }
 
-function buildSidebar(nodes, activeSlug, basePrefix) {
-  const walk = (items) => {
-    let html = '<ul class="wiki-nav">';
-    for (const item of items) {
-      const [slug, label, children] = item;
-      const isActive = slug === activeSlug;
-      const url = slug === 'index' ? `${basePrefix}wiki/` : `${basePrefix}wiki/${fixPath(slug)}.html`;
-      html += `<li><a href="${url}"${isActive ? ' class="active" aria-current="page"' : ''}>${label}</a>`;
-      if (Array.isArray(children)) {
-        html += '<ul>';
-        html += walk(children).replace('<ul class="wiki-nav">', '').replace(/<\/ul>$/, '');
-        html += '</ul>';
-      }
-      html += '</li>';
-    }
-    html += '</ul>';
-    return html;
-  };
-  return walk(nodes);
-}
-
-function renderMarkdown(mdInstance, content) {
-  const html = mdInstance.render(content);
-  return fixHtmlRefs(html);
-}
-
 function isoDate(value) {
   const d = new Date(value);
   return !isNaN(d) ? d.toISOString() : '';
@@ -206,57 +180,154 @@ function prepareMarkdown() {
       if (headingOpen) {
         return headingOpen.call(this, tokens, idx, ...rest);
       }
-      return Remarkable.prototype.renderToken ? Remarkable.prototype.renderToken.call(this, tokens, idx, ...rest) : `<h${tokens[idx].hLevel}>`;
+      return Remarkable.prototype.renderToken
+        ? Remarkable.prototype.renderToken.call(this, tokens, idx, ...rest)
+        : `<h${tokens[idx].hLevel}>`;
     };
   }
   return md;
 }
 
-function buildPage(slug) {
-  const mdPath = path.join(SRC_DIR, `${slug}.md`);
+function renderMarkdown(mdInstance, content) {
+  const html = mdInstance.render(content);
+  return fixHtmlRefs(html);
+}
+
+function findMarkdownFiles(dir) {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  let files = [];
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      files = files.concat(findMarkdownFiles(fullPath));
+    } else if (entry.isFile() && entry.name.toLowerCase().endsWith('.md')) {
+      files.push(fullPath);
+    }
+  }
+  return files;
+}
+
+function humanize(str) {
+  return str.replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function readPage(mdPath) {
   const raw = fs.readFileSync(mdPath, 'utf8');
   const parsed = (matter.default || matter)(raw);
   const data = parsed.data || {};
   const content = parsed.content || '';
+  const slug = fixPath(path.relative(SRC_DIR, mdPath)).replace(/\.md$/i, '');
+  const title = data.title || humanize(path.basename(slug));
+  const desc = data.desc || title;
+  return {
+    mdPath,
+    htmlPath: path.join(OUT_DIR, `${slug}.html`),
+    slug,
+    title,
+    desc,
+    author: data.author || 'ALE Psych Crew',
+    lastUpdated: data.lastUpdated || new Date().toISOString(),
+    content,
+    giscusID: data.giscusID || slug
+  };
+}
 
+function buildSidebarTree(pages) {
+  const root = { children: [] };
+  const ensureNode = (parent, name) => {
+    let node = parent.children.find(c => c.name === name);
+    if (!node) {
+      node = { name, title: humanize(name), slug: null, children: [] };
+      parent.children.push(node);
+    }
+    return node;
+  };
+
+  pages.forEach(page => {
+    const parts = page.slug.split('/');
+    let current = root;
+    parts.forEach((part, idx) => {
+      current = ensureNode(current, part);
+      if (idx === parts.length - 1) {
+        current.slug = page.slug;
+        current.title = page.title;
+      }
+    });
+  });
+
+  const sortNodes = (nodes) => {
+    nodes.sort((a, b) => {
+      if (a.slug === 'index') return -1;
+      if (b.slug === 'index') return 1;
+      return a.title.localeCompare(b.title);
+    });
+    nodes.forEach(node => sortNodes(node.children));
+  };
+
+  sortNodes(root.children);
+  return root.children;
+}
+
+function buildSidebar(nodes, activeSlug, basePrefix) {
+  const walk = (items) => {
+    let html = '<ul class="wiki-nav">';
+    for (const item of items) {
+      const hasPage = Boolean(item.slug);
+      const url = hasPage ? (item.slug === 'index' ? `${basePrefix}wiki/` : `${basePrefix}wiki/${fixPath(item.slug)}.html`) : '#';
+      const isActive = hasPage && item.slug === activeSlug;
+      const label = item.title || humanize(item.name);
+      html += '<li>';
+      if (hasPage) {
+        html += `<a href="${url}"${isActive ? ' class="active" aria-current="page"' : ''}>${label}</a>`;
+      } else {
+        html += `<span class="wiki-nav-label">${label}</span>`;
+      }
+      if (item.children && item.children.length) {
+        html += '<ul>';
+        html += walk(item.children).replace('<ul class="wiki-nav">', '').replace(/<\/ul>$/, '');
+        html += '</ul>';
+      }
+      html += '</li>';
+    }
+    html += '</ul>';
+    return html;
+  };
+  return walk(nodes);
+}
+
+function buildPage(page, sidebarTree) {
   const md = prepareMarkdown();
-  const htmlContent = renderMarkdown(md, content);
-
-  const depth = slug.split('/').length;
-  const basePrefix = '../'.repeat(depth);
-
-  const sidebar = buildSidebar(wikiTree, slug, basePrefix);
-  const baseTitle = data.title || 'Untitled';
-  const pageTitle = `${baseTitle} - ALE Psych Wiki`;
-  const desc = data.desc || baseTitle;
-  const canonicalPath = slug === 'index' ? 'wiki/' : `wiki/${fixPath(slug)}.html`;
+  const htmlContent = renderMarkdown(md, page.content);
+  const depth = page.slug.split('/').length - 1;
+  const basePrefix = '../'.repeat(depth + 1);
+  const sidebar = buildSidebar(sidebarTree, page.slug, basePrefix);
+  const canonicalPath = page.slug === 'index' ? 'wiki/' : `wiki/${fixPath(page.slug)}.html`;
   const canonical = `https://ale-psych-crew.github.io/ALE-Psych-Website/${canonicalPath}`;
   const socialImage = 'https://files.catbox.moe/6jqidi.png';
-  const socialAlt = `ALE Psych [Rewritten] - ${baseTitle}`;
+  const socialAlt = `ALE Psych [Rewritten] - ${page.title}`;
 
   const filled = parseTemplate(template, {
-    title: baseTitle,
-    pageTitle,
-    desc,
+    title: page.title,
+    pageTitle: `${page.title} - ALE Psych Wiki`,
+    desc: page.desc,
     canonical,
     socialImage,
     socialAlt,
-    author: data.author || 'ALE Psych Crew',
-    lastUpdated: data.lastUpdated || new Date().toISOString(),
+    author: page.author,
+    lastUpdated: page.lastUpdated,
     content: htmlContent,
     sidebar,
-    url: fixPath(slug),
+    url: fixPath(page.slug),
     base: basePrefix,
-    giscusID: data.giscusID || slug,
+    giscusID: page.giscusID,
     isoDate,
     shortDate
   });
 
   const shell = parseHtml(filled);
-  const outPath = path.join(OUT_DIR, `${slug}.html`);
-  ensureDir(outPath);
-  fs.writeFileSync(outPath, htmlToString(shell));
-  console.log(`Built ${outPath}`);
+  ensureDir(page.htmlPath);
+  fs.writeFileSync(page.htmlPath, htmlToString(shell));
+  console.log(`Built ${page.htmlPath}`);
 }
 
 function copyMedia() {
@@ -277,19 +348,30 @@ function copyMedia() {
   }
 }
 
-function collectSlugs(nodes) {
-  let slugs = [];
-  for (const item of nodes) {
-    const [slug, _label, children] = item;
-    slugs.push(slug);
-    if (Array.isArray(children)) slugs = slugs.concat(collectSlugs(children));
-  }
-  return slugs;
+function writeWikiJson(pages) {
+  const entries = pages.map(page => ({
+    source: fixPath(path.relative(ROOT, page.mdPath)),
+    html: fixPath(path.relative(ROOT, page.htmlPath)),
+    slug: fixPath(page.slug),
+    title: page.title,
+    lastUpdated: isoDate(page.lastUpdated)
+  }));
+  fs.writeFileSync(WIKI_JSON, JSON.stringify(entries, null, 2));
+  console.log(`Wrote ${WIKI_JSON}`);
 }
 
 function main() {
-  const slugs = collectSlugs(wikiTree);
-  slugs.forEach(buildPage);
+  const mdFiles = findMarkdownFiles(SRC_DIR);
+  const pages = mdFiles.map(readPage).sort((a, b) => {
+    if (a.slug === 'index') return -1;
+    if (b.slug === 'index') return 1;
+    return a.slug.localeCompare(b.slug);
+  });
+
+  writeWikiJson(pages);
+
+  const sidebarTree = buildSidebarTree(pages);
+  pages.forEach(page => buildPage(page, sidebarTree));
   copyMedia();
 }
 

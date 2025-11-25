@@ -1,0 +1,66 @@
+############################
+# OS / Editor junk
+############################
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux / general
+*~
+*.swp
+*.swo
+
+# IDEs / editors
+.vscode/
+.idea/
+*.iml
+
+############################
+# Node / JS tooling
+############################
+
+# Global node_modules (if ever created at root)
+node_modules/
+
+# Local wiki builder deps
+js/wiki/node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+############################
+# Haxe / OpenFL / Lime
+############################
+
+# Build outputs (adjust if your folders differ)
+export/
+Export/
+bin/
+obj/
+debug/
+release/
+
+# Haxe library cache (optional – ignore if you don’t want it tracked)
+.haxelib/
+
+############################
+# Misc build artefacts
+############################
+
+*.log
+*.tmp
+*.temp
+*.bak
+
+# Crash dumps
+*.dmp

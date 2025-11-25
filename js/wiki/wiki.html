@@ -34,12 +34,21 @@
 
   <link rel="stylesheet" href="{{base}}css/global.css">
   <link rel="stylesheet" href="{{base}}js/wiki/wiki.css">
+  <script src="{{base}}js/global.js" defer></script>
 </head>
 <body>
-  <header id="mainHeader">
-    <a id="homeLogo" href="{{base}}" aria-label="ALE Psych Home">
-      <img id="aleHeader" src="{{base}}assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
-    </a>
+  <header id="mainHeader" class="nav-collapsed nav-collapsible">
+    <div class="header-left">
+      <a id="homeLogo" href="{{base}}" aria-label="ALE Psych Home">
+        <img id="aleHeader" src="{{base}}assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+      </a>
+      <button id="headerToggle" class="header-toggle" aria-expanded="false" aria-controls="mainNav">
+        <span class="visually-hidden">Toggle navigation</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M12 15.5a1 1 0 0 1-.7-.3l-6-6a1 1 0 1 1 1.4-1.4L12 13.1l5.3-5.3a1 1 0 0 1 1.4 1.4l-6 6a1 1 0 0 1-.7.3Z"/>
+        </svg>
+      </button>
+    </div>
     <nav id="mainNav">
       <a href="{{base}}">Home</a>
       <a href="{{base}}downloads/">Downloads</a>
@@ -49,6 +58,13 @@
       <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">API (Lua)</a>
     </nav>
   </header>
+
+  <button id="mobileSidebarToggle" class="mobile-sidebar-toggle" aria-expanded="false" aria-controls="wikiSidebar">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M4 7.5a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm0 4a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm0 4a1 1 0 0 1 1-1h6a1 1 0 0 1 0 2H5a1 1 0 0 1-1-1Z"/>
+    </svg>
+    <span class="mobile-sidebar-label">Wiki menu</span>
+  </button>
 
   <main class="wiki-main">
     <article class="wiki-article">
@@ -64,8 +80,7 @@
       <div class="giscus"></div>
     </article>
 
-    <aside class="wiki-sidebar">
-      <button id="sidebarToggle" aria-expanded="true">Toggle sidebar</button>
+    <aside class="wiki-sidebar" id="wikiSidebar">
       <h3>Pages</h3>
       {{sidebar}}
     </aside>
@@ -73,22 +88,23 @@
 
   <footer id="aleFooter">
     <div class="footer-links">
-        <a href="{{base}}">Home</a>
-        <a href="{{base}}downloads/">Downloads</a>
-        <a href="{{base}}mods/">Mods</a>
-        <a href="{{base}}scripts/">Scripts</a>
-        <a href="{{base}}wiki/">Wiki</a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website" target="_blank" rel="noopener">Contribute to Website</a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych?tab=readme-ov-file#latest-builds" target="_blank" rel="noopener">Latest Builds</a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/wiki" target="_blank" rel="noopener">Engine Wiki</a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">Engine API (Lua)</a>
+        <a href="https://github.com/topics/ale-psych" target="_blank" rel="noopener">Git Topic (ALE Psych)</a>
     </div>
     <div class="footer-social">
-        <span>Join us:</span>
-        <a href="https://discord.gg/6krHvPvPBf" target="_blank" rel="noopener">
-          <img src="{{base}}assets/svg/socials/discord.svg" alt="Discord" width="22" height="22">
-        </a>
-        <a href="https://github.com/ALE-Psych-Crew" target="_blank" rel="noopener">
-          <img src="{{base}}assets/svg/socials/github.svg" alt="GitHub" width="22" height="22">
-        </a>
+        <a href="https://github.com/ALE-Psych-Crew" target="_blank" rel="noopener"><img src="{{base}}assets/svg/index/github.svg" class="footer-icon" alt=""></a>
+        <a href="https://discord.gg/NP4U9CUrsH" target="_blank" rel="noopener"><img src="{{base}}assets/svg/index/discord.svg" class="footer-icon" alt=""></a>
+        <a href="https://x.com/ale_engine" target="_blank" rel="noopener"><img src="{{base}}assets/svg/index/twitter.svg" class="footer-icon" alt=""></a>
+        <a href="https://gamebanana.com/wips/95612" target="_blank" rel="noopener"><img src="{{base}}assets/svg/index/gamebanana.svg" class="footer-icon" alt=""></a>
     </div>
   </footer>
+
+  <div id="footerCredits">
+    ALE Psych [Rewritten] · Created by Alejo GD Official and THE VOID · Website by ImMalloy
+  </div>
 
   <script src="{{base}}js/wiki/wiki.js" defer></script>
   <script src="https://giscus.app/client.js"

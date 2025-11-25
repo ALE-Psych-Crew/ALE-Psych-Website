@@ -13,10 +13,11 @@ Path: `mods/<mod-name>/data.json`
 
 ```json
 {
-  "developerMode": true,
+  "developerMode": false,
   "mobileDebug": false,
-  "scriptsHotReloading": true,
-  "verbose": true,
+  "scriptsHotReloading": false,
+
+  "verbose": false,
   "allowDebugPrint": true,
 
   "initialState": "TitleState",
@@ -24,6 +25,7 @@ Path: `mods/<mod-name>/data.json`
   "storyMenuState": "StoryMenuState",
   "masterEditorState": "MasterEditorState",
   "mainMenuState": "MainMenuState",
+  "optionsState": "OptionsState",
 
   "pauseSubState": "PauseSubState",
   "gameOverScreen": "GameOverSubState",
@@ -32,14 +34,26 @@ Path: `mods/<mod-name>/data.json`
   "loadDefaultWeeks": true,
 
   "title": "My ALE Psych Mod",
-  "icon": "custom_icon",
-
+  "icon": "appIcon",
   "width": 1280,
   "height": 720,
 
-  "bpm": 120,
-  "discordID": "123456789012345678",
-  "modID": "my-unique-mod-id"
+  "bpm": 102.0,
+
+  "discordID": "1309982575368077416",
+
+  "discordButtons": [
+    {
+      "label": "ALE Psych Website",
+      "url": "https://ale-psych-crew.github.io/ALE-Psych-Website/"
+    },
+    {
+      "label": "Mod Page",
+      "url": "https://example.com/my-mod"
+    }
+  ],
+
+  "modID": "modtemplate"
 }
 ```
 
