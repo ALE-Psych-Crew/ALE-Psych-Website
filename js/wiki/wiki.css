@@ -5,10 +5,6 @@
   gap: 2em;
   padding: 2em;
   align-items: flex-start;
-  width: 100%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .wiki-article {
@@ -20,8 +16,6 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   word-break: break-word;
   overflow-wrap: anywhere;
-  min-width: 0;
-  max-width: 100%;
 }
 
 .wiki-article h1,
@@ -48,36 +42,35 @@
 .wiki-code-block {
   position: relative;
   margin: 1.25em 0;
-  background: rgba(12, 12, 18, 0.9);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(20, 20, 28, 0.9);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .wiki-article pre {
   margin: 0;
   background: transparent;
-  padding: 1.6em 1em 1em;
-  border-radius: 12px;
+  padding: 1.45em 1.1em 1.05em;
+  border-radius: 14px;
   overflow-x: auto;
   border: none;
-  white-space: pre-wrap;
-  word-break: break-word;
 }
 
 .wiki-article pre code {
   display: block;
   color: #f8fafc;
   font-family: 'Fira Code', 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  line-height: 1.55;
-  font-size: clamp(0.92rem, 0.9rem + 0.3vw, 1.02rem);
+  line-height: 1.5;
+  font-size: 0.95em;
 }
 
 .code-language {
   position: absolute;
   top: 10px;
   left: 12px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 8px;
   color: #e0e7ff;
   font-size: 0.75em;
@@ -118,20 +111,19 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  padding: 0.35em 0.7em;
+  padding: 0.35em 0.75em;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.08);
   color: #f8fafc;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   font-size: 0.85em;
   cursor: pointer;
-  transition: background 0.12s ease, transform 0.12s ease, color 0.12s ease;
+  transition: background 0.15s ease, transform 0.15s ease;
 }
 
 .copy-code:hover,
 .copy-code:focus-visible {
-  background: rgba(201, 145, 249, 0.25);
-  color: #ffffff;
+  background: rgba(201, 145, 249, 0.35);
   transform: translateY(-1px);
 }
 
@@ -156,7 +148,6 @@
   position: sticky;
   top: 6em;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.35);
-  min-width: 0;
 }
 
 .wiki-sidebar h3 {
@@ -283,22 +274,5 @@
   .wiki-article {
     font-size: 15px;
     line-height: 1.6;
-  }
-
-  .wiki-code-block {
-    margin: 1em 0;
-  }
-
-  .wiki-article pre {
-    padding: 1.4em 0.85em 0.85em;
-  }
-
-  .wiki-article pre code {
-    font-size: clamp(0.9rem, 0.88rem + 0.2vw, 0.98rem);
-  }
-
-  .code-language,
-  .copy-code {
-    top: 8px;
   }
 }
