@@ -9,22 +9,36 @@
     }
   }
 
-  const sidebar = document.querySelector('.wiki-sidebar');
-  const toggle = document.getElementById('sidebarToggle');
-  if (sidebar && toggle) {
-    const update = () => {
-      const shouldCollapse = window.innerWidth < 900;
-      sidebar.classList.toggle('collapsed', shouldCollapse && sidebar.classList.contains('collapsed'));
-      toggle.setAttribute('aria-expanded', !sidebar.classList.contains('collapsed'));
+  const sidebar = document.getElementById('wikiSidebar');
+  const mobileToggle = document.getElementById('mobileSidebarToggle');
+  if (sidebar && mobileToggle) {
+    const applyState = expanded => {
+      sidebar.classList.toggle('collapsed', !expanded);
+      mobileToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      mobileToggle.setAttribute('aria-label', expanded ? 'Hide wiki menu' : 'Show wiki menu');
     };
 
-    toggle.addEventListener('click', () => {
-      sidebar.classList.toggle('collapsed');
-      toggle.setAttribute('aria-expanded', !sidebar.classList.contains('collapsed'));
+    const syncForViewport = () => {
+      const isMobile = window.innerWidth < 980;
+      if (!isMobile) {
+        mobileToggle.dataset.userToggled = '';
+        applyState(true);
+        return;
+      }
+
+      if (!mobileToggle.dataset.userToggled) {
+        applyState(false);
+      }
+    };
+
+    mobileToggle.addEventListener('click', () => {
+      const willExpand = sidebar.classList.contains('collapsed');
+      mobileToggle.dataset.userToggled = 'true';
+      applyState(willExpand);
     });
 
-    window.addEventListener('resize', update);
-    update();
+    window.addEventListener('resize', syncForViewport);
+    syncForViewport();
   }
 
   const enhanceCodeBlocks = () => {
