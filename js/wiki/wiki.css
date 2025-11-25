@@ -49,7 +49,7 @@
 .wiki-article pre {
   margin: 0;
   background: transparent;
-  padding: 1em 1.1em;
+  padding: 1.45em 1.1em 1.05em;
   border-radius: 14px;
   overflow-x: auto;
   border: none;
@@ -61,6 +61,21 @@
   font-family: 'Fira Code', 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
   line-height: 1.5;
   font-size: 0.95em;
+}
+
+.code-language {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  color: #e0e7ff;
+  font-size: 0.75em;
+  letter-spacing: 0.05em;
+  padding: 0.2em 0.55em;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .wiki-article ul,
