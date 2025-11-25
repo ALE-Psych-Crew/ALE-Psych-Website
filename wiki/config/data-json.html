@@ -57,10 +57,11 @@
 <h2>Example File</h2>
 <p>Path: <code>mods/&lt;mod-name&gt;/data.json</code></p>
 <pre><code class="language-json">{
-  &quot;developerMode&quot;: true,
+  &quot;developerMode&quot;: false,
   &quot;mobileDebug&quot;: false,
-  &quot;scriptsHotReloading&quot;: true,
-  &quot;verbose&quot;: true,
+  &quot;scriptsHotReloading&quot;: false,
+
+  &quot;verbose&quot;: false,
   &quot;allowDebugPrint&quot;: true,
 
   &quot;initialState&quot;: &quot;TitleState&quot;,
@@ -68,6 +69,7 @@
   &quot;storyMenuState&quot;: &quot;StoryMenuState&quot;,
   &quot;masterEditorState&quot;: &quot;MasterEditorState&quot;,
   &quot;mainMenuState&quot;: &quot;MainMenuState&quot;,
+  &quot;optionsState&quot;: &quot;OptionsState&quot;,
 
   &quot;pauseSubState&quot;: &quot;PauseSubState&quot;,
   &quot;gameOverScreen&quot;: &quot;GameOverSubState&quot;,
@@ -76,14 +78,26 @@
   &quot;loadDefaultWeeks&quot;: true,
 
   &quot;title&quot;: &quot;My ALE Psych Mod&quot;,
-  &quot;icon&quot;: &quot;custom_icon&quot;,
-
+  &quot;icon&quot;: &quot;appIcon&quot;,
   &quot;width&quot;: 1280,
   &quot;height&quot;: 720,
 
-  &quot;bpm&quot;: 120,
-  &quot;discordID&quot;: &quot;123456789012345678&quot;,
-  &quot;modID&quot;: &quot;my-unique-mod-id&quot;
+  &quot;bpm&quot;: 102.0,
+
+  &quot;discordID&quot;: &quot;1309982575368077416&quot;,
+
+  &quot;discordButtons&quot;: [
+    {
+      &quot;label&quot;: &quot;ALE Psych Website&quot;,
+      &quot;url&quot;: &quot;https://ale-psych-crew.github.io/ALE-Psych-Website/&quot;
+    },
+    {
+      &quot;label&quot;: &quot;Mod Page&quot;,
+      &quot;url&quot;: &quot;https://example.com/my-mod&quot;
+    }
+  ],
+
+  &quot;modID&quot;: &quot;modtemplate&quot;
 }
 </code></pre>
 <h2>Supported Keys</h2>
@@ -126,7 +140,7 @@
 
       <div class="wiki-meta">
         <span>Written by Malloy</span>
-        <span>Last updated: <span id="last-updated" data-time="2025-11-21T00:00:00.000Z">Nov 21, 2025</span></span>
+        <span>Last updated: <span id="last-updated" data-time="2025-11-21T00:00:00.000Z">Nov 20, 2025</span></span>
         <a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/config/data-json.md">Edit</a>
       </div>
 
@@ -136,7 +150,7 @@
     <aside class="wiki-sidebar">
       <button id="sidebarToggle" aria-expanded="true">Toggle sidebar</button>
       <h3>Pages</h3>
-      <ul class="wiki-nav"><li><a href="../../wiki/">Home</a></li><li><a href="../../wiki/engine/compiling.html">Compiling the Engine</a></li><li><a href="../../wiki/engine/shortcuts.html">Engine Shortcuts</a></li><li><a href="../../wiki/config/index.html">Configuration</a><ul><li><a href="../../wiki/config/data-json.html" class="active" aria-current="page">data.json</a></li><li><a href="../../wiki/config/options-json.html">options.json</a></li><li><a href="../../wiki/config/credits-json.html">credits.json</a></li><li><a href="../../wiki/config/debug-panel.html">debug.json</a></li></ul></li><li><a href="../../wiki/modding/index.html">Modding</a><ul><li><a href="../../wiki/modding/adding-songs.html">Adding Songs</a></li><li><a href="../../wiki/modding/menu-scripting.html">Menu Scripting</a></li><li><a href="../../wiki/modding/substate-scripting.html">Substate Scripting</a></li><li><a href="../../wiki/modding/custom-classes.html">Custom Classes</a></li><li><a href="../../wiki/modding/custom-events.html">Custom Events</a></li></ul></li></ul>
+      <ul class="wiki-nav"><li><a href="../../wiki/">ALE Psych Wiki</a></li><li><span class="wiki-nav-label">Config</span><ul><li><a href="../../wiki/config/index.html">Configuration Overview</a></li><li><a href="../../wiki/config/credits-json.html">credits.json</a></li><li><a href="../../wiki/config/data-json.html" class="active" aria-current="page">data.json Configuration</a></li><li><a href="../../wiki/config/debug-panel.html">debug.json</a></li><li><a href="../../wiki/config/options-json.html">options.json</a></li></ul></li><li><span class="wiki-nav-label">Engine</span><ul><li><a href="../../wiki/engine/compiling.html">Compiling the Engine</a></li><li><a href="../../wiki/engine/shortcuts.html">Engine Shortcuts</a></li></ul></li><li><span class="wiki-nav-label">Modding</span><ul><li><a href="../../wiki/modding/adding-songs.html">Adding Songs</a></li><li><a href="../../wiki/modding/custom-classes.html">Custom Classes</a></li><li><a href="../../wiki/modding/custom-events.html">Custom Events</a></li><li><a href="../../wiki/modding/menu-scripting.html">Menu Scripting</a></li><li><a href="../../wiki/modding/index.html">Modding Overview</a></li><li><a href="../../wiki/modding/substate-scripting.html">Substate Scripting</a></li></ul></li></ul>
     </aside>
   </main>
 

@@ -26,4 +26,42 @@
     window.addEventListener('resize', update);
     update();
   }
+
+  const enhanceCodeBlocks = () => {
+    const blocks = document.querySelectorAll('.wiki-article pre > code');
+    blocks.forEach(code => {
+      const pre = code.parentElement;
+      if (!pre || pre.dataset.enhanced === 'true') return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'wiki-code-block';
+      pre.dataset.enhanced = 'true';
+
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+
+      const copyButton = document.createElement('button');
+      copyButton.type = 'button';
+      copyButton.className = 'copy-code';
+      copyButton.textContent = 'Copy';
+      copyButton.setAttribute('aria-label', 'Copy code to clipboard');
+
+      copyButton.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(code.innerText);
+          copyButton.textContent = 'Copied!';
+        } catch (err) {
+          copyButton.textContent = 'Error';
+        } finally {
+          setTimeout(() => {
+            copyButton.textContent = 'Copy';
+          }, 1400);
+        }
+      });
+
+      wrapper.appendChild(copyButton);
+    });
+  };
+
+  enhanceCodeBlocks();
 })();

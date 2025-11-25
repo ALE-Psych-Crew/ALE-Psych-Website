@@ -1,6 +1,6 @@
 ---
 title: ALE Psych Wiki
-desc: Overview of ALE Psych documentation, tutorials, and contributor resources.
+desc: Overview of ALE Psych documentation, tutorials, and contributor resources!!
 author: Malloy
 lastUpdated: 2025-11-21
 ---
@@ -14,7 +14,7 @@ Welcome to the ALE Psych wiki, the central hub for documentation, learning resou
 3. Complete the beginner tutorials in the modding section to learn the workflow.
 4. Revisit the engine pages when you need deeper details about build or runtime behavior.
 
-If you encounter issues, check the configuration and troubleshooting pages for targeted fixes.
+If you encounter issues, check the configuration and troubleshooting pages for targeted fixes!!
 
 ## Contributing
 
