@@ -1,4 +1,24 @@
 (function() {
+  const root = document.documentElement;
+  const header = document.getElementById('mainHeader');
+  const headerToggle = document.getElementById('headerToggle');
+
+  const setHeaderOffset = () => {
+    if (!header || !root) return;
+    const headerHeight = Math.round(header.getBoundingClientRect().height);
+    root.style.setProperty('--wiki-header-offset', `${headerHeight}px`);
+  };
+
+  setHeaderOffset();
+
+  if (headerToggle) {
+    headerToggle.addEventListener('click', () => {
+      setTimeout(setHeaderOffset, 210);
+    });
+  }
+
+  window.addEventListener('resize', setHeaderOffset);
+
   const lastUpdated = document.getElementById('last-updated');
   if (lastUpdated && lastUpdated.dataset.time) {
     const date = new Date(lastUpdated.dataset.time);
