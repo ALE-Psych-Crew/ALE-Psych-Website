@@ -37,8 +37,17 @@
       wrapper.className = 'wiki-code-block';
       pre.dataset.enhanced = 'true';
 
+      const langClass = Array.from(code.classList || []).find(cls => cls.startsWith('language-'));
+      const language = langClass ? langClass.replace('language-', '').toUpperCase() : 'TEXT';
+
       pre.parentNode.insertBefore(wrapper, pre);
       wrapper.appendChild(pre);
+
+      const label = document.createElement('span');
+      label.className = 'code-language';
+      label.textContent = language;
+      label.setAttribute('aria-hidden', 'true');
+      wrapper.appendChild(label);
 
       const copyButton = document.createElement('button');
       copyButton.type = 'button';
