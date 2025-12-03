@@ -1,222 +1,279 @@
-<!-- /index.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ALE Psych [Rewritten]</title>
-    <meta name="description" content="Fast, moddable FNF engine with Lua/HScript, RuleScript, and an in-game console." />
-
-<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png?v=1">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png?v=1">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png?v=1">
-<link rel="shortcut icon" href="assets/icons/favicon-32.png?v=1">
-<link rel="manifest" href="assets/icons/site.webmanifest?v=1">
-<meta name="theme-color" content="#9d6cff">
-
-<link rel="canonical" href="https://ale-psych-crew.github.io/ALE-Psych-Website/">
-
-<meta property="og:title" content="ALE Psych [Rewritten]">
-<meta property="og:description" content="Fast, moddable FNF engine with Lua/HScript, RuleScript, and an in-game console.">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="ALE Psych">
-<meta property="og:url" content="https://ale-psych-crew.github.io/ALE-Psych-Website/">
-<meta property="og:image" content="https://files.catbox.moe/6jqidi.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ALE Psych [Rewritten] - fast, moddable FNF engine">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ALE Psych [Rewritten]">
-<meta name="twitter:description" content="Fast, moddable FNF engine with Lua/HScript, RuleScript, and an in-game console.">
-<meta name="twitter:site" content="@ale_engine">
-<meta name="twitter:image" content="https://files.catbox.moe/6jqidi.png">
-<meta name="twitter:image:alt" content="ALE Psych [Rewritten] - fast, moddable FNF engine">
-
-
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/index.css">
-
-    <script src="js/global.js" defer></script>
-    <script src="js/features.js" defer></script>
-</head>
-
-<body>
-
-    <!-- HEADER -->
-    <header id="mainHeader" class="nav-collapsed nav-collapsible">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>
+      ALE Psych [Rewritten]
+    </title>
+    <meta content="Fast, moddable FNF engine with Lua/HScript, RuleScript, and an in-game console." name="description"/>
+    <link href="assets/icons/favicon-32.png?v=1" rel="icon" sizes="32x32" type="image/png"/>
+    <link href="assets/icons/favicon-16.png?v=1" rel="icon" sizes="16x16" type="image/png"/>
+    <link href="assets/icons/apple-touch-icon.png?v=1" rel="apple-touch-icon" sizes="180x180"/>
+    <link href="assets/icons/favicon-32.png?v=1" rel="shortcut icon"/>
+    <link href="assets/icons/site.webmanifest?v=1" rel="manifest"/>
+    <meta content="#9d6cff" name="theme-color"/>
+    <link href="https://ale-psych-crew.github.io/ALE-Psych-Website/" rel="canonical"/>
+    <meta content="ALE Psych [Rewritten]" property="og:title"/>
+    <meta content="Fast, moddable FNF engine with Lua/HScript, RuleScript, and an in-game console." property="og:description"/>
+    <meta content="website" property="og:type"/>
+    <meta content="ALE Psych" property="og:site_name"/>
+    <meta content="https://ale-psych-crew.github.io/ALE-Psych-Website/" property="og:url"/>
+    <meta content="https://files.catbox.moe/6jqidi.png" property="og:image"/>
+    <meta content="1200" property="og:image:width"/>
+    <meta content="630" property="og:image:height"/>
+    <meta content="ALE Psych [Rewritten] - fast, moddable FNF engine" property="og:image:alt"/>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="ALE Psych [Rewritten]" name="twitter:title"/>
+    <meta content="Fast, moddable FNF engine with Lua/HScript, RuleScript, and an in-game console." name="twitter:description"/>
+    <meta content="@ale_engine" name="twitter:site"/>
+    <meta content="https://files.catbox.moe/6jqidi.png" name="twitter:image"/>
+    <meta content="ALE Psych [Rewritten] - fast, moddable FNF engine" name="twitter:image:alt"/>
+    <link href="css/global.css" rel="stylesheet"/>
+    <link href="css/index.css" rel="stylesheet"/>
+    <script defer="" src="js/global.js">
+    </script>
+    <script defer="" src="js/features.js">
+    </script>
+  </head>
+  <body>
+    <header class="nav-collapsed nav-collapsible" id="mainHeader">
       <div class="header-left">
-        <a id="homeLogo" href="./" aria-label="ALE Psych Home">
-          <img id="aleHeader" src="assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
+        <a aria-label="ALE Psych Home" href="./" id="homeLogo">
+          <img alt="ALE Psych Logo" id="aleHeader" src="assets/images/engine-branding/icon.png"/>
         </a>
-        <button id="headerToggle" class="header-toggle" aria-expanded="false" aria-controls="mainNav">
-          <span class="visually-hidden">Toggle navigation</span>
-          <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path fill="currentColor" d="M4 7h16v2H4zm0 4h16v2H4zm0 4h16v2H4z"/>
+        <button aria-controls="mainNav" aria-expanded="false" class="header-toggle" id="headerToggle">
+          <span class="visually-hidden">
+            Toggle navigation
+          </span>
+          <svg aria-hidden="true" class="icon-menu" focusable="false" viewbox="0 0 24 24">
+            <path d="M4 7h16v2H4zm0 4h16v2H4zm0 4h16v2H4z" fill="currentColor">
+            </path>
           </svg>
-          <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path fill="currentColor" d="M6.7 5.3 5.3 6.7 10.6 12l-5.3 5.3 1.4 1.4L12 13.4l5.3 5.3 1.4-1.4L13.4 12l5.3-5.3-1.4-1.4L12 10.6Z"/>
+          <svg aria-hidden="true" class="icon-close" focusable="false" viewbox="0 0 24 24">
+            <path d="M6.7 5.3 5.3 6.7 10.6 12l-5.3 5.3 1.4 1.4L12 13.4l5.3 5.3 1.4-1.4L13.4 12l5.3-5.3-1.4-1.4L12 10.6Z" fill="currentColor">
+            </path>
           </svg>
         </button>
       </div>
       <nav id="mainNav">
-        <a href="./" aria-current="page">Home</a>
-        <a href="downloads/">Downloads</a>
-        <a href="mods/">Mods</a>
-        <a href="scripts/">Scripts</a>
-        <a href="wiki/">Wiki</a>
-        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">API (Lua)</a>
+        <a aria-current="page" href="./">
+          Home
+        </a>
+        <a href="downloads/">
+          Downloads
+        </a>
+        <a href="mods/">
+          Mods
+        </a>
+        <a href="scripts/">
+          Scripts
+        </a>
+        <a href="wiki/">
+          Wiki
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" rel="noopener" target="_blank">
+          API (Lua)
+        </a>
       </nav>
     </header>
-
-    <!-- MAIN CONTENT -->
-    <section id="homeContainer" class="main-page">
-
-        <!-- Promo image -->
-        <div id="promoBox">
-            <img id="promoImage" src="assets/images/engine-branding/brandpitcure.png" alt="Promo Image">
-        </div>
-
-        <!-- Download links -->
-        <div id="downloadBox">
-            <h2>Downloads</h2>
-            <div class="downloadGrid">
-                <a class="downloadCard"
-                   href="https://nightly.link/ALE-Psych-Crew/ALE-Psych/workflows/main.yaml/main/Windows%20Build.zip"
-                   target="_blank" rel="noopener noreferrer" aria-label="Download Windows 64-bit">
-                    <img class="dl-icon" src="assets/svg/index/win64.svg" alt="" width="24" height="24">
-                    <div class="dl-body">
-                        <span class="dl-title">Windows 64-bit</span>
-                        <span class="dl-sub">ZIP · Win x64</span>
-                    </div>
-                    <span class="dl-cta">Download</span>
-                </a>
-
-                <a class="downloadCard"
-                   href="https://nightly.link/ALE-Psych-Crew/ALE-Psych/workflows/main.yaml/main/Windows%20Build%20(32%20Bits).zip"
-                   target="_blank" rel="noopener noreferrer" aria-label="Download Windows 32-bit">
-                    <img class="dl-icon" src="assets/svg/index/win32.svg" alt="" width="24" height="24">
-                    <div class="dl-body">
-                        <span class="dl-title">Windows 32-bit</span>
-                        <span class="dl-sub">ZIP · Win x86</span>
-                    </div>
-                    <span class="dl-cta">Download</span>
-                </a>
-
-                <a class="downloadCard"
-                   href="https://nightly.link/ALE-Psych-Crew/ALE-Psych/workflows/main.yaml/main/Android%20Build.zip"
-                   target="_blank" rel="noopener noreferrer" aria-label="Download Android build">
-                    <img class="dl-icon" src="assets/svg/index/android.svg" alt="" width="24" height="24">
-                    <div class="dl-body">
-                        <span class="dl-title">Android</span>
-                        <span class="dl-sub">APK/ZIP · Android</span>
-                    </div>
-                    <span class="dl-cta">Download</span>
-                </a>
-
-                <a class="downloadCard"
-                   href="https://nightly.link/ALE-Psych-Crew/ALE-Psych/workflows/main.yaml/main/Linux%20Build.zip"
-                   target="_blank" rel="noopener noreferrer" aria-label="Download Linux build">
-                    <img class="dl-icon" src="assets/svg/index/linux.svg" alt="" width="24" height="24">
-                    <div class="dl-body">
-                        <span class="dl-title">Linux</span>
-                        <span class="dl-sub">ZIP</span>
-                    </div>
-                    <span class="dl-cta">Download</span>
-                </a>
+    <section class="main-page" id="homeContainer">
+      <div id="promoBox">
+        <img alt="Promo Image" id="promoImage" src="assets/images/engine-branding/brandpitcure.png"/>
+      </div>
+      <div id="downloadBox">
+        <h2>
+          Downloads
+        </h2>
+        <div class="downloadGrid">
+          <a aria-label="Download Windows 64-bit" class="downloadCard" href="https://nightly.link/ALE-Psych-Crew/ALE-Psych/workflows/builds.yaml/main/Windows%20Build.zip" rel="noopener noreferrer" target="_blank">
+            <img alt="" class="dl-icon" height="24" src="assets/svg/index/win64.svg" width="24"/>
+            <div class="dl-body">
+              <span class="dl-title">
+                Windows 64-bit
+              </span>
+              <span class="dl-sub">
+                ZIP · Win x64
+              </span>
             </div>
+            <span class="dl-cta">
+              Download
+            </span>
+          </a>
+          <a aria-label="Download Windows 32-bit" class="downloadCard" href="https://nightly.link/ALE-Psych-Crew/ALE-Psych/workflows/builds.yaml/main/Windows%20x32%20Build.zip" rel="noopener noreferrer" target="_blank">
+            <img alt="" class="dl-icon" height="24" src="assets/svg/index/win32.svg" width="24"/>
+            <div class="dl-body">
+              <span class="dl-title">
+                Windows 32-bit
+              </span>
+              <span class="dl-sub">
+                ZIP · Win x86
+              </span>
+            </div>
+            <span class="dl-cta">
+              Download
+            </span>
+          </a>
+          <a aria-label="Download Android build" class="downloadCard" href="https://nightly.link/ALE-Psych-Crew/ALE-Psych/workflows/builds.yaml/main/Android%20Build.zip" rel="noopener noreferrer" target="_blank">
+            <img alt="" class="dl-icon" height="24" src="assets/svg/index/android.svg" width="24"/>
+            <div class="dl-body">
+              <span class="dl-title">
+                Android
+              </span>
+              <span class="dl-sub">
+                APK/ZIP · Android
+              </span>
+            </div>
+            <span class="dl-cta">
+              Download
+            </span>
+          </a>
+          <a aria-label="Download Linux build" class="downloadCard" href="https://nightly.link/ALE-Psych-Crew/ALE-Psych/workflows/builds.yaml/main/Linux%20Build.zip" rel="noopener noreferrer" target="_blank">
+            <img alt="" class="dl-icon" height="24" src="assets/svg/index/linux.svg" width="24"/>
+            <div class="dl-body">
+              <span class="dl-title">
+                Linux
+              </span>
+              <span class="dl-sub">
+                ZIP
+              </span>
+            </div>
+            <span class="dl-cta">
+              Download
+            </span>
+          </a>
+          <a aria-label="Download iOS build" class="downloadCard" href="https://nightly.link/ALE-Psych-Crew/ALE-Psych/workflows/builds.yaml/main/iOS%20Build.zip" rel="noopener noreferrer" target="_blank">
+            <img alt="" class="dl-icon" height="24" src="assets/svg/index/ios.svg" width="24"/>
+            <div class="dl-body">
+              <span class="dl-title">
+                iOS
+              </span>
+              <span class="dl-sub">
+                IPA/ZIP · iPhone/iPad
+              </span>
+            </div>
+            <span class="dl-cta">
+              Download
+            </span>
+          </a>
+          <a aria-label="Download macOS (Universal/ARM)" class="downloadCard" href="https://nightly.link/ALE-Psych-Crew/ALE-Psych/workflows/builds.yaml/main/MacOS%20Build.zip" rel="noopener noreferrer" target="_blank">
+            <img alt="" class="dl-icon" height="24" src="assets/svg/index/macos.svg" width="24"/>
+            <div class="dl-body">
+              <span class="dl-title">
+                macOS
+              </span>
+              <span class="dl-sub">
+                ZIP · Universal/ARM
+              </span>
+            </div>
+            <span class="dl-cta">
+              Download
+            </span>
+          </a>
+          <a aria-label="Download macOS x64 (Intel)" class="downloadCard" href="https://nightly.link/ALE-Psych-Crew/ALE-Psych/workflows/builds.yaml/main/MacOS%20x64%20Build.zip" rel="noopener noreferrer" target="_blank">
+            <img alt="" class="dl-icon" height="24" src="assets/svg/index/macosx64.svg" width="24"/>
+            <div class="dl-body">
+              <span class="dl-title">
+                macOS x64
+              </span>
+              <span class="dl-sub">
+                ZIP · Intel x64
+              </span>
+            </div>
+            <span class="dl-cta">
+              Download
+            </span>
+          </a>
         </div>
-
-        <div class="releaseRow">
-            <a class="releaseButton" href="https://github.com/ALE-Psych-Crew/ALE-Psych/releases" target="_blank" rel="noopener">
-                <img src="assets/svg/index/github.svg" alt="GitHub icon" width="20" height="20">
-                <span>View GitHub Releases</span>
-            </a>
-            <span class="releaseNote">Stable builds and changelogs live on our releases page.</span>
-        </div>
-
+      </div>
+      <div class="releaseRow">
+        <a class="releaseButton" href="https://github.com/ALE-Psych-Crew/ALE-Psych/releases" rel="noopener" target="_blank">
+          <img alt="GitHub icon" height="20" src="assets/svg/index/github.svg" width="20"/>
+          <span>
+            View GitHub Releases
+          </span>
+        </a>
+        <span class="releaseNote">
+          Stable builds and changelogs live on our releases page.
+        </span>
+      </div>
     </section>
-
-    <!-- FEATURES -->
     <section id="featuresSection">
-        <h2>Main Features</h2>
-
-        <div id="featureCarousel">
-            <button class="arrow" id="arrowLeft">&#10094;</button>
-
-            <div id="featureContent" class="loading">
-                <img id="featureImage" src="">
-                <div id="featureText">
-                    <h3 id="featureTitle"></h3>
-                    <p id="featureDescription"></p>
-                </div>
-            </div>
-
-            <button class="arrow" id="arrowRight">&#10095;</button>
+      <h2>
+        Main Features
+      </h2>
+      <div id="featureCarousel">
+        <button class="arrow" id="arrowLeft">
+          ❮
+        </button>
+        <div class="loading" id="featureContent">
+          <img id="featureImage" src=""/>
+          <div id="featureText">
+            <h3 id="featureTitle">
+            </h3>
+            <p id="featureDescription">
+            </p>
+          </div>
         </div>
+        <button class="arrow" id="arrowRight">
+          ❯
+        </button>
+      </div>
     </section>
-
-    <!-- COMMUNITY SECTION -->
     <section id="communitySection">
-        <h2>Community</h2>
-
-        <div id="communityButtons">
-            <a class="communityButton" href="https://github.com/topics/ale-psych" target="_blank">
-                <img class="icon" src="assets/svg/index/github.svg" alt="">
-                Git Topic (ALE Psych)
-            </a>
-
-            <a class="communityButton" href="https://discord.gg/NP4U9CUrsH" target="_blank">
-                <img class="icon" src="assets/svg/index/discord.svg" alt="">
-                Discord Server
-            </a>
-
-            <a class="communityButton" href="mods.html">
-                <img class="icon" src="assets/svg/index/gamebanana.svg" alt="">
-                Mods Page
-            </a>
-        </div>
+      <h2>
+        Community
+      </h2>
+      <div id="communityButtons">
+        <a class="communityButton" href="https://github.com/topics/ale-psych" target="_blank">
+          <img alt="" class="icon" src="assets/svg/index/github.svg"/>
+          Git Topic (ALE Psych)
+        </a>
+        <a class="communityButton" href="https://discord.gg/NP4U9CUrsH" target="_blank">
+          <img alt="" class="icon" src="assets/svg/index/discord.svg"/>
+          Discord Server
+        </a>
+        <a class="communityButton" href="mods.html">
+          <img alt="" class="icon" src="assets/svg/index/gamebanana.svg"/>
+          Mods Page
+        </a>
+      </div>
     </section>
-
-    <!-- FOOTER -->
     <footer id="aleFooter">
-        <div class="footer-links">
-            <a href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website" target="_blank">
-                Contribute to Website
-            </a>
-            <a href="https://github.com/ALE-Psych-Crew/ALE-Psych?tab=readme-ov-file#latest-builds" target="_blank">
-                Latest Builds
-            </a>
-            <a href="wiki/index.html" target="_blank">
-                Engine Wiki
-            </a>
-            <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank">
-                Engine API (Lua)
-            </a>
-            <a href="https://github.com/topics/ale-psych" target="_blank">
-                Git Topic (ALE Psych)
-            </a>
-        </div>
-
-        <div class="footer-social">
-            <a href="https://github.com/ALE-Psych-Crew" target="_blank">
-                <img src="assets/svg/index/github.svg" class="footer-icon" alt="">
-            </a>
-            <a href="https://discord.gg/NP4U9CUrsH" target="_blank">
-                <img src="assets/svg/index/discord.svg" class="footer-icon" alt="">
-            </a>
-            <a href="https://x.com/ale_engine" target="_blank">
-                <img src="assets/svg/index/twitter.svg" class="footer-icon" alt="">
-            </a>
-            <a href="https://gamebanana.com/wips/95612" target="_blank">
-                <img src="assets/svg/index/gamebanana.svg" class="footer-icon" alt="">
-            </a>
-        </div>
+      <div class="footer-links">
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website" target="_blank">
+          Contribute to Website
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych?tab=readme-ov-file#latest-builds" target="_blank">
+          Latest Builds
+        </a>
+        <a href="wiki/index.html" target="_blank">
+          Engine Wiki
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank">
+          Engine API (Lua)
+        </a>
+        <a href="https://github.com/topics/ale-psych" target="_blank">
+          Git Topic (ALE Psych)
+        </a>
+      </div>
+      <div class="footer-social">
+        <a href="https://github.com/ALE-Psych-Crew" target="_blank">
+          <img alt="" class="footer-icon" src="assets/svg/index/github.svg"/>
+        </a>
+        <a href="https://discord.gg/NP4U9CUrsH" target="_blank">
+          <img alt="" class="footer-icon" src="assets/svg/index/discord.svg"/>
+        </a>
+        <a href="https://x.com/ale_engine" target="_blank">
+          <img alt="" class="footer-icon" src="assets/svg/index/twitter.svg"/>
+        </a>
+        <a href="https://gamebanana.com/wips/95612" target="_blank">
+          <img alt="" class="footer-icon" src="assets/svg/index/gamebanana.svg"/>
+        </a>
+      </div>
     </footer>
-
     <div id="footerCredits">
-        ALE Psych [Rewritten] · Created by Alejo GD Official and THE VOID · Website by ImMalloy
+      ALE Psych [Rewritten] · Created by Alejo GD Official and THE VOID · Website by ImMalloy
     </div>
-
-</body>
+  </body>
 </html>

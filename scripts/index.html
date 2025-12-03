@@ -1,137 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Scripts · ALE Psych [Rewritten]</title>
-  <meta name="description" content="Community-made scripts and tools for ALE Psych - browse GitHub Topics or join the Discord scripts channel." />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32.png?v=1">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16.png?v=1">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png?v=1">
-  <link rel="shortcut icon" href="../assets/icons/favicon-32.png?v=1">
-  <link rel="manifest" href="../assets/icons/site.webmanifest?v=1">
-  <meta name="theme-color" content="#9d6cff">
-
-  <link rel="canonical" href="https://ale-psych-crew.github.io/ALE-Psych-Website/scripts/">
-
-  <meta property="og:title" content="Scripts · ALE Psych [Rewritten]">
-  <meta property="og:description" content="Community-made scripts and tools for ALE Psych - browse GitHub Topics or join the Discord scripts channel.">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="ALE Psych">
-  <meta property="og:url" content="https://ale-psych-crew.github.io/ALE-Psych-Website/scripts/">
-  <meta property="og:image" content="https://files.catbox.moe/6jqidi.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="ALE Psych [Rewritten] - scripts and tools">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Scripts · ALE Psych [Rewritten]">
-  <meta name="twitter:description" content="Community-made scripts and tools for ALE Psych - browse GitHub Topics or join the Discord scripts channel.">
-  <meta name="twitter:site" content="@ale_engine">
-  <meta name="twitter:image" content="https://files.catbox.moe/6jqidi.png">
-  <meta name="twitter:image:alt" content="ALE Psych [Rewritten] - scripts and tools">
-
-  <link rel="stylesheet" href="../css/global.css">
-  <link rel="stylesheet" href="../css/scripts.css">
-
-  <script src="../js/global.js" defer></script>
-</head>
-<body>
-
-  <header id="mainHeader" class="nav-collapsed nav-collapsible">
-    <div class="header-left">
-      <a id="homeLogo" href="../" aria-label="ALE Psych Home">
-        <img id="aleHeader" src="../assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
-      </a>
-      <button id="headerToggle" class="header-toggle" aria-expanded="false" aria-controls="mainNav">
-        <span class="visually-hidden">Toggle navigation</span>
-        <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path fill="currentColor" d="M4 7h16v2H4zm0 4h16v2H4zm0 4h16v2H4z"/>
-        </svg>
-        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path fill="currentColor" d="M6.7 5.3 5.3 6.7 10.6 12l-5.3 5.3 1.4 1.4L12 13.4l5.3 5.3 1.4-1.4L13.4 12l5.3-5.3-1.4-1.4L12 10.6Z"/>
-        </svg>
-      </button>
-    </div>
-    <nav id="mainNav">
-      <a href="../">Home</a>
-      <a href="../downloads/">Downloads</a>
-      <a href="../mods/">Mods</a>
-      <a href="../scripts/" aria-current="page">Scripts</a>
-      <a href="../wiki/">Wiki</a>
-      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">API (Lua)</a>
-    </nav>
-  </header>
-
-  <main class="main-page">
-    <section id="scriptsHeader">
-      <h1>Community Scripts & Tools</h1>
-      <p class="lead">Find and share scripts built for ALE Psych - from helpers and utilities to full gameplay systems.</p>
-    </section>
-
-    <section id="scriptsButtons" aria-label="Community links">
-      <a class="bigButton" href="https://github.com/topics/ale-psych" target="_blank" rel="noopener" aria-label="Open GitHub Topics for ALE Psych">
-        <img class="icon" src="../assets/svg/index/github.svg" alt="" width="22" height="22">
-        <span class="btnText">
-          <span class="btnTitle">GitHub Topics</span>
-          <span class="btnSub">Scripts & tools for ALE Psych</span>
-        </span>
-      </a>
-
-      <a class="bigButton" href="https://discord.gg/NP4U9CUrsH" target="_blank" rel="noopener" aria-label="Open ALE Psych Discord server">
-        <img class="icon" src="../assets/svg/index/discord.svg" alt="" width="22" height="22">
-        <span class="btnText">
-          <span class="btnTitle">Discord Server</span>
-          <span class="btnSub">Join the community & support</span>
-        </span>
-      </a>
-
-      <a class="bigButton" href="https://discord.gg/NP4U9CUrsH" target="_blank" rel="noopener"
-         aria-label="Join the Discord server to access the Scripts Channel">
-        <img class="icon" src="../assets/svg/index/discord.svg" alt="" width="22" height="22">
-        <span class="btnText">
-          <span class="btnTitle">Scripts Channel</span>
-          <span class="btnSub">Requires joining the server</span>
-        </span>
-      </a>
-    </section>
-
-    <p class="scriptsNote">
-      Already joined? <a class="scriptsDeepLink" href="https://discord.com/channels/1285303468772425779/1385460090672386079" target="_blank" rel="noopener">Open the Scripts Channel</a>
-    </p>
-
-    <section id="scriptsInfo" aria-label="What you'll find">
-      <div class="infoCard">
-        <h2>What you'll find</h2>
-        <ul>
-          <li>Reusable Lua/HScript snippets for common engine tasks.</li>
-          <li>Tools and helpers for mod pipelines (packaging, assets, automation).</li>
-          <li>Examples demonstrating inputs, menus, RuleScript, and more.</li>
-        </ul>
-        <p class="hint">Tip: tag your GitHub repo with <code>ale-psych</code> so it shows up under Topics.</p>
+  <head>
+    <meta charset="utf-8"/>
+    <title>
+      Scripts · ALE Psych [Rewritten]
+    </title>
+    <meta content="Community-made scripts and tools for ALE Psych - browse GitHub Topics or join the Discord scripts channel." name="description"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="../assets/icons/favicon-32.png?v=1" rel="icon" sizes="32x32" type="image/png"/>
+    <link href="../assets/icons/favicon-16.png?v=1" rel="icon" sizes="16x16" type="image/png"/>
+    <link href="../assets/icons/apple-touch-icon.png?v=1" rel="apple-touch-icon" sizes="180x180"/>
+    <link href="../assets/icons/favicon-32.png?v=1" rel="shortcut icon"/>
+    <link href="../assets/icons/site.webmanifest?v=1" rel="manifest"/>
+    <meta content="#9d6cff" name="theme-color"/>
+    <link href="https://ale-psych-crew.github.io/ALE-Psych-Website/scripts/" rel="canonical"/>
+    <meta content="Scripts · ALE Psych [Rewritten]" property="og:title"/>
+    <meta content="Community-made scripts and tools for ALE Psych - browse GitHub Topics or join the Discord scripts channel." property="og:description"/>
+    <meta content="website" property="og:type"/>
+    <meta content="ALE Psych" property="og:site_name"/>
+    <meta content="https://ale-psych-crew.github.io/ALE-Psych-Website/scripts/" property="og:url"/>
+    <meta content="https://files.catbox.moe/6jqidi.png" property="og:image"/>
+    <meta content="1200" property="og:image:width"/>
+    <meta content="630" property="og:image:height"/>
+    <meta content="ALE Psych [Rewritten] - scripts and tools" property="og:image:alt"/>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="Scripts · ALE Psych [Rewritten]" name="twitter:title"/>
+    <meta content="Community-made scripts and tools for ALE Psych - browse GitHub Topics or join the Discord scripts channel." name="twitter:description"/>
+    <meta content="@ale_engine" name="twitter:site"/>
+    <meta content="https://files.catbox.moe/6jqidi.png" name="twitter:image"/>
+    <meta content="ALE Psych [Rewritten] - scripts and tools" name="twitter:image:alt"/>
+    <link href="../css/global.css" rel="stylesheet"/>
+    <link href="../css/scripts.css" rel="stylesheet"/>
+    <script defer="" src="../js/global.js">
+    </script>
+  </head>
+  <body>
+    <header class="nav-collapsed nav-collapsible" id="mainHeader">
+      <div class="header-left">
+        <a aria-label="ALE Psych Home" href="../" id="homeLogo">
+          <img alt="ALE Psych Logo" id="aleHeader" src="../assets/images/engine-branding/icon.png"/>
+        </a>
+        <button aria-controls="mainNav" aria-expanded="false" class="header-toggle" id="headerToggle">
+          <span class="visually-hidden">
+            Toggle navigation
+          </span>
+          <svg aria-hidden="true" class="icon-menu" focusable="false" viewbox="0 0 24 24">
+            <path d="M4 7h16v2H4zm0 4h16v2H4zm0 4h16v2H4z" fill="currentColor">
+            </path>
+          </svg>
+          <svg aria-hidden="true" class="icon-close" focusable="false" viewbox="0 0 24 24">
+            <path d="M6.7 5.3 5.3 6.7 10.6 12l-5.3 5.3 1.4 1.4L12 13.4l5.3 5.3 1.4-1.4L13.4 12l5.3-5.3-1.4-1.4L12 10.6Z" fill="currentColor">
+            </path>
+          </svg>
+        </button>
       </div>
-    </section>
-  </main>
-
-  <footer id="aleFooter">
-    <div class="footer-links">
-      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website" target="_blank" rel="noopener">Contribute to Website</a>
-      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych?tab=readme-ov-file#latest-builds" target="_blank" rel="noopener">Latest Builds</a>
-      <a href="../wiki/index.html" target="_blank" rel="noopener">Engine Wiki</a>
-      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">Engine API (Lua)</a>
-      <a href="https://github.com/topics/ale-psych" target="_blank" rel="noopener">Git Topic (ALE Psych)</a>
+      <nav id="mainNav">
+        <a href="../">
+          Home
+        </a>
+        <a href="../downloads/">
+          Downloads
+        </a>
+        <a href="../mods/">
+          Mods
+        </a>
+        <a aria-current="page" href="../scripts/">
+          Scripts
+        </a>
+        <a href="../wiki/">
+          Wiki
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" rel="noopener" target="_blank">
+          API (Lua)
+        </a>
+      </nav>
+    </header>
+    <main class="main-page">
+      <section id="scriptsHeader">
+        <h1>
+          Community Scripts &amp; Tools
+        </h1>
+        <p class="lead">
+          Find and share scripts built for ALE Psych - from helpers and utilities to full gameplay systems.
+        </p>
+      </section>
+      <section aria-label="Community links" id="scriptsButtons">
+        <a aria-label="Open GitHub Topics for ALE Psych" class="bigButton" href="https://github.com/topics/ale-psych" rel="noopener" target="_blank">
+          <img alt="" class="icon" height="22" src="../assets/svg/index/github.svg" width="22"/>
+          <span class="btnText">
+            <span class="btnTitle">
+              GitHub Topics
+            </span>
+            <span class="btnSub">
+              Scripts &amp; tools for ALE Psych
+            </span>
+          </span>
+        </a>
+        <a aria-label="Open ALE Psych Discord server" class="bigButton" href="https://discord.gg/NP4U9CUrsH" rel="noopener" target="_blank">
+          <img alt="" class="icon" height="22" src="../assets/svg/index/discord.svg" width="22"/>
+          <span class="btnText">
+            <span class="btnTitle">
+              Discord Server
+            </span>
+            <span class="btnSub">
+              Join the community &amp; support
+            </span>
+          </span>
+        </a>
+        <a aria-label="Join the Discord server to access the Scripts Channel" class="bigButton" href="https://discord.gg/NP4U9CUrsH" rel="noopener" target="_blank">
+          <img alt="" class="icon" height="22" src="../assets/svg/index/discord.svg" width="22"/>
+          <span class="btnText">
+            <span class="btnTitle">
+              Scripts Channel
+            </span>
+            <span class="btnSub">
+              Requires joining the server
+            </span>
+          </span>
+        </a>
+      </section>
+      <p class="scriptsNote">
+        Already joined?
+        <a class="scriptsDeepLink" href="https://discord.com/channels/1285303468772425779/1385460090672386079" rel="noopener" target="_blank">
+          Open the Scripts Channel
+        </a>
+      </p>
+      <section aria-label="What you'll find" id="scriptsInfo">
+        <div class="infoCard">
+          <h2>
+            What you'll find
+          </h2>
+          <ul>
+            <li>
+              Reusable Lua/HScript snippets for common engine tasks.
+            </li>
+            <li>
+              Tools and helpers for mod pipelines (packaging, assets, automation).
+            </li>
+            <li>
+              Examples demonstrating inputs, menus, RuleScript, and more.
+            </li>
+          </ul>
+          <p class="hint">
+            Tip: tag your GitHub repo with
+            <code>
+              ale-psych
+            </code>
+            so it shows up under Topics.
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer id="aleFooter">
+      <div class="footer-links">
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website" rel="noopener" target="_blank">
+          Contribute to Website
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych?tab=readme-ov-file#latest-builds" rel="noopener" target="_blank">
+          Latest Builds
+        </a>
+        <a href="../wiki/index.html" rel="noopener" target="_blank">
+          Engine Wiki
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" rel="noopener" target="_blank">
+          Engine API (Lua)
+        </a>
+        <a href="https://github.com/topics/ale-psych" rel="noopener" target="_blank">
+          Git Topic (ALE Psych)
+        </a>
+      </div>
+      <div class="footer-social">
+        <a href="https://github.com/ALE-Psych-Crew" rel="noopener" target="_blank">
+          <img alt="GitHub" class="footer-icon" src="../assets/svg/index/github.svg"/>
+        </a>
+        <a href="https://discord.gg/NP4U9CUrsH" rel="noopener" target="_blank">
+          <img alt="Discord" class="footer-icon" src="../assets/svg/index/discord.svg"/>
+        </a>
+        <a href="https://x.com/ale_engine" rel="noopener" target="_blank">
+          <img alt="X" class="footer-icon" src="../assets/svg/index/twitter.svg"/>
+        </a>
+        <a href="https://gamebanana.com/wips/95612" rel="noopener" target="_blank">
+          <img alt="GameBanana" class="footer-icon" src="../assets/svg/index/gamebanana.svg"/>
+        </a>
+      </div>
+    </footer>
+    <div id="footerCredits">
+      ALE Psych [Rewritten] · Created by Alejo GD Official and THE VOID · Website by ImMalloy
     </div>
-    <div class="footer-social">
-      <a href="https://github.com/ALE-Psych-Crew" target="_blank" rel="noopener"><img src="../assets/svg/index/github.svg" class="footer-icon" alt="GitHub"></a>
-      <a href="https://discord.gg/NP4U9CUrsH" target="_blank" rel="noopener"><img src="../assets/svg/index/discord.svg" class="footer-icon" alt="Discord"></a>
-      <a href="https://x.com/ale_engine" target="_blank" rel="noopener"><img src="../assets/svg/index/twitter.svg" class="footer-icon" alt="X"></a>
-      <a href="https://gamebanana.com/wips/95612" target="_blank" rel="noopener"><img src="../assets/svg/index/gamebanana.svg" class="footer-icon" alt="GameBanana"></a>
-    </div>
-  </footer>
-
-  <div id="footerCredits">
-    ALE Psych [Rewritten] · Created by Alejo GD Official and THE VOID · Website by ImMalloy
-  </div>
-</body>
+  </body>
 </html>

@@ -1,221 +1,639 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>data.json Configuration - ALE Psych Wiki</title>
-  <meta name="description" content="Control boot flow, window settings, and save data behavior through data.json." />
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>
+      data.json Configuration - ALE Psych Wiki
+    </title>
+    <meta content="Control boot flow, window settings, and save data behavior through data.json." name="description"/>
+    <link href="../../assets/icons/favicon-32.png?v=1" rel="icon" sizes="32x32" type="image/png"/>
+    <link href="../../assets/icons/favicon-16.png?v=1" rel="icon" sizes="16x16" type="image/png"/>
+    <link href="../../assets/icons/apple-touch-icon.png?v=1" rel="apple-touch-icon" sizes="180x180"/>
+    <link href="../../assets/icons/favicon-32.png?v=1" rel="shortcut icon"/>
+    <link href="../../assets/icons/site.webmanifest?v=1" rel="manifest"/>
+    <meta content="#9d6cff" name="theme-color"/>
+    <link href="https://ale-psych-crew.github.io/ALE-Psych-Website/wiki/config/data-json.html" rel="canonical"/>
+    <meta content="data.json Configuration - ALE Psych Wiki" property="og:title"/>
+    <meta content="Control boot flow, window settings, and save data behavior through data.json." property="og:description"/>
+    <meta content="article" property="og:type"/>
+    <meta content="ALE Psych" property="og:site_name"/>
+    <meta content="https://ale-psych-crew.github.io/ALE-Psych-Website/wiki/config/data-json.html" property="og:url"/>
+    <meta content="https://files.catbox.moe/6jqidi.png" property="og:image"/>
+    <meta content="1200" property="og:image:width"/>
+    <meta content="630" property="og:image:height"/>
+    <meta content="ALE Psych [Rewritten] - data.json Configuration" property="og:image:alt"/>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="data.json Configuration - ALE Psych Wiki" name="twitter:title"/>
+    <meta content="Control boot flow, window settings, and save data behavior through data.json." name="twitter:description"/>
+    <meta content="@ale_engine" name="twitter:site"/>
+    <meta content="https://files.catbox.moe/6jqidi.png" name="twitter:image"/>
+    <meta content="ALE Psych [Rewritten] - data.json Configuration" name="twitter:image:alt"/>
+    <link href="../../css/global.css" rel="stylesheet"/>
+    <link href="../../js/wiki/wiki.css" rel="stylesheet"/>
+    <script defer="" src="../../js/global.js">
+    </script>
+  </head>
+  <body>
+    <header class="nav-collapsed nav-collapsible" id="mainHeader">
+      <div class="header-left">
+        <a aria-label="ALE Psych Home" href="../../" id="homeLogo">
+          <img alt="ALE Psych Logo" id="aleHeader" src="../../assets/images/engine-branding/icon.png"/>
+        </a>
+        <button aria-controls="mainNav" aria-expanded="false" class="header-toggle" id="headerToggle">
+          <span class="visually-hidden">
+            Toggle navigation
+          </span>
+          <svg aria-hidden="true" class="icon-menu" focusable="false" viewbox="0 0 24 24">
+            <path d="M4 7h16v2H4zm0 4h16v2H4zm0 4h16v2H4z" fill="currentColor">
+            </path>
+          </svg>
+          <svg aria-hidden="true" class="icon-close" focusable="false" viewbox="0 0 24 24">
+            <path d="M6.7 5.3 5.3 6.7 10.6 12l-5.3 5.3 1.4 1.4L12 13.4l5.3 5.3 1.4-1.4L13.4 12l5.3-5.3-1.4-1.4L12 10.6Z" fill="currentColor">
+            </path>
+          </svg>
+        </button>
+      </div>
+      <nav id="mainNav">
+        <a href="../../">
+          Home
+        </a>
+        <a href="../../downloads/">
+          Downloads
+        </a>
+        <a href="../../mods/">
+          Mods
+        </a>
+        <a href="../../scripts/">
+          Scripts
+        </a>
+        <a aria-current="page" href="../../wiki/">
+          Wiki
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" rel="noopener" target="_blank">
+          API (Lua)
+        </a>
+      </nav>
+    </header>
+    <button aria-controls="wikiSidebar" aria-expanded="false" class="mobile-sidebar-toggle" id="mobileSidebarToggle">
+      <svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
+        <path d="M4 7.5a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm0 4a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm0 4a1 1 0 0 1 1-1h6a1 1 0 0 1 0 2H5a1 1 0 0 1-1-1Z" fill="currentColor">
+        </path>
+      </svg>
+      <span class="mobile-sidebar-label">
+        Wiki menu
+      </span>
+    </button>
+    <main class="wiki-main">
+      <article class="wiki-article">
+        <h1>
+          data.json Configuration
+        </h1>
+        <p>
+          ALE Psych reads
+          <code>
+            mods/&lt;mod-name&gt;/data.json
+          </code>
+          at launch to override engine defaults. Only define the keys your mod needs; unspecified values fall back to built-in defaults.
+        </p>
+        <h2>
+          Example File
+        </h2>
+        <p>
+          Path:
+          <code>
+            mods/&lt;mod-name&gt;/data.json
+          </code>
+        </p>
+        <pre><code class="language-json">{
+    "developerMode": false,
+    "mobileDebug": false,
+    "scriptsHotReloading": false,
 
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32.png?v=1">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/icons/favicon-16.png?v=1">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/icons/apple-touch-icon.png?v=1">
-  <link rel="shortcut icon" href="../../assets/icons/favicon-32.png?v=1">
-  <link rel="manifest" href="../../assets/icons/site.webmanifest?v=1">
-  <meta name="theme-color" content="#9d6cff">
+    "verbose": false,
+    "allowDebugPrint": true,
 
-  <link rel="canonical" href="https://ale-psych-crew.github.io/ALE-Psych-Website/wiki/config/data-json.html">
+    "initialState": "TitleState",
+    "freeplayState": "FreeplayState",
+    "storyMenuState": "StoryMenuState",
+    "masterEditorState": "MasterEditorState",
+    "mainMenuState": "MainMenuState",
+    "optionsState": "OptionsState",
 
-  <meta property="og:title" content="data.json Configuration - ALE Psych Wiki">
-  <meta property="og:description" content="Control boot flow, window settings, and save data behavior through data.json.">
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="ALE Psych">
-  <meta property="og:url" content="https://ale-psych-crew.github.io/ALE-Psych-Website/wiki/config/data-json.html">
-  <meta property="og:image" content="https://files.catbox.moe/6jqidi.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="ALE Psych [Rewritten] - data.json Configuration">
+    "pauseSubState": "PauseSubState",
+    "gameOverScreen": "GameOverSubState",
+    "transition": "FadeTransition",
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="data.json Configuration - ALE Psych Wiki">
-  <meta name="twitter:description" content="Control boot flow, window settings, and save data behavior through data.json.">
-  <meta name="twitter:site" content="@ale_engine">
-  <meta name="twitter:image" content="https://files.catbox.moe/6jqidi.png">
-  <meta name="twitter:image:alt" content="ALE Psych [Rewritten] - data.json Configuration">
+    "loadDefaultWeeks": true,
 
-  <link rel="stylesheet" href="../../css/global.css">
-  <link rel="stylesheet" href="../../js/wiki/wiki.css">
-  <script src="../../js/global.js" defer></script>
-</head>
-<body>
-  <header id="mainHeader" class="nav-collapsed nav-collapsible">
-    <div class="header-left">
-      <a id="homeLogo" href="../../" aria-label="ALE Psych Home">
-        <img id="aleHeader" src="../../assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
-      </a>
-      <button id="headerToggle" class="header-toggle" aria-expanded="false" aria-controls="mainNav">
-        <span class="visually-hidden">Toggle navigation</span>
-        <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path fill="currentColor" d="M4 7h16v2H4zm0 4h16v2H4zm0 4h16v2H4z"/>
-        </svg>
-        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path fill="currentColor" d="M6.7 5.3 5.3 6.7 10.6 12l-5.3 5.3 1.4 1.4L12 13.4l5.3 5.3 1.4-1.4L13.4 12l5.3-5.3-1.4-1.4L12 10.6Z"/>
-        </svg>
-      </button>
-    </div>
-    <nav id="mainNav">
-      <a href="../../">Home</a>
-      <a href="../../downloads/">Downloads</a>
-      <a href="../../mods/">Mods</a>
-      <a href="../../scripts/">Scripts</a>
-      <a href="../../wiki/" aria-current="page">Wiki</a>
-      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">API (Lua)</a>
-    </nav>
-  </header>
+    "title": "My ALE Psych Mod",
+    "icon": "appIcon",
+    "width": 1280,
+    "height": 720,
 
-  <button id="mobileSidebarToggle" class="mobile-sidebar-toggle" aria-expanded="false" aria-controls="wikiSidebar">
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path fill="currentColor" d="M4 7.5a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm0 4a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm0 4a1 1 0 0 1 1-1h6a1 1 0 0 1 0 2H5a1 1 0 0 1-1-1Z"/>
-    </svg>
-    <span class="mobile-sidebar-label">Wiki menu</span>
-  </button>
+    "bpm": 102.0,
 
-  <main class="wiki-main">
-    <article class="wiki-article">
-      <h1>data.json Configuration</h1>
-      <p>ALE Psych reads <code>mods/&lt;mod-name&gt;/data.json</code> at launch to override engine defaults. Only define the keys your mod needs; unspecified values fall back to built-in defaults.</p>
-<h2>Example File</h2>
-<p>Path: <code>mods/&lt;mod-name&gt;/data.json</code></p>
-<pre><code class="language-json">{
-  &quot;developerMode&quot;: false,
-  &quot;mobileDebug&quot;: false,
-  &quot;scriptsHotReloading&quot;: false,
+    "discordID": "1309982575368077416",
 
-  &quot;verbose&quot;: false,
-  &quot;allowDebugPrint&quot;: true,
+    "discordButtons": [
+        {
+            "label": "ALE Psych Website",
+            "url": "https://ale-psych-crew.github.io/ALE-Psych-Website/"
+        },
+        {
+            "label": "Mod Page",
+            "url": "https://example.com/my-mod"
+        }
+    ],
 
-  &quot;initialState&quot;: &quot;TitleState&quot;,
-  &quot;freeplayState&quot;: &quot;FreeplayState&quot;,
-  &quot;storyMenuState&quot;: &quot;StoryMenuState&quot;,
-  &quot;masterEditorState&quot;: &quot;MasterEditorState&quot;,
-  &quot;mainMenuState&quot;: &quot;MainMenuState&quot;,
-  &quot;optionsState&quot;: &quot;OptionsState&quot;,
-
-  &quot;pauseSubState&quot;: &quot;PauseSubState&quot;,
-  &quot;gameOverScreen&quot;: &quot;GameOverSubState&quot;,
-  &quot;transition&quot;: &quot;FadeTransition&quot;,
-
-  &quot;loadDefaultWeeks&quot;: true,
-
-  &quot;title&quot;: &quot;My ALE Psych Mod&quot;,
-  &quot;icon&quot;: &quot;appIcon&quot;,
-  &quot;width&quot;: 1280,
-  &quot;height&quot;: 720,
-
-  &quot;bpm&quot;: 102.0,
-
-  &quot;discordID&quot;: &quot;1309982575368077416&quot;,
-
-  &quot;discordButtons&quot;: [
-    {
-      &quot;label&quot;: &quot;ALE Psych Website&quot;,
-      &quot;url&quot;: &quot;https://ale-psych-crew.github.io/ALE-Psych-Website/&quot;
-    },
-    {
-      &quot;label&quot;: &quot;Mod Page&quot;,
-      &quot;url&quot;: &quot;https://example.com/my-mod&quot;
-    }
-  ],
-
-  &quot;modID&quot;: &quot;modtemplate&quot;
+    "modID": "modtemplate"
 }
 </code></pre>
-<h2>Supported Keys</h2>
-<h3>Development and Debug</h3>
-<ul>
-<li><strong><code>developerMode</code></strong> (Bool, default: <code>false</code>): Enables dev tooling, hot reload, and debug helpers.</li>
-<li><strong><code>mobileDebug</code></strong> (Bool, default: <code>false</code>): Requires <code>developerMode = true</code>; simulates touch controls on desktop.</li>
-<li><strong><code>scriptsHotReloading</code></strong> (Bool, default: <code>false</code>): Auto-reloads Lua scripts in dev mode on desktop.</li>
-<li><strong><code>verbose</code></strong> (Bool, default: <code>false</code>): Emits extra engine logs; avoid for production builds.</li>
-<li><strong><code>allowDebugPrint</code></strong> (Bool, default: <code>true</code>): Sends logs to the in-game Debug Print window when present.</li>
-</ul>
-<h3>Menu Flow</h3>
-<ul>
-<li><p><strong><code>initialState</code></strong> (String, default: <code>&quot;TitleState&quot;</code>): Boot entry point.</p></li>
-<li><p><strong><code>freeplayState</code></strong>, <strong><code>storyMenuState</code></strong>, <strong><code>masterEditorState</code></strong>, <strong><code>mainMenuState</code></strong>, <strong><code>optionsState</code></strong>: Menu and editor destinations.</p></li>
-<li><p><strong><code>loadDefaultWeeks</code></strong> (Bool, default: <code>true</code>): Set to false to exclude vanilla Story/Freeplay weeks.</p></li>
-</ul>
-<h3>Substates</h3>
-<ul>
-<li><strong><code>pauseSubState</code></strong> (String, default: <code>&quot;PauseSubState&quot;</code>)</li>
-<li><strong><code>gameOverScreen</code></strong> (String, default: <code>&quot;GameOverSubState&quot;</code>)</li>
-<li><strong><code>transition</code></strong> (String, default: <code>&quot;FadeTransition&quot;</code>): Must inherit from <code>MusicBeatSubstate</code>.</li>
-</ul>
-<h3>Window and Presentation</h3>
-<ul>
-<li><strong><code>title</code></strong> (String, default: <code>&quot;Friday Night Funkin': ALE Psych&quot;</code>)</li>
-<li><strong><code>icon</code></strong> (String, default: <code>&quot;appIcon&quot;</code>): PNG only; omit the extension.</li>
-<li><strong><code>width</code></strong>, <strong><code>height</code></strong> (Int): Window resolution in pixels.</li>
-<li><strong><code>bpm</code></strong> (Float, default: <code>102.0</code>): Default global BPM for menus and transitions.</li>
-</ul>
-<h3>Integration</h3>
-<ul>
-<li><p><strong><code>discordButtons</code></strong> (Array of Objects, optional): Defines clickable buttons in Discord Rich Presence.</p>
-<ul>
-<li>Each entry must contain:
-<ul>
-<li><code>label</code> (String): The text displayed on the button.</li>
-<li><code>url</code> (String): The destination link <strong>must begin with <code>https://</code> or <code>http://</code></strong>, rotocol‑less URLs will not work unless the URL uses <code>https://</code> or <code>http://</code>.</li>
-</ul></li>
-<li>Up to two buttons are supported by Discord.</li>
-</ul></li>
-<li><p><strong><code>discordID</code></strong> (String, default: <code>&quot;1309982575368077416&quot;</code>): Discord Rich Presence application ID.</p></li>
-</ul>
-<h3>Save Data and Mod Identity</h3>
-<ul>
-<li><strong><code>modID</code></strong> (String, optional): Namespaces save files to <code>AlejoGDOfficial/ALEPsych/&lt;modID&gt;/</code> so saves remain stable even if the mod folder is renamed. Omit or set to <code>null</code> for default behavior.</li>
-</ul>
-
-
-      <div class="wiki-meta">
-        <span>Written by Malloy</span>
-        <span>Last updated: <span id="last-updated" data-time="2025-11-24T00:00:00.000Z">Nov 23, 2025</span></span>
-        <a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/config/data-json.md">Edit</a>
+        <h2>
+          Supported Keys
+        </h2>
+        <h3>
+          Development and Debug
+        </h3>
+        <ul>
+          <li>
+            <strong>
+              <code>
+                developerMode
+              </code>
+            </strong>
+            (Bool, default:
+            <code>
+              false
+            </code>
+            ): Enables dev tooling, hot reload, and debug helpers.
+          </li>
+          <li>
+            <strong>
+              <code>
+                mobileDebug
+              </code>
+            </strong>
+            (Bool, default:
+            <code>
+              false
+            </code>
+            ): Requires
+            <code>
+              developerMode = true
+            </code>
+            ; simulates touch controls on desktop.
+          </li>
+          <li>
+            <strong>
+              <code>
+                scriptsHotReloading
+              </code>
+            </strong>
+            (Bool, default:
+            <code>
+              false
+            </code>
+            ): Auto-reloads Lua scripts in dev mode on desktop.
+          </li>
+          <li>
+            <strong>
+              <code>
+                verbose
+              </code>
+            </strong>
+            (Bool, default:
+            <code>
+              false
+            </code>
+            ): Emits extra engine logs; avoid for production builds.
+          </li>
+          <li>
+            <strong>
+              <code>
+                allowDebugPrint
+              </code>
+            </strong>
+            (Bool, default:
+            <code>
+              true
+            </code>
+            ): Sends logs to the in-game Debug Print window when present.
+          </li>
+        </ul>
+        <h3>
+          Menu Flow
+        </h3>
+        <ul>
+          <li>
+            <p>
+              <strong>
+                <code>
+                  initialState
+                </code>
+              </strong>
+              (String, default:
+              <code>
+                "TitleState"
+              </code>
+              ): Boot entry point.
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>
+                <code>
+                  freeplayState
+                </code>
+              </strong>
+              ,
+              <strong>
+                <code>
+                  storyMenuState
+                </code>
+              </strong>
+              ,
+              <strong>
+                <code>
+                  masterEditorState
+                </code>
+              </strong>
+              ,
+              <strong>
+                <code>
+                  mainMenuState
+                </code>
+              </strong>
+              ,
+              <strong>
+                <code>
+                  optionsState
+                </code>
+              </strong>
+              : Menu and editor destinations.
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>
+                <code>
+                  loadDefaultWeeks
+                </code>
+              </strong>
+              (Bool, default:
+              <code>
+                true
+              </code>
+              ): Set to false to exclude vanilla Story/Freeplay weeks.
+            </p>
+          </li>
+        </ul>
+        <h3>
+          Substates
+        </h3>
+        <ul>
+          <li>
+            <strong>
+              <code>
+                pauseSubState
+              </code>
+            </strong>
+            (String, default:
+            <code>
+              "PauseSubState"
+            </code>
+            )
+          </li>
+          <li>
+            <strong>
+              <code>
+                gameOverScreen
+              </code>
+            </strong>
+            (String, default:
+            <code>
+              "GameOverSubState"
+            </code>
+            )
+          </li>
+          <li>
+            <strong>
+              <code>
+                transition
+              </code>
+            </strong>
+            (String, default:
+            <code>
+              "FadeTransition"
+            </code>
+            ): Must inherit from
+            <code>
+              MusicBeatSubstate
+            </code>
+            .
+          </li>
+        </ul>
+        <h3>
+          Window and Presentation
+        </h3>
+        <ul>
+          <li>
+            <strong>
+              <code>
+                title
+              </code>
+            </strong>
+            (String, default:
+            <code>
+              "Friday Night Funkin': ALE Psych"
+            </code>
+            )
+          </li>
+          <li>
+            <strong>
+              <code>
+                icon
+              </code>
+            </strong>
+            (String, default:
+            <code>
+              "appIcon"
+            </code>
+            ): PNG only; omit the extension.
+          </li>
+          <li>
+            <strong>
+              <code>
+                width
+              </code>
+            </strong>
+            ,
+            <strong>
+              <code>
+                height
+              </code>
+            </strong>
+            (Int): Window resolution in pixels.
+          </li>
+          <li>
+            <strong>
+              <code>
+                bpm
+              </code>
+            </strong>
+            (Float, default:
+            <code>
+              102.0
+            </code>
+            ): Default global BPM for menus and transitions.
+          </li>
+        </ul>
+        <h3>
+          Integration
+        </h3>
+        <ul>
+          <li>
+            <p>
+              <strong>
+                <code>
+                  discordButtons
+                </code>
+              </strong>
+              (Array of Objects, optional): Defines clickable buttons in Discord Rich Presence.
+            </p>
+            <ul>
+              <li>
+                Each entry must contain:
+                <ul>
+                  <li>
+                    <code>
+                      label
+                    </code>
+                    (String): The text displayed on the button.
+                  </li>
+                  <li>
+                    <code>
+                      url
+                    </code>
+                    (String): The destination link
+                    <strong>
+                      must begin with
+                      <code>
+                        https://
+                      </code>
+                      or
+                      <code>
+                        http://
+                      </code>
+                    </strong>
+                    , rotocol‑less URLs will not work unless the URL uses
+                    <code>
+                      https://
+                    </code>
+                    or
+                    <code>
+                      http://
+                    </code>
+                    .
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Up to two buttons are supported by Discord.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              <strong>
+                <code>
+                  discordID
+                </code>
+              </strong>
+              (String, default:
+              <code>
+                "1309982575368077416"
+              </code>
+              ): Discord Rich Presence application ID.
+            </p>
+          </li>
+        </ul>
+        <h3>
+          Save Data and Mod Identity
+        </h3>
+        <ul>
+          <li>
+            <strong>
+              <code>
+                modID
+              </code>
+            </strong>
+            (String, optional): Namespaces save files to
+            <code>
+              AlejoGDOfficial/ALEPsych/&lt;modID&gt;/
+            </code>
+            so saves remain stable even if the mod folder is renamed. Omit or set to
+            <code>
+              null
+            </code>
+            for default behavior.
+          </li>
+        </ul>
+        <div class="wiki-meta">
+          <span>
+            Written by Malloy
+          </span>
+          <span>
+            Last updated:
+            <span data-time="2025-11-24T00:00:00.000Z" id="last-updated">
+              Nov 23, 2025
+            </span>
+          </span>
+          <a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/config/data-json.md">
+            Edit
+          </a>
+        </div>
+        <div class="giscus">
+        </div>
+      </article>
+      <aside class="wiki-sidebar" id="wikiSidebar">
+        <h3>
+          Pages
+        </h3>
+        <ul class="wiki-nav">
+          <li>
+            <a href="../../wiki/">
+              ALE Psych Wiki
+            </a>
+          </li>
+          <li>
+            <span class="wiki-nav-label">
+              Config
+            </span>
+            <ul>
+              <li>
+                <a href="../../wiki/config/index.html">
+                  Configuration Overview
+                </a>
+              </li>
+              <li>
+                <a href="../../wiki/config/credits-json.html">
+                  credits.json
+                </a>
+              </li>
+              <li>
+                <a aria-current="page" class="active" href="../../wiki/config/data-json.html">
+                  data.json Configuration
+                </a>
+              </li>
+              <li>
+                <a href="../../wiki/config/debug-panel.html">
+                  debug.json
+                </a>
+              </li>
+              <li>
+                <a href="../../wiki/config/options-json.html">
+                  options.json
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span class="wiki-nav-label">
+              Engine
+            </span>
+            <ul>
+              <li>
+                <a href="../../wiki/engine/compiling.html">
+                  Compiling the Engine
+                </a>
+              </li>
+              <li>
+                <a href="../../wiki/engine/shortcuts.html">
+                  Engine Shortcuts
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span class="wiki-nav-label">
+              Modding
+            </span>
+            <ul>
+              <li>
+                <a href="../../wiki/modding/adding-songs.html">
+                  Adding Songs
+                </a>
+              </li>
+              <li>
+                <a href="../../wiki/modding/custom-classes.html">
+                  Custom Classes
+                </a>
+              </li>
+              <li>
+                <a href="../../wiki/modding/custom-events.html">
+                  Custom Events
+                </a>
+              </li>
+              <li>
+                <a href="../../wiki/modding/menu-scripting.html">
+                  Menu Scripting
+                </a>
+              </li>
+              <li>
+                <a href="../../wiki/modding/index.html">
+                  Modding Overview
+                </a>
+              </li>
+              <li>
+                <a href="../../wiki/modding/substate-scripting.html">
+                  Substate Scripting
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </aside>
+    </main>
+    <footer id="aleFooter">
+      <div class="footer-links">
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website" rel="noopener" target="_blank">
+          Contribute to Website
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych?tab=readme-ov-file#latest-builds" rel="noopener" target="_blank">
+          Latest Builds
+        </a>
+        <a href="../index.html" rel="noopener" target="_blank">
+          Engine Wiki
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" rel="noopener" target="_blank">
+          Engine API (Lua)
+        </a>
+        <a href="https://github.com/topics/ale-psych" rel="noopener" target="_blank">
+          Git Topic (ALE Psych)
+        </a>
       </div>
-
-      <div class="giscus"></div>
-    </article>
-
-    <aside class="wiki-sidebar" id="wikiSidebar">
-      <h3>Pages</h3>
-      <ul class="wiki-nav"><li><a href="../../wiki/">ALE Psych Wiki</a></li><li><span class="wiki-nav-label">Config</span><ul><li><a href="../../wiki/config/index.html">Configuration Overview</a></li><li><a href="../../wiki/config/credits-json.html">credits.json</a></li><li><a href="../../wiki/config/data-json.html" class="active" aria-current="page">data.json Configuration</a></li><li><a href="../../wiki/config/debug-panel.html">debug.json</a></li><li><a href="../../wiki/config/options-json.html">options.json</a></li></ul></li><li><span class="wiki-nav-label">Engine</span><ul><li><a href="../../wiki/engine/compiling.html">Compiling the Engine</a></li><li><a href="../../wiki/engine/shortcuts.html">Engine Shortcuts</a></li></ul></li><li><span class="wiki-nav-label">Modding</span><ul><li><a href="../../wiki/modding/adding-songs.html">Adding Songs</a></li><li><a href="../../wiki/modding/custom-classes.html">Custom Classes</a></li><li><a href="../../wiki/modding/custom-events.html">Custom Events</a></li><li><a href="../../wiki/modding/menu-scripting.html">Menu Scripting</a></li><li><a href="../../wiki/modding/index.html">Modding Overview</a></li><li><a href="../../wiki/modding/substate-scripting.html">Substate Scripting</a></li></ul></li></ul>
-    </aside>
-  </main>
-
-  <footer id="aleFooter">
-    <div class="footer-links">
-        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website" target="_blank" rel="noopener">Contribute to Website</a>
-        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych?tab=readme-ov-file#latest-builds" target="_blank" rel="noopener">Latest Builds</a>
-        <a href="../index.html" target="_blank" rel="noopener">Engine Wiki</a>
-        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">Engine API (Lua)</a>
-        <a href="https://github.com/topics/ale-psych" target="_blank" rel="noopener">Git Topic (ALE Psych)</a>
+      <div class="footer-social">
+        <a href="https://github.com/ALE-Psych-Crew" rel="noopener" target="_blank">
+          <img alt="" class="footer-icon" src="../../assets/svg/index/github.svg"/>
+        </a>
+        <a href="https://discord.gg/NP4U9CUrsH" rel="noopener" target="_blank">
+          <img alt="" class="footer-icon" src="../../assets/svg/index/discord.svg"/>
+        </a>
+        <a href="https://x.com/ale_engine" rel="noopener" target="_blank">
+          <img alt="" class="footer-icon" src="../../assets/svg/index/twitter.svg"/>
+        </a>
+        <a href="https://gamebanana.com/wips/95612" rel="noopener" target="_blank">
+          <img alt="" class="footer-icon" src="../../assets/svg/index/gamebanana.svg"/>
+        </a>
+      </div>
+    </footer>
+    <div id="footerCredits">
+      ALE Psych [Rewritten] · Created by Alejo GD Official and THE VOID · Website by ImMalloy
     </div>
-    <div class="footer-social">
-        <a href="https://github.com/ALE-Psych-Crew" target="_blank" rel="noopener"><img src="../../assets/svg/index/github.svg" class="footer-icon" alt=""></a>
-        <a href="https://discord.gg/NP4U9CUrsH" target="_blank" rel="noopener"><img src="../../assets/svg/index/discord.svg" class="footer-icon" alt=""></a>
-        <a href="https://x.com/ale_engine" target="_blank" rel="noopener"><img src="../../assets/svg/index/twitter.svg" class="footer-icon" alt=""></a>
-        <a href="https://gamebanana.com/wips/95612" target="_blank" rel="noopener"><img src="../../assets/svg/index/gamebanana.svg" class="footer-icon" alt=""></a>
-    </div>
-  </footer>
-
-  <div id="footerCredits">
-    ALE Psych [Rewritten] · Created by Alejo GD Official and THE VOID · Website by ImMalloy
-  </div>
-
-  <script src="../../js/wiki/wiki.js" defer></script>
-  <script src="https://giscus.app/client.js"
-          data-repo="ALE-Psych-Crew/ALE-Psych-Website"
-          data-repo-id="R_kgDOQIwD7A"
-          data-category="GISCUS"
-          data-category-id="DIC_kwDOQIwD7M4CyEAg"
-          data-mapping="pathname"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="top"
-          data-theme="catppuccin_mocha"
-          data-lang="en"
-          crossorigin="anonymous"
-          async>
-  </script>
-</body>
+    <script defer="" src="../../js/wiki/wiki.js">
+    </script>
+    <script async="" crossorigin="anonymous" data-category="GISCUS" data-category-id="DIC_kwDOQIwD7M4CyEAg" data-emit-metadata="0" data-input-position="top" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="ALE-Psych-Crew/ALE-Psych-Website" data-repo-id="R_kgDOQIwD7A" data-strict="0" data-theme="catppuccin_mocha" src="https://giscus.app/client.js">
+    </script>
+  </body>
 </html>

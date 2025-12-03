@@ -1,129 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{{pageTitle}}</title>
-  <meta name="description" content="{{desc}}" />
-
-  <link rel="icon" type="image/png" sizes="32x32" href="{{base}}assets/icons/favicon-32.png?v=1">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{base}}assets/icons/favicon-16.png?v=1">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{base}}assets/icons/apple-touch-icon.png?v=1">
-  <link rel="shortcut icon" href="{{base}}assets/icons/favicon-32.png?v=1">
-  <link rel="manifest" href="{{base}}assets/icons/site.webmanifest?v=1">
-  <meta name="theme-color" content="#9d6cff">
-
-  <link rel="canonical" href="{{canonical}}">
-
-  <meta property="og:title" content="{{pageTitle}}">
-  <meta property="og:description" content="{{desc}}">
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="ALE Psych">
-  <meta property="og:url" content="{{canonical}}">
-  <meta property="og:image" content="{{socialImage}}">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="{{socialAlt}}">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{pageTitle}}">
-  <meta name="twitter:description" content="{{desc}}">
-  <meta name="twitter:site" content="@ale_engine">
-  <meta name="twitter:image" content="{{socialImage}}">
-  <meta name="twitter:image:alt" content="{{socialAlt}}">
-
-  <link rel="stylesheet" href="{{base}}css/global.css">
-  <link rel="stylesheet" href="{{base}}js/wiki/wiki.css">
-  <script src="{{base}}js/global.js" defer></script>
-</head>
-<body>
-  <header id="mainHeader" class="nav-collapsed nav-collapsible">
-    <div class="header-left">
-      <a id="homeLogo" href="{{base}}" aria-label="ALE Psych Home">
-        <img id="aleHeader" src="{{base}}assets/images/engine-branding/icon.png" alt="ALE Psych Logo">
-      </a>
-      <button id="headerToggle" class="header-toggle" aria-expanded="false" aria-controls="mainNav">
-        <span class="visually-hidden">Toggle navigation</span>
-        <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path fill="currentColor" d="M4 7h16v2H4zm0 4h16v2H4zm0 4h16v2H4z"/>
-        </svg>
-        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path fill="currentColor" d="M6.7 5.3 5.3 6.7 10.6 12l-5.3 5.3 1.4 1.4L12 13.4l5.3 5.3 1.4-1.4L13.4 12l5.3-5.3-1.4-1.4L12 10.6Z"/>
-        </svg>
-      </button>
-    </div>
-    <nav id="mainNav">
-      <a href="{{base}}">Home</a>
-      <a href="{{base}}downloads/">Downloads</a>
-      <a href="{{base}}mods/">Mods</a>
-      <a href="{{base}}scripts/">Scripts</a>
-      <a href="{{base}}wiki/" aria-current="page">Wiki</a>
-      <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">API (Lua)</a>
-    </nav>
-  </header>
-
-  <button id="mobileSidebarToggle" class="mobile-sidebar-toggle" aria-expanded="false" aria-controls="wikiSidebar">
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path fill="currentColor" d="M4 7.5a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm0 4a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm0 4a1 1 0 0 1 1-1h6a1 1 0 0 1 0 2H5a1 1 0 0 1-1-1Z"/>
-    </svg>
-    <span class="mobile-sidebar-label">Wiki menu</span>
-  </button>
-
-  <main class="wiki-main">
-    <article class="wiki-article">
-      <h1>{{title}}</h1>
-      {{content}}
-
-      <div class="wiki-meta">
-        <span>Written by {{author}}</span>
-        <span>Last updated: <span id="last-updated" data-time="{{isoDate lastUpdated}}">{{shortDate lastUpdated}}</span></span>
-        <a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/{{url}}.md">Edit</a>
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>
+      {{pageTitle}}
+    </title>
+    <meta content="{{desc}}" name="description"/>
+    <link href="{{base}}assets/icons/favicon-32.png?v=1" rel="icon" sizes="32x32" type="image/png"/>
+    <link href="{{base}}assets/icons/favicon-16.png?v=1" rel="icon" sizes="16x16" type="image/png"/>
+    <link href="{{base}}assets/icons/apple-touch-icon.png?v=1" rel="apple-touch-icon" sizes="180x180"/>
+    <link href="{{base}}assets/icons/favicon-32.png?v=1" rel="shortcut icon"/>
+    <link href="{{base}}assets/icons/site.webmanifest?v=1" rel="manifest"/>
+    <meta content="#9d6cff" name="theme-color"/>
+    <link href="{{canonical}}" rel="canonical"/>
+    <meta content="{{pageTitle}}" property="og:title"/>
+    <meta content="{{desc}}" property="og:description"/>
+    <meta content="article" property="og:type"/>
+    <meta content="ALE Psych" property="og:site_name"/>
+    <meta content="{{canonical}}" property="og:url"/>
+    <meta content="{{socialImage}}" property="og:image"/>
+    <meta content="1200" property="og:image:width"/>
+    <meta content="630" property="og:image:height"/>
+    <meta content="{{socialAlt}}" property="og:image:alt"/>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="{{pageTitle}}" name="twitter:title"/>
+    <meta content="{{desc}}" name="twitter:description"/>
+    <meta content="@ale_engine" name="twitter:site"/>
+    <meta content="{{socialImage}}" name="twitter:image"/>
+    <meta content="{{socialAlt}}" name="twitter:image:alt"/>
+    <link href="{{base}}css/global.css" rel="stylesheet"/>
+    <link href="{{base}}js/wiki/wiki.css" rel="stylesheet"/>
+    <script defer="" src="{{base}}js/global.js">
+    </script>
+  </head>
+  <body>
+    <header class="nav-collapsed nav-collapsible" id="mainHeader">
+      <div class="header-left">
+        <a aria-label="ALE Psych Home" href="{{base}}" id="homeLogo">
+          <img alt="ALE Psych Logo" id="aleHeader" src="{{base}}assets/images/engine-branding/icon.png"/>
+        </a>
+        <button aria-controls="mainNav" aria-expanded="false" class="header-toggle" id="headerToggle">
+          <span class="visually-hidden">
+            Toggle navigation
+          </span>
+          <svg aria-hidden="true" class="icon-menu" focusable="false" viewbox="0 0 24 24">
+            <path d="M4 7h16v2H4zm0 4h16v2H4zm0 4h16v2H4z" fill="currentColor">
+            </path>
+          </svg>
+          <svg aria-hidden="true" class="icon-close" focusable="false" viewbox="0 0 24 24">
+            <path d="M6.7 5.3 5.3 6.7 10.6 12l-5.3 5.3 1.4 1.4L12 13.4l5.3 5.3 1.4-1.4L13.4 12l5.3-5.3-1.4-1.4L12 10.6Z" fill="currentColor">
+            </path>
+          </svg>
+        </button>
       </div>
-
-      <div class="giscus"></div>
-    </article>
-
-    <aside class="wiki-sidebar" id="wikiSidebar">
-      <h3>Pages</h3>
-      {{sidebar}}
-    </aside>
-  </main>
-
-  <footer id="aleFooter">
-    <div class="footer-links">
-        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website" target="_blank" rel="noopener">Contribute to Website</a>
-        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych?tab=readme-ov-file#latest-builds" target="_blank" rel="noopener">Latest Builds</a>
-        <a href="{{base}}wiki/index.html" target="_blank" rel="noopener">Engine Wiki</a>
-        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" target="_blank" rel="noopener">Engine API (Lua)</a>
-        <a href="https://github.com/topics/ale-psych" target="_blank" rel="noopener">Git Topic (ALE Psych)</a>
+      <nav id="mainNav">
+        <a href="{{base}}">
+          Home
+        </a>
+        <a href="{{base}}downloads/">
+          Downloads
+        </a>
+        <a href="{{base}}mods/">
+          Mods
+        </a>
+        <a href="{{base}}scripts/">
+          Scripts
+        </a>
+        <a aria-current="page" href="{{base}}wiki/">
+          Wiki
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" rel="noopener" target="_blank">
+          API (Lua)
+        </a>
+      </nav>
+    </header>
+    <button aria-controls="wikiSidebar" aria-expanded="false" class="mobile-sidebar-toggle" id="mobileSidebarToggle">
+      <svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
+        <path d="M4 7.5a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm0 4a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm0 4a1 1 0 0 1 1-1h6a1 1 0 0 1 0 2H5a1 1 0 0 1-1-1Z" fill="currentColor">
+        </path>
+      </svg>
+      <span class="mobile-sidebar-label">
+        Wiki menu
+      </span>
+    </button>
+    <main class="wiki-main">
+      <article class="wiki-article">
+        <h1>
+          {{title}}
+        </h1>
+        {{content}}
+        <div class="wiki-meta">
+          <span>
+            Written by {{author}}
+          </span>
+          <span>
+            Last updated:
+            <span data-time="{{isoDate lastUpdated}}" id="last-updated">
+              {{shortDate lastUpdated}}
+            </span>
+          </span>
+          <a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/{{url}}.md">
+            Edit
+          </a>
+        </div>
+        <div class="giscus">
+        </div>
+      </article>
+      <aside class="wiki-sidebar" id="wikiSidebar">
+        <h3>
+          Pages
+        </h3>
+        {{sidebar}}
+      </aside>
+    </main>
+    <footer id="aleFooter">
+      <div class="footer-links">
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website" rel="noopener" target="_blank">
+          Contribute to Website
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych?tab=readme-ov-file#latest-builds" rel="noopener" target="_blank">
+          Latest Builds
+        </a>
+        <a href="{{base}}wiki/index.html" rel="noopener" target="_blank">
+          Engine Wiki
+        </a>
+        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" rel="noopener" target="_blank">
+          Engine API (Lua)
+        </a>
+        <a href="https://github.com/topics/ale-psych" rel="noopener" target="_blank">
+          Git Topic (ALE Psych)
+        </a>
+      </div>
+      <div class="footer-social">
+        <a href="https://github.com/ALE-Psych-Crew" rel="noopener" target="_blank">
+          <img alt="" class="footer-icon" src="{{base}}assets/svg/index/github.svg"/>
+        </a>
+        <a href="https://discord.gg/NP4U9CUrsH" rel="noopener" target="_blank">
+          <img alt="" class="footer-icon" src="{{base}}assets/svg/index/discord.svg"/>
+        </a>
+        <a href="https://x.com/ale_engine" rel="noopener" target="_blank">
+          <img alt="" class="footer-icon" src="{{base}}assets/svg/index/twitter.svg"/>
+        </a>
+        <a href="https://gamebanana.com/wips/95612" rel="noopener" target="_blank">
+          <img alt="" class="footer-icon" src="{{base}}assets/svg/index/gamebanana.svg"/>
+        </a>
+      </div>
+    </footer>
+    <div id="footerCredits">
+      ALE Psych [Rewritten] · Created by Alejo GD Official and THE VOID · Website by ImMalloy
     </div>
-    <div class="footer-social">
-        <a href="https://github.com/ALE-Psych-Crew" target="_blank" rel="noopener"><img src="{{base}}assets/svg/index/github.svg" class="footer-icon" alt=""></a>
-        <a href="https://discord.gg/NP4U9CUrsH" target="_blank" rel="noopener"><img src="{{base}}assets/svg/index/discord.svg" class="footer-icon" alt=""></a>
-        <a href="https://x.com/ale_engine" target="_blank" rel="noopener"><img src="{{base}}assets/svg/index/twitter.svg" class="footer-icon" alt=""></a>
-        <a href="https://gamebanana.com/wips/95612" target="_blank" rel="noopener"><img src="{{base}}assets/svg/index/gamebanana.svg" class="footer-icon" alt=""></a>
-    </div>
-  </footer>
-
-  <div id="footerCredits">
-    ALE Psych [Rewritten] · Created by Alejo GD Official and THE VOID · Website by ImMalloy
-  </div>
-
-  <script src="{{base}}js/wiki/wiki.js" defer></script>
-  <script src="https://giscus.app/client.js"
-          data-repo="ALE-Psych-Crew/ALE-Psych-Website"
-          data-repo-id="R_kgDOQIwD7A"
-          data-category="GISCUS"
-          data-category-id="DIC_kwDOQIwD7M4CyEAg"
-          data-mapping="pathname"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="top"
-          data-theme="catppuccin_mocha"
-          data-lang="en"
-          crossorigin="anonymous"
-          async>
-  </script>
-</body>
+    <script defer="" src="{{base}}js/wiki/wiki.js">
+    </script>
+    <script async="" crossorigin="anonymous" data-category="GISCUS" data-category-id="DIC_kwDOQIwD7M4CyEAg" data-emit-metadata="0" data-input-position="top" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="ALE-Psych-Crew/ALE-Psych-Website" data-repo-id="R_kgDOQIwD7A" data-strict="0" data-theme="catppuccin_mocha" src="https://giscus.app/client.js">
+    </script>
+  </body>
 </html>
