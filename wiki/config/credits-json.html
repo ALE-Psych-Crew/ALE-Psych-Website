@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <title>
-      credits.json - ALE Psych Wiki
-    </title>
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <title>
+            credits.json - ALE Psych Wiki
+        </title>
     <meta content="Build data-driven credits screens by listing categories and developers." name="description"/>
     <link href="../../assets/icons/favicon-32.png?v=1" rel="icon" sizes="32x32" type="image/png"/>
     <link href="../../assets/icons/favicon-16.png?v=1" rel="icon" sizes="16x16" type="image/png"/>
@@ -33,402 +33,402 @@
     <link href="../../js/wiki/wiki.css" rel="stylesheet"/>
     <script defer="" src="../../js/global.js">
     </script>
-  </head>
-  <body>
+</head>
+<body>
     <header class="nav-collapsed nav-collapsible" id="mainHeader">
-      <div class="header-left">
-        <a aria-label="ALE Psych Home" href="../../" id="homeLogo">
-          <img alt="ALE Psych Logo" id="aleHeader" src="../../assets/images/engine-branding/icon.png"/>
-        </a>
+        <div class="header-left">
+            <a aria-label="ALE Psych Home" href="../../" id="homeLogo">
+                <img alt="ALE Psych Logo" id="aleHeader" src="../../assets/images/engine-branding/icon.png"/>
+            </a>
         <button aria-controls="mainNav" aria-expanded="false" class="header-toggle" id="headerToggle">
-          <span class="visually-hidden">
-            Toggle navigation
-          </span>
-          <svg aria-hidden="true" class="icon-menu" focusable="false" viewbox="0 0 24 24">
+            <span class="visually-hidden">
+                Toggle navigation
+            </span>
+        <svg aria-hidden="true" class="icon-menu" focusable="false" viewbox="0 0 24 24">
             <path d="M4 7h16v2H4zm0 4h16v2H4zm0 4h16v2H4z" fill="currentColor">
             </path>
-          </svg>
-          <svg aria-hidden="true" class="icon-close" focusable="false" viewbox="0 0 24 24">
-            <path d="M6.7 5.3 5.3 6.7 10.6 12l-5.3 5.3 1.4 1.4L12 13.4l5.3 5.3 1.4-1.4L13.4 12l5.3-5.3-1.4-1.4L12 10.6Z" fill="currentColor">
-            </path>
-          </svg>
-        </button>
-      </div>
-      <nav id="mainNav">
-        <a href="../../">
-          Home
-        </a>
-        <a href="../../downloads/">
-          Downloads
-        </a>
-        <a href="../../mods/">
-          Mods
-        </a>
-        <a href="../../scripts/">
-          Scripts
-        </a>
-        <a aria-current="page" href="../../wiki/">
-          Wiki
-        </a>
-        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" rel="noopener" target="_blank">
-          API (Lua)
-        </a>
-      </nav>
-    </header>
-    <button aria-controls="wikiSidebar" aria-expanded="false" class="mobile-sidebar-toggle" id="mobileSidebarToggle">
-      <svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
+    </svg>
+<svg aria-hidden="true" class="icon-close" focusable="false" viewbox="0 0 24 24">
+    <path d="M6.7 5.3 5.3 6.7 10.6 12l-5.3 5.3 1.4 1.4L12 13.4l5.3 5.3 1.4-1.4L13.4 12l5.3-5.3-1.4-1.4L12 10.6Z" fill="currentColor">
+    </path>
+</svg>
+</button>
+</div>
+<nav id="mainNav">
+    <a href="../../">
+        Home
+    </a>
+<a href="../../downloads/">
+    Downloads
+</a>
+<a href="../../mods/">
+    Mods
+</a>
+<a href="../../scripts/">
+    Scripts
+</a>
+<a aria-current="page" href="../../wiki/">
+    Wiki
+</a>
+<a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" rel="noopener" target="_blank">
+    API (Lua)
+</a>
+</nav>
+</header>
+<button aria-controls="wikiSidebar" aria-expanded="false" class="mobile-sidebar-toggle" id="mobileSidebarToggle">
+    <svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
         <path d="M4 7.5a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm0 4a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Zm0 4a1 1 0 0 1 1-1h6a1 1 0 0 1 0 2H5a1 1 0 0 1-1-1Z" fill="currentColor">
         </path>
-      </svg>
-      <span class="mobile-sidebar-label">
-        Wiki menu
-      </span>
-    </button>
-    <main class="wiki-main">
-      <article class="wiki-article">
+</svg>
+<span class="mobile-sidebar-label">
+    Wiki menu
+</span>
+</button>
+<main class="wiki-main">
+    <article class="wiki-article">
         <h1>
-          credits.json
-        </h1>
-        <p>
-          The credits screen is data-driven. Provide a
-          <code>
             credits.json
-          </code>
-          in your mod root and ALE Psych will load it automatically.
-        </p>
-        <h2>
-          File Structure
-        </h2>
-        <p>
-          Top-level object with a
-          <code>
-            categories
-          </code>
-          array. Each category groups developers.
-        </p>
-        <pre><code class="language-json">{
-    "categories": []
-}
-</code></pre>
-        <h3>
-          Categories
-        </h3>
-        <p>
-          Each category object defines a group:
-        </p>
-        <pre><code class="language-json">{
-    "name": "My Category",
-    "developers": []
-}
-</code></pre>
-        <ul>
-          <li>
-            <strong>
-              <code>
+        </h1>
+    <p>
+        The credits screen is data-driven. Provide a
+        <code>
+            credits.json
+        </code>
+    in your mod root and ALE Psych will load it automatically.
+</p>
+<h2>
+    File Structure
+</h2>
+<p>
+    Top-level object with a
+    <code>
+        categories
+    </code>
+array. Each category groups developers.
+</p>
+<pre><code class="language-json">{
+        "categories": []
+        }
+    </code></pre>
+<h3>
+    Categories
+</h3>
+<p>
+    Each category object defines a group:
+</p>
+<pre><code class="language-json">{
+        "name": "My Category",
+        "developers": []
+        }
+    </code></pre>
+<ul>
+    <li>
+        <strong>
+            <code>
                 name
-              </code>
-            </strong>
-            : Label shown in the credits menu.
-          </li>
-          <li>
-            <strong>
-              <code>
-                developers
-              </code>
-            </strong>
-            : Array of developer entries.
-          </li>
-        </ul>
-        <h3>
-          Developers
-        </h3>
-        <p>
-          Each developer entry is an object inside
-          <code>
+            </code>
+    </strong>
+: Label shown in the credits menu.
+</li>
+<li>
+    <strong>
+        <code>
             developers
-          </code>
-          :
-        </p>
-        <pre><code class="language-json">{
-    "name": "My Member",
-    "icon": "memberIcon",
-    "link": "https://example.com/",
-    "description": "Collaborated on my mod as a coder",
-    "color": "00FFFF"
-}
-</code></pre>
-        <ul>
-          <li>
-            <strong>
-              <code>
+        </code>
+</strong>
+: Array of developer entries.
+</li>
+</ul>
+<h3>
+    Developers
+</h3>
+<p>
+    Each developer entry is an object inside
+    <code>
+        developers
+    </code>
+:
+</p>
+<pre><code class="language-json">{
+        "name": "My Member",
+        "icon": "memberIcon",
+        "link": "https://example.com/",
+        "description": "Collaborated on my mod as a coder",
+        "color": "00FFFF"
+        }
+    </code></pre>
+<ul>
+    <li>
+        <strong>
+            <code>
                 name
-              </code>
-            </strong>
-            : Display name.
-          </li>
-          <li>
-            <strong>
-              <code>
-                icon
-              </code>
-            </strong>
-            : PNG filename (no extension) stored in
-            <code>
-              images/credits/
             </code>
-            .
-          </li>
-          <li>
-            <strong>
-              <code>
-                link
-              </code>
-            </strong>
-            : URL opened when selected.
-          </li>
-          <li>
-            <strong>
-              <code>
-                description
-              </code>
-            </strong>
-            : Role or contribution. Supports newlines (
-            <code>
-              \n
-            </code>
-            ).
-          </li>
-          <li>
-            <strong>
-              <code>
-                color
-              </code>
-            </strong>
-            : 6-digit hex string without
-            <code>
-              #
-            </code>
-            for background when selected.
-          </li>
-        </ul>
-        <h2>
-          Example File
-        </h2>
-        <pre><code class="language-json">{
-    "categories": [
+    </strong>
+: Display name.
+</li>
+<li>
+    <strong>
+        <code>
+            icon
+        </code>
+</strong>
+: PNG filename (no extension) stored in
+<code>
+    images/credits/
+</code>
+.
+</li>
+<li>
+    <strong>
+        <code>
+            link
+        </code>
+</strong>
+: URL opened when selected.
+</li>
+<li>
+    <strong>
+        <code>
+            description
+        </code>
+</strong>
+: Role or contribution. Supports newlines (
+<code>
+    \n
+</code>
+).
+</li>
+<li>
+    <strong>
+        <code>
+            color
+        </code>
+</strong>
+: 6-digit hex string without
+<code>
+    #
+</code>
+for background when selected.
+</li>
+</ul>
+<h2>
+    Example File
+</h2>
+<pre><code class="language-json">{
+        "categories": [
         {
-            "name": "ALE Psych Crew",
-            "developers": [
-                {
-                    "name": "AlejoGDOfficial",
-                    "icon": "alejo",
-                    "link": "https://www.youtube.com/@alejogdofficial",
-                    "description": "Director and Lead Programmer",
-                    "color": "5457B0"
-                },
-                {
-                    "name": "Kriptel",
-                    "icon": "kriptel",
-                    "link": "https://www.youtube.com/@kriptel_pro",
-                    "description": "Collaborated on the Implementation of RuleScript\nProgrammed some Macros",
-                    "color": "731D1D"
-                }
-            ]
+        "name": "ALE Psych Crew",
+        "developers": [
+        {
+        "name": "AlejoGDOfficial",
+        "icon": "alejo",
+        "link": "https://www.youtube.com/@alejogdofficial",
+        "description": "Director and Lead Programmer",
+        "color": "5457B0"
         },
         {
-            "name": "Funkin' Crew",
-            "developers": [
-                {
-                    "name": "ninjamuffin99",
-                    "icon": "ninjamuffin99",
-                    "link": "https://twitter.com/ninja_muffin99",
-                    "description": "Programmer of Friday Night Funkin'",
-                    "color": "CF2D2D"
-                },
-                {
-                    "name": "PhantomArcade",
-                    "icon": "phantomarcade",
-                    "link": "https://twitter.com/PhantomArcade3K",
-                    "description": "Animator of Friday Night Funkin'",
-                    "color": "FADC45"
-                }
-            ]
+        "name": "Kriptel",
+        "icon": "kriptel",
+        "link": "https://www.youtube.com/@kriptel_pro",
+        "description": "Collaborated on the Implementation of RuleScript\nProgrammed some Macros",
+        "color": "731D1D"
         }
-    ]
-}
-</code></pre>
-        <h2>
-          Developer Notes
-        </h2>
-        <ul>
-          <li>
-            Use consistent icon sizes (recommend 128x128 PNG) for best results.
-          </li>
-          <li>
-            Missing icons leave blank space.
-          </li>
-          <li>
-            Validate JSON formatting; errors prevent credits from loading.
-          </li>
-          <li>
-            Keep descriptions concise for readability.
-          </li>
-        </ul>
-        <div class="wiki-meta">
-          <span>
-            Written by Malloy
-          </span>
-          <span>
-            Last updated:
-            <span data-time="2025-11-21T00:00:00.000Z" id="last-updated">
-              Nov 20, 2025
-            </span>
-          </span>
-          <a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/config/credits-json.md">
-            Edit
-          </a>
-        </div>
-        <div class="giscus">
-        </div>
-      </article>
-      <aside class="wiki-sidebar" id="wikiSidebar">
-        <h3>
-          Pages
-        </h3>
-        <ul class="wiki-nav">
-          <li>
-            <a href="../../wiki/">
-              ALE Psych Wiki
-            </a>
-          </li>
-          <li>
-            <span class="wiki-nav-label">
-              Config
-            </span>
-            <ul>
-              <li>
-                <a href="../../wiki/config/index.html">
-                  Configuration Overview
-                </a>
-              </li>
-              <li>
-                <a aria-current="page" class="active" href="../../wiki/config/credits-json.html">
-                  credits.json
-                </a>
-              </li>
-              <li>
-                <a href="../../wiki/config/data-json.html">
-                  data.json Configuration
-                </a>
-              </li>
-              <li>
-                <a href="../../wiki/config/debug-panel.html">
-                  debug.json
-                </a>
-              </li>
-              <li>
-                <a href="../../wiki/config/options-json.html">
-                  options.json
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <span class="wiki-nav-label">
-              Engine
-            </span>
-            <ul>
-              <li>
-                <a href="../../wiki/engine/compiling.html">
-                  Compiling the Engine
-                </a>
-              </li>
-              <li>
-                <a href="../../wiki/engine/shortcuts.html">
-                  Engine Shortcuts
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <span class="wiki-nav-label">
-              Modding
-            </span>
-            <ul>
-              <li>
-                <a href="../../wiki/modding/adding-songs.html">
-                  Adding Songs
-                </a>
-              </li>
-              <li>
-                <a href="../../wiki/modding/custom-classes.html">
-                  Custom Classes
-                </a>
-              </li>
-              <li>
-                <a href="../../wiki/modding/custom-events.html">
-                  Custom Events
-                </a>
-              </li>
-              <li>
-                <a href="../../wiki/modding/menu-scripting.html">
-                  Menu Scripting
-                </a>
-              </li>
-              <li>
-                <a href="../../wiki/modding/index.html">
-                  Modding Overview
-                </a>
-              </li>
-              <li>
-                <a href="../../wiki/modding/substate-scripting.html">
-                  Substate Scripting
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </aside>
-    </main>
-    <footer id="aleFooter">
-      <div class="footer-links">
+        ]
+        },
+        {
+        "name": "Funkin' Crew",
+        "developers": [
+        {
+        "name": "ninjamuffin99",
+        "icon": "ninjamuffin99",
+        "link": "https://twitter.com/ninja_muffin99",
+        "description": "Programmer of Friday Night Funkin'",
+        "color": "CF2D2D"
+        },
+        {
+        "name": "PhantomArcade",
+        "icon": "phantomarcade",
+        "link": "https://twitter.com/PhantomArcade3K",
+        "description": "Animator of Friday Night Funkin'",
+        "color": "FADC45"
+        }
+        ]
+        }
+        ]
+        }
+    </code></pre>
+<h2>
+    Developer Notes
+</h2>
+<ul>
+    <li>
+        Use consistent icon sizes (recommend 128x128 PNG) for best results.
+    </li>
+<li>
+    Missing icons leave blank space.
+</li>
+<li>
+    Validate JSON formatting; errors prevent credits from loading.
+</li>
+<li>
+    Keep descriptions concise for readability.
+</li>
+</ul>
+<div class="wiki-meta">
+    <span>
+        Written by Malloy
+    </span>
+<span>
+    Last updated:
+    <span data-time="2025-11-21T00:00:00.000Z" id="last-updated">
+        Nov 20, 2025
+    </span>
+</span>
+<a class="wiki-edit" href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website/tree/main/wiki/config/credits-json.md">
+    Edit
+</a>
+</div>
+<div class="giscus">
+</div>
+</article>
+<aside class="wiki-sidebar" id="wikiSidebar">
+    <h3>
+        Pages
+    </h3>
+<ul class="wiki-nav">
+    <li>
+        <a href="../../wiki/">
+            ALE Psych Wiki
+        </a>
+</li>
+<li>
+    <span class="wiki-nav-label">
+        Config
+    </span>
+<ul>
+    <li>
+        <a href="../../wiki/config/index.html">
+            Configuration Overview
+        </a>
+</li>
+<li>
+    <a aria-current="page" class="active" href="../../wiki/config/credits-json.html">
+        credits.json
+    </a>
+</li>
+<li>
+    <a href="../../wiki/config/data-json.html">
+        data.json Configuration
+    </a>
+</li>
+<li>
+    <a href="../../wiki/config/debug-panel.html">
+        debug.json
+    </a>
+</li>
+<li>
+    <a href="../../wiki/config/options-json.html">
+        options.json
+    </a>
+</li>
+</ul>
+</li>
+<li>
+    <span class="wiki-nav-label">
+        Engine
+    </span>
+<ul>
+    <li>
+        <a href="../../wiki/engine/compiling.html">
+            Compiling the Engine
+        </a>
+</li>
+<li>
+    <a href="../../wiki/engine/shortcuts.html">
+        Engine Shortcuts
+    </a>
+</li>
+</ul>
+</li>
+<li>
+    <span class="wiki-nav-label">
+        Modding
+    </span>
+<ul>
+    <li>
+        <a href="../../wiki/modding/adding-songs.html">
+            Adding Songs
+        </a>
+</li>
+<li>
+    <a href="../../wiki/modding/custom-classes.html">
+        Custom Classes
+    </a>
+</li>
+<li>
+    <a href="../../wiki/modding/custom-events.html">
+        Custom Events
+    </a>
+</li>
+<li>
+    <a href="../../wiki/modding/menu-scripting.html">
+        Menu Scripting
+    </a>
+</li>
+<li>
+    <a href="../../wiki/modding/index.html">
+        Modding Overview
+    </a>
+</li>
+<li>
+    <a href="../../wiki/modding/substate-scripting.html">
+        Substate Scripting
+    </a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+</main>
+<footer id="aleFooter">
+    <div class="footer-links">
         <a href="https://github.com/ALE-Psych-Crew/ALE-Psych-Website" rel="noopener" target="_blank">
-          Contribute to Website
+            Contribute to Website
         </a>
-        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych?tab=readme-ov-file#latest-builds" rel="noopener" target="_blank">
-          Latest Builds
-        </a>
-        <a href="../index.html" rel="noopener" target="_blank">
-          Engine Wiki
-        </a>
-        <a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" rel="noopener" target="_blank">
-          Engine API (Lua)
-        </a>
-        <a href="https://github.com/topics/ale-psych" rel="noopener" target="_blank">
-          Git Topic (ALE Psych)
-        </a>
-      </div>
-      <div class="footer-social">
-        <a href="https://github.com/ALE-Psych-Crew" rel="noopener" target="_blank">
-          <img alt="" class="footer-icon" src="../../assets/svg/index/github.svg"/>
-        </a>
-        <a href="https://discord.gg/NP4U9CUrsH" rel="noopener" target="_blank">
-          <img alt="" class="footer-icon" src="../../assets/svg/index/discord.svg"/>
-        </a>
-        <a href="https://x.com/ale_engine" rel="noopener" target="_blank">
-          <img alt="" class="footer-icon" src="../../assets/svg/index/twitter.svg"/>
-        </a>
-        <a href="https://gamebanana.com/wips/95612" rel="noopener" target="_blank">
-          <img alt="" class="footer-icon" src="../../assets/svg/index/gamebanana.svg"/>
-        </a>
-      </div>
-    </footer>
-    <div id="footerCredits">
-      ALE Psych [Rewritten] · Created by Alejo GD Official and THE VOID · Website by ImMalloy
-    </div>
-    <script defer="" src="../../js/wiki/wiki.js">
-    </script>
-    <script async="" crossorigin="anonymous" data-category="GISCUS" data-category-id="DIC_kwDOQIwD7M4CyEAg" data-emit-metadata="0" data-input-position="top" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="ALE-Psych-Crew/ALE-Psych-Website" data-repo-id="R_kgDOQIwD7A" data-strict="0" data-theme="catppuccin_mocha" src="https://giscus.app/client.js">
-    </script>
-  </body>
+    <a href="https://github.com/ALE-Psych-Crew/ALE-Psych?tab=readme-ov-file#latest-builds" rel="noopener" target="_blank">
+        Latest Builds
+    </a>
+<a href="../index.html" rel="noopener" target="_blank">
+    Engine Wiki
+</a>
+<a href="https://github.com/ALE-Psych-Crew/ALE-Psych/blob/main/docs/lua/Home.md" rel="noopener" target="_blank">
+    Engine API (Lua)
+</a>
+<a href="https://github.com/topics/ale-psych" rel="noopener" target="_blank">
+    Git Topic (ALE Psych)
+</a>
+</div>
+<div class="footer-social">
+    <a href="https://github.com/ALE-Psych-Crew" rel="noopener" target="_blank">
+        <img alt="" class="footer-icon" src="../../assets/svg/index/github.svg"/>
+    </a>
+<a href="https://discord.gg/NP4U9CUrsH" rel="noopener" target="_blank">
+    <img alt="" class="footer-icon" src="../../assets/svg/index/discord.svg"/>
+</a>
+<a href="https://x.com/ale_engine" rel="noopener" target="_blank">
+    <img alt="" class="footer-icon" src="../../assets/svg/index/twitter.svg"/>
+</a>
+<a href="https://gamebanana.com/wips/95612" rel="noopener" target="_blank">
+    <img alt="" class="footer-icon" src="../../assets/svg/index/gamebanana.svg"/>
+</a>
+</div>
+</footer>
+<div id="footerCredits">
+    ALE Psych [Rewritten] · Created by Alejo GD Official and THE VOID · Website by ImMalloy
+</div>
+<script defer="" src="../../js/wiki/wiki.js">
+</script>
+<script async="" crossorigin="anonymous" data-category="GISCUS" data-category-id="DIC_kwDOQIwD7M4CyEAg" data-emit-metadata="0" data-input-position="top" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="ALE-Psych-Crew/ALE-Psych-Website" data-repo-id="R_kgDOQIwD7A" data-strict="0" data-theme="catppuccin_mocha" src="https://giscus.app/client.js">
+</script>
+</body>
 </html>

@@ -132,7 +132,6 @@ a:hover {
     transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
-
 .header-toggle svg {
     width: 18px;
     height: 18px;
@@ -157,7 +156,6 @@ a:hover {
     border-color: rgba(201, 145, 249, 0.6);
     outline: none;
 }
-
 
 .visually-hidden {
     position: absolute;
