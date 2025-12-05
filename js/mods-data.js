@@ -6,6 +6,5 @@ const MOD_FOLDERS = [
   { slug: "friday-night-calvin", categories: ["upcoming", "featured", "original"] },
   { slug: "vs-roaring-knight", categories: ["upcoming", "original"] },
   { slug: "rappin-every-friday", categories: ["upcoming", "original"] },
-  { slug: "secret-exit-the-lost-levels", categories: ["upcoming", "original"] },
-  { slug: "chartbridge", categories: ["upcoming"] }
+  { slug: "secret-exit-the-lost-levels", categories: ["upcoming", "original"] }
 ];
